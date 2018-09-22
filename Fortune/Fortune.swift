@@ -1,7 +1,4 @@
 //
-//  Fortune.swift
-//  Fortune
-//
 //  Created by Robert Beeger on 12.08.18.
 //  Copyright © 2018 Robert Beeger. All rights reserved.
 //
@@ -12,7 +9,6 @@ import ScreenSaver
 class Fortune: ScreenSaverView {
     private var textDisplays: [NSTextField]
     private var boxes: [NSBox]
-    private var xConstraints: [NSLayoutConstraint]
     private var current: Int
 
     private let colors = [
@@ -28,15 +24,21 @@ class Fortune: ScreenSaverView {
               text: NSColor(deviceRed:0.933, green:0.812, blue:0.749, alpha:1)),
     ]
     
+    private let animators: [Animator] = [
+        HorizontalSlideAnimator(),
+        VerticalSlideAnimator(),
+    ]
+    
     private let colorIndex: Int
+    private let animatorIndex: Int
 
     override init?(frame: NSRect, isPreview: Bool) {
         textDisplays = [NSTextField(), NSTextField()]
         boxes = [NSBox(), NSBox()]
-        xConstraints = []
         current = 0
         colorIndex = Int(arc4random_uniform(UInt32(colors.count)))
-        
+        animatorIndex = Int(arc4random_uniform(UInt32(animators.count)))
+
         super.init(frame: frame, isPreview: isPreview)
 
         wantsLayer = true
@@ -58,12 +60,8 @@ class Fortune: ScreenSaverView {
         addSubview(boxes[1])
         configureDisplay(index: 0)
         configureDisplay(index: 1)
-        boxes[1].alphaValue = 0.0
-        xConstraints.append(boxes[0].centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        xConstraints[0].isActive = true
-        xConstraints.append(boxes[1].centerXAnchor.constraint(equalTo: self.centerXAnchor,
-                constant: -(NSScreen.main()?.frame.width ?? 1000)))
-        xConstraints[1].isActive = true
+        
+        animators[animatorIndex].setup(boxes: boxes, on: self)
     }
     
     required init?(coder decoder: NSCoder) {
@@ -79,10 +77,6 @@ class Fortune: ScreenSaverView {
         box.fillColor = .clear
         box.borderColor = .clear
         box.borderWidth = 0.0
-
-        box.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0).isActive = true
-        box.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1.0).isActive = true
-        box.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 
         box.addSubview(textDisplay)
 
@@ -113,21 +107,9 @@ class Fortune: ScreenSaverView {
         let output = String(data: data, encoding: String.Encoding.utf8)!
         let next = 1 - current
         textDisplays[next].attributedStringValue = NSAttributedString(string: output)
-
-        let moveDistance = NSScreen.main()?.frame.width ?? 1000
-
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 5
-            context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-            context.allowsImplicitAnimation = true
-            boxes[next].alphaValue = 1.0
-            boxes[current].alphaValue = 0.0
-            xConstraints[next].constant = 0.0
-            xConstraints[current].constant = current == 0 ? moveDistance : -moveDistance
-            layoutSubtreeIfNeeded()
-        }, completionHandler: {
-            self.current = next
-        })
+        
+        animators[animatorIndex].animate(nextActiveIndex: next)
+        self.current = next
 
         super.animateOneFrame()
     }
