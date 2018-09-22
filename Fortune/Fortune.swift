@@ -15,11 +15,28 @@ class Fortune: ScreenSaverView {
     private var xConstraints: [NSLayoutConstraint]
     private var current: Int
 
+    private let colors = [
+        (backgound: NSColor(deviceRed:0.118, green:0.29, blue: 0.365, alpha: 1),
+              text: NSColor(deviceRed:0.97, green:0.96, blue:0.88, alpha:1)),
+        (backgound: NSColor(deviceRed:0.455, green:0.196, blue:0.133, alpha:1),
+              text: NSColor(deviceRed:0.098, green:0.847, blue:0.875, alpha:1)),
+        (backgound: NSColor(deviceRed:0.188, green:0.204, blue:0.278, alpha:1),
+              text: NSColor(deviceRed:0.49, green:0.757, blue:0.337, alpha:1)),
+        (backgound: NSColor(deviceRed:0.149, green:0.404, blue:0.369, alpha:1),
+              text: NSColor(deviceRed:0.973, green:0.906, blue:0.11, alpha:1)),
+        (backgound: NSColor(deviceRed:0.369, green:0.0902, blue:0.188, alpha:1),
+              text: NSColor(deviceRed:0.933, green:0.812, blue:0.749, alpha:1)),
+    ]
+    
+    private let colorIndex: Int
+
     override init?(frame: NSRect, isPreview: Bool) {
         textDisplays = [NSTextField(), NSTextField()]
         boxes = [NSBox(), NSBox()]
         xConstraints = []
         current = 0
+        colorIndex = Int(arc4random_uniform(UInt32(colors.count)))
+        
         super.init(frame: frame, isPreview: isPreview)
 
         wantsLayer = true
@@ -28,7 +45,7 @@ class Fortune: ScreenSaverView {
         let box = NSBox()
         box.boxType = .custom
         box.borderWidth = 0.0
-        box.fillColor = NSColor(red:0.118, green:0.29, blue: 0.365, alpha:  1)
+        box.fillColor = colors[colorIndex].backgound
 
         box.translatesAutoresizingMaskIntoConstraints = false
         addSubview(box)
@@ -72,7 +89,7 @@ class Fortune: ScreenSaverView {
         textDisplay.translatesAutoresizingMaskIntoConstraints = false
         textDisplay.isEditable = false
         textDisplay.isSelectable = false
-        textDisplay.textColor = NSColor(red:0.97, green:0.96, blue:0.88, alpha:1.00)
+        textDisplay.textColor = colors[colorIndex].text
         textDisplay.backgroundColor = .clear
         textDisplay.drawsBackground = true
         textDisplay.isBordered = false
