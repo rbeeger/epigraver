@@ -10,18 +10,20 @@ class Fortune: ScreenSaverView {
     private var textDisplays: [NSTextField]
     private var boxes: [NSBox]
     private var current: Int
+    
+    typealias ColorVariation = (background: NSColor, text: NSColor)
 
-    private let colors = [
-        (backgound: NSColor(deviceRed:0.118, green:0.29, blue: 0.365, alpha: 1),
-              text: NSColor(deviceRed:0.97, green:0.96, blue:0.88, alpha:1)),
-        (backgound: NSColor(deviceRed:0.455, green:0.196, blue:0.133, alpha:1),
-              text: NSColor(deviceRed:0.098, green:0.847, blue:0.875, alpha:1)),
-        (backgound: NSColor(deviceRed:0.188, green:0.204, blue:0.278, alpha:1),
-              text: NSColor(deviceRed:0.49, green:0.757, blue:0.337, alpha:1)),
-        (backgound: NSColor(deviceRed:0.149, green:0.404, blue:0.369, alpha:1),
-              text: NSColor(deviceRed:0.973, green:0.906, blue:0.11, alpha:1)),
-        (backgound: NSColor(deviceRed:0.369, green:0.0902, blue:0.188, alpha:1),
-              text: NSColor(deviceRed:0.933, green:0.812, blue:0.749, alpha:1)),
+    private let colorVariations: [ColorVariation] = [
+        (background: NSColor(deviceRed:0.118, green:0.29, blue: 0.365, alpha: 1),
+               text: NSColor(deviceRed:0.97, green:0.96, blue:0.88, alpha:1)),
+        (background: NSColor(deviceRed:0.455, green:0.196, blue:0.133, alpha:1),
+               text: NSColor(deviceRed:0.098, green:0.847, blue:0.875, alpha:1)),
+        (background: NSColor(deviceRed:0.188, green:0.204, blue:0.278, alpha:1),
+               text: NSColor(deviceRed:0.49, green:0.757, blue:0.337, alpha:1)),
+        (background: NSColor(deviceRed:0.149, green:0.404, blue:0.369, alpha:1),
+               text: NSColor(deviceRed:0.973, green:0.906, blue:0.11, alpha:1)),
+        (background: NSColor(deviceRed:0.369, green:0.0902, blue:0.188, alpha:1),
+               text: NSColor(deviceRed:0.933, green:0.812, blue:0.749, alpha:1)),
     ]
     
     private let animators: [Animator] = [
@@ -29,15 +31,15 @@ class Fortune: ScreenSaverView {
         VerticalSlideAnimator(),
     ]
     
-    private let colorIndex: Int
-    private let animatorIndex: Int
+    private let selectedColorVariation: ColorVariation
+    private let selectedAnimator: Animator
 
     override init?(frame: NSRect, isPreview: Bool) {
         textDisplays = [NSTextField(), NSTextField()]
         boxes = [NSBox(), NSBox()]
         current = 0
-        colorIndex = Int(arc4random_uniform(UInt32(colors.count)))
-        animatorIndex = Int(arc4random_uniform(UInt32(animators.count)))
+        selectedColorVariation = colorVariations.randomElement()!
+        selectedAnimator = animators.randomElement()!
 
         super.init(frame: frame, isPreview: isPreview)
 
@@ -47,7 +49,7 @@ class Fortune: ScreenSaverView {
         let box = NSBox()
         box.boxType = .custom
         box.borderWidth = 0.0
-        box.fillColor = colors[colorIndex].backgound
+        box.fillColor = selectedColorVariation.background
 
         box.translatesAutoresizingMaskIntoConstraints = false
         addSubview(box)
@@ -61,7 +63,7 @@ class Fortune: ScreenSaverView {
         configureDisplay(index: 0)
         configureDisplay(index: 1)
         
-        animators[animatorIndex].setup(boxes: boxes, on: self)
+        selectedAnimator.setup(boxes: boxes, on: self)
     }
     
     required init?(coder decoder: NSCoder) {
@@ -83,7 +85,7 @@ class Fortune: ScreenSaverView {
         textDisplay.translatesAutoresizingMaskIntoConstraints = false
         textDisplay.isEditable = false
         textDisplay.isSelectable = false
-        textDisplay.textColor = colors[colorIndex].text
+        textDisplay.textColor = selectedColorVariation.text
         textDisplay.backgroundColor = .clear
         textDisplay.drawsBackground = true
         textDisplay.isBordered = false
@@ -108,7 +110,7 @@ class Fortune: ScreenSaverView {
         let next = 1 - current
         textDisplays[next].attributedStringValue = NSAttributedString(string: output)
         
-        animators[animatorIndex].animate(nextActiveIndex: next)
+        selectedAnimator.animate(nextActiveIndex: next)
         self.current = next
 
         super.animateOneFrame()
