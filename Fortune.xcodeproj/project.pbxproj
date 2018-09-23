@@ -10,6 +10,7 @@
 		3169C34D2156A5F400AA736F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169C34C2156A5F400AA736F /* Animator.swift */; };
 		3169C34F2156A75F00AA736F /* HorizontalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169C34E2156A75F00AA736F /* HorizontalSlideAnimator.swift */; };
 		3169C3532156B9E700AA736F /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */; };
+		31A3F0152157FA0E0064335D /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3F0142157FA0E0064335D /* ZoomAnimator.swift */; };
 		31F387FC21203CA6000663CB /* Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Fortune.swift */; };
 /* End PBXBuildFile section */
 
@@ -17,6 +18,7 @@
 		3169C34C2156A5F400AA736F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		3169C34E2156A75F00AA736F /* HorizontalSlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSlideAnimator.swift; sourceTree = "<group>"; };
 		3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlideAnimator.swift; sourceTree = "<group>"; };
+		31A3F0142157FA0E0064335D /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
 		31F387ED21203C2E000663CB /* Fortune.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Fortune.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FA21203CA6000663CB /* Fortune-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fortune-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -54,11 +56,12 @@
 			isa = PBXGroup;
 			children = (
 				31F387F421203C2E000663CB /* Info.plist */,
-				31F387FB21203CA6000663CB /* Fortune.swift */,
 				31F387FA21203CA6000663CB /* Fortune-Bridging-Header.h */,
+				31F387FB21203CA6000663CB /* Fortune.swift */,
 				3169C34C2156A5F400AA736F /* Animator.swift */,
 				3169C34E2156A75F00AA736F /* HorizontalSlideAnimator.swift */,
 				3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */,
+				31A3F0142157FA0E0064335D /* ZoomAnimator.swift */,
 			);
 			path = Fortune;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				3169C34D2156A5F400AA736F /* Animator.swift in Sources */,
 				31F387FC21203CA6000663CB /* Fortune.swift in Sources */,
 				3169C34F2156A75F00AA736F /* HorizontalSlideAnimator.swift in Sources */,
+				31A3F0152157FA0E0064335D /* ZoomAnimator.swift in Sources */,
 				3169C3532156B9E700AA736F /* VerticalSlideAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
