@@ -12,6 +12,7 @@
 		3169C3532156B9E700AA736F /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */; };
 		31A3F0152157FA0E0064335D /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3F0142157FA0E0064335D /* ZoomAnimator.swift */; };
 		31F387FC21203CA6000663CB /* Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Fortune.swift */; };
+		E305D23354C26144E5A14291 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FA21203CA6000663CB /* Fortune-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fortune-Bridging-Header.h"; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Fortune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fortune.swift; sourceTree = "<group>"; };
+		E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3169C34E2156A75F00AA736F /* HorizontalSlideAnimator.swift */,
 				3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */,
 				31A3F0142157FA0E0064335D /* ZoomAnimator.swift */,
+				E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */,
 			);
 			path = Fortune;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				3169C34F2156A75F00AA736F /* HorizontalSlideAnimator.swift in Sources */,
 				31A3F0152157FA0E0064335D /* ZoomAnimator.swift in Sources */,
 				3169C3532156B9E700AA736F /* VerticalSlideAnimator.swift in Sources */,
+				E305D23354C26144E5A14291 /* RotateAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
