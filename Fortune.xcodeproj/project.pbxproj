@@ -22,7 +22,6 @@
 		31A3F0142157FA0E0064335D /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
 		31F387ED21203C2E000663CB /* Fortune.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Fortune.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31F387FA21203CA6000663CB /* Fortune-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fortune-Bridging-Header.h"; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Fortune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fortune.swift; sourceTree = "<group>"; };
 		E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				31F387F421203C2E000663CB /* Info.plist */,
-				31F387FA21203CA6000663CB /* Fortune-Bridging-Header.h */,
 				31F387FB21203CA6000663CB /* Fortune.swift */,
 				3169C34C2156A5F400AA736F /* Animator.swift */,
 				3169C34E2156A75F00AA736F /* HorizontalSlideAnimator.swift */,
@@ -289,7 +287,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.Fortune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Fortune/Fortune-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
@@ -317,7 +315,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.Fortune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Fortune/Fortune-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = saver;
