@@ -30,7 +30,9 @@ class Fortune: ScreenSaverView {
         HorizontalSlideAnimator(),
         VerticalSlideAnimator(),
         ZoomAnimator(),
-        RotateAnimator()
+        RotateAnimator(),
+        Rotate3DXAnimator(),
+        Rotate3DYAnimator()
     ]
     
     private let selectedColorVariation: ColorVariation
