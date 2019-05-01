@@ -101,7 +101,14 @@ class Fortune: ScreenSaverView {
         textDisplay.centerXAnchor.constraint(equalTo: box.centerXAnchor).isActive = true
         textDisplay.widthAnchor.constraint(equalToConstant: 1000).isActive = true
     }
-    
+
+    override var hasConfigureSheet: Bool {
+        return true
+    }
+    override var configureSheet: NSWindow? {
+        return ConfigurationSheet.shared
+    }
+
     override func animateOneFrame() {
         let task = Process()
         task.launchPath = "/usr/local/bin/fortune"

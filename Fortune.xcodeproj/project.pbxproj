@@ -12,8 +12,13 @@
 		3169C3532156B9E700AA736F /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */; };
 		31A3F0152157FA0E0064335D /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3F0142157FA0E0064335D /* ZoomAnimator.swift */; };
 		31F387FC21203CA6000663CB /* Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Fortune.swift */; };
+		E3027F7A8320A7BC030E8EDC /* CommandConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E301965E68137993C7D2D3B0 /* CommandConfigurationViewController.swift */; };
 		E302F0A64EC78180CF905361 /* Rotate3DXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F25906B83FBA0000B5D63 /* Rotate3DXAnimator.swift */; };
+		E3034135A93B1A31BCDFCB19 /* ScheduleConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305B284B87AD698807845D9 /* ScheduleConfigurationViewController.swift */; };
+		E305C1782E8CFCD4536F0A2D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */; };
 		E305D23354C26144E5A14291 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */; };
+		E307B7AC15C94F306F1C5055 /* AppearanceConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D9CC3FFBC58E6EEEDF63E /* AppearanceConfigurationViewController.swift */; };
+		E30A4F5B72813DD517AF16D8 /* ConfigurationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D78F73EFFA579E2F61A61 /* ConfigurationSheet.swift */; };
 		E30E092FDE67860A20B55B81 /* Rotate3DYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E302D85849FD738F23FD1A4E /* Rotate3DYAnimator.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +31,12 @@
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Fortune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fortune.swift; sourceTree = "<group>"; };
 		E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimator.swift; sourceTree = "<group>"; };
+		E301965E68137993C7D2D3B0 /* CommandConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandConfigurationViewController.swift; sourceTree = "<group>"; };
 		E302D85849FD738F23FD1A4E /* Rotate3DYAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DYAnimator.swift; sourceTree = "<group>"; };
+		E305B284B87AD698807845D9 /* ScheduleConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleConfigurationViewController.swift; sourceTree = "<group>"; };
+		E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		E30D78F73EFFA579E2F61A61 /* ConfigurationSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSheet.swift; sourceTree = "<group>"; };
+		E30D9CC3FFBC58E6EEEDF63E /* AppearanceConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceConfigurationViewController.swift; sourceTree = "<group>"; };
 		E30F25906B83FBA0000B5D63 /* Rotate3DXAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DXAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +79,11 @@
 				E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */,
 				E30F25906B83FBA0000B5D63 /* Rotate3DXAnimator.swift */,
 				E302D85849FD738F23FD1A4E /* Rotate3DYAnimator.swift */,
+				E30D78F73EFFA579E2F61A61 /* ConfigurationSheet.swift */,
+				E305B284B87AD698807845D9 /* ScheduleConfigurationViewController.swift */,
+				E301965E68137993C7D2D3B0 /* CommandConfigurationViewController.swift */,
+				E30D9CC3FFBC58E6EEEDF63E /* AppearanceConfigurationViewController.swift */,
+				E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */,
 			);
 			path = Fortune;
 			sourceTree = "<group>";
@@ -159,6 +174,11 @@
 				E305D23354C26144E5A14291 /* RotateAnimator.swift in Sources */,
 				E302F0A64EC78180CF905361 /* Rotate3DXAnimator.swift in Sources */,
 				E30E092FDE67860A20B55B81 /* Rotate3DYAnimator.swift in Sources */,
+				E30A4F5B72813DD517AF16D8 /* ConfigurationSheet.swift in Sources */,
+				E3034135A93B1A31BCDFCB19 /* ScheduleConfigurationViewController.swift in Sources */,
+				E3027F7A8320A7BC030E8EDC /* CommandConfigurationViewController.swift in Sources */,
+				E307B7AC15C94F306F1C5055 /* AppearanceConfigurationViewController.swift in Sources */,
+				E305C1782E8CFCD4536F0A2D /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
