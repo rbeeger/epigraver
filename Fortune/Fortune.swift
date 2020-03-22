@@ -5,6 +5,7 @@
 
 import Foundation
 import ScreenSaver
+import os
 
 class Fortune: ScreenSaverView {
     private var textDisplays: [NSTextField]

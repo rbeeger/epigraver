@@ -12,12 +12,17 @@
 		3169C3532156B9E700AA736F /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169C3522156B9E700AA736F /* VerticalSlideAnimator.swift */; };
 		31A3F0152157FA0E0064335D /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3F0142157FA0E0064335D /* ZoomAnimator.swift */; };
 		31F387FC21203CA6000663CB /* Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Fortune.swift */; };
+		E3019AD3573073FC30586D2F /* GenericTextListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304F3E450748806BEF394F2 /* GenericTextListCell.swift */; };
 		E3027F7A8320A7BC030E8EDC /* CommandConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E301965E68137993C7D2D3B0 /* CommandConfigurationViewController.swift */; };
 		E302F0A64EC78180CF905361 /* Rotate3DXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F25906B83FBA0000B5D63 /* Rotate3DXAnimator.swift */; };
 		E3034135A93B1A31BCDFCB19 /* ScheduleConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305B284B87AD698807845D9 /* ScheduleConfigurationViewController.swift */; };
+		E30579FFFBA086EF66DAA1A6 /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CB0899FD05916C17E5568 /* ScheduleListCell.swift */; };
+		E305814B1687BDAB05EFE084 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3096F039DDDD7269954B4EB /* AppearanceListCell.swift */; };
 		E305C1782E8CFCD4536F0A2D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */; };
 		E305D23354C26144E5A14291 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */; };
 		E307B7AC15C94F306F1C5055 /* AppearanceConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D9CC3FFBC58E6EEEDF63E /* AppearanceConfigurationViewController.swift */; };
+		E3099A1C9CA87DEBA5C9ADF8 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */; };
+		E30A37978ABD7FA5B367E500 /* CommandListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045929EF13B6846717CE81 /* CommandListCell.swift */; };
 		E30A4F5B72813DD517AF16D8 /* ConfigurationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D78F73EFFA579E2F61A61 /* ConfigurationSheet.swift */; };
 		E30E092FDE67860A20B55B81 /* Rotate3DYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E302D85849FD738F23FD1A4E /* Rotate3DYAnimator.swift */; };
 /* End PBXBuildFile section */
@@ -33,8 +38,13 @@
 		E3000FA19C0E50D4B9B9C755 /* RotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimator.swift; sourceTree = "<group>"; };
 		E301965E68137993C7D2D3B0 /* CommandConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandConfigurationViewController.swift; sourceTree = "<group>"; };
 		E302D85849FD738F23FD1A4E /* Rotate3DYAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DYAnimator.swift; sourceTree = "<group>"; };
+		E3045929EF13B6846717CE81 /* CommandListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandListCell.swift; sourceTree = "<group>"; };
+		E304F3E450748806BEF394F2 /* GenericTextListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTextListCell.swift; sourceTree = "<group>"; };
 		E305B284B87AD698807845D9 /* ScheduleConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleConfigurationViewController.swift; sourceTree = "<group>"; };
+		E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
+		E3096F039DDDD7269954B4EB /* AppearanceListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceListCell.swift; sourceTree = "<group>"; };
 		E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		E30CB0899FD05916C17E5568 /* ScheduleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
 		E30D78F73EFFA579E2F61A61 /* ConfigurationSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSheet.swift; sourceTree = "<group>"; };
 		E30D9CC3FFBC58E6EEEDF63E /* AppearanceConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceConfigurationViewController.swift; sourceTree = "<group>"; };
 		E30F25906B83FBA0000B5D63 /* Rotate3DXAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DXAnimator.swift; sourceTree = "<group>"; };
@@ -84,6 +94,11 @@
 				E301965E68137993C7D2D3B0 /* CommandConfigurationViewController.swift */,
 				E30D9CC3FFBC58E6EEEDF63E /* AppearanceConfigurationViewController.swift */,
 				E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */,
+				E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */,
+				E3096F039DDDD7269954B4EB /* AppearanceListCell.swift */,
+				E3045929EF13B6846717CE81 /* CommandListCell.swift */,
+				E30CB0899FD05916C17E5568 /* ScheduleListCell.swift */,
+				E304F3E450748806BEF394F2 /* GenericTextListCell.swift */,
 			);
 			path = Fortune;
 			sourceTree = "<group>";
@@ -179,6 +194,11 @@
 				E3027F7A8320A7BC030E8EDC /* CommandConfigurationViewController.swift in Sources */,
 				E307B7AC15C94F306F1C5055 /* AppearanceConfigurationViewController.swift in Sources */,
 				E305C1782E8CFCD4536F0A2D /* Configuration.swift in Sources */,
+				E3099A1C9CA87DEBA5C9ADF8 /* NSColor+Extension.swift in Sources */,
+				E305814B1687BDAB05EFE084 /* AppearanceListCell.swift in Sources */,
+				E30A37978ABD7FA5B367E500 /* CommandListCell.swift in Sources */,
+				E30579FFFBA086EF66DAA1A6 /* ScheduleListCell.swift in Sources */,
+				E3019AD3573073FC30586D2F /* GenericTextListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +243,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -236,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -275,12 +295,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -288,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -300,10 +321,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HBMHZ37TKE;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Fortune/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,7 +333,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.Fortune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -327,10 +349,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HBMHZ37TKE;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Fortune/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -338,7 +361,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.Fortune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

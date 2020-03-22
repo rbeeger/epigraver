@@ -9,4 +9,10 @@ import AppKit
 protocol Animator {
     func setup(boxes: [NSBox], on view: NSView)
     func animate(nextActiveIndex: Int)
+    func typeName() -> String
 }
+ extension Animator {
+     func typeName() -> String {
+         return String(describing: type(of: self))
+     }
+ }

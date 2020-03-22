@@ -16,6 +16,7 @@ class ConfigurationSheet: NSWindow {
         view.addTabViewItem(NSTabViewItem(viewController: ScheduleConfigurationViewController()))
         view.addTabViewItem(NSTabViewItem(viewController: CommandConfigurationViewController()))
         view.addTabViewItem(NSTabViewItem(viewController: AppearanceConfigurationViewController()))
+
         return view
     }()
 
@@ -32,8 +33,7 @@ class ConfigurationSheet: NSWindow {
     }()
 
     init() {
-        super.init(contentRect: NSRect(x: 0, y: 0, width: 500, height: 500), styleMask: [], backing: .buffered, defer: false)
-        os_log("######  init config sheet")
+        super.init(contentRect: NSRect(x: 0, y: 0, width: 750, height: 500), styleMask: [], backing: .buffered, defer: false)
 
         self.isReleasedWhenClosed = false
 
@@ -54,12 +54,16 @@ class ConfigurationSheet: NSWindow {
 
         cancelButton.centerYAnchor.constraint(equalTo: okButton.centerYAnchor).isActive = true
         cancelButton.trailingAnchor.constraint(equalTo: okButton.leadingAnchor, constant: -8).isActive = true
+
+        Configuration.shared.load()
     }
+
     @objc
     func confirmChanges() {
         guard let parent = sheetParent else {
             fatalError("No parent")
         }
+        Configuration.shared.save()
         parent.endSheet(self)
     }
 
@@ -68,6 +72,7 @@ class ConfigurationSheet: NSWindow {
         guard let parent = sheetParent else {
             fatalError("No parent")
         }
+        Configuration.shared.load()
         parent.endSheet(self)
     }
 }
