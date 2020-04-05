@@ -7,7 +7,7 @@ import Foundation
 import ScreenSaver
 import os
 
-class Fortune: ScreenSaverView {
+class Main: ScreenSaverView {
     private var textDisplays: [NSTextField]
     private var boxes: [NSBox]
     private var current: Int

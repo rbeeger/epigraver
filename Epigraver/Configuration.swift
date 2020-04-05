@@ -97,7 +97,7 @@ class Configuration {
     }
 
     var currentNetworkLocation: String? {
-        if let prefs = SCPreferencesCreate(nil, "fortune" as CFString, nil) {
+        if let prefs = SCPreferencesCreate(nil, "epigraver" as CFString, nil) {
             if let current = SCNetworkSetCopyCurrent(prefs) {
                 if let name = SCNetworkSetGetName(current) {
                     return name as String
@@ -109,7 +109,7 @@ class Configuration {
 
     var availableNetworkLocations: [String] {
         var result = [String]()
-        if let prefs = SCPreferencesCreate(nil, "fortune" as CFString, nil) {
+        if let prefs = SCPreferencesCreate(nil, "epigraver" as CFString, nil) {
             if let all = SCNetworkSetCopyAll(prefs) as? [SCNetworkSet] {
                 for networkSet in all {
                     if let name = SCNetworkSetGetName(networkSet) {
