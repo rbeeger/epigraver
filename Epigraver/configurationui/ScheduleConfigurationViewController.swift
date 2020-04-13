@@ -382,10 +382,10 @@ class ScheduleConfigurationViewController: NSViewController {
         weekdaysTable.reloadData()
         wifiCombo.removeAllItems()
         if let currentWifi = Configuration.shared.currentWifi {
-            wifiCombo.addItem(withObjectValue: currentWifi)
+            wifiCombo.addItems(withObjectValues: ["", currentWifi])
         }
         networkLocationCombo.removeAllItems()
-        networkLocationCombo.addItems(withObjectValues: Configuration.shared.availableNetworkLocations)
+        networkLocationCombo.addItems(withObjectValues: [""] + Configuration.shared.availableNetworkLocations)
         commandCombo.removeAllItems()
         commandCombo.addItems(withObjectValues: Configuration.shared.commands.map {$0.name})
 
