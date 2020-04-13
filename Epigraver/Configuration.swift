@@ -31,6 +31,24 @@ class Configuration {
             }
         }
 
+        init(hours: Int, minutes: Int) {
+            self.hours = hours
+            self.minutes = minutes
+        }
+
+        init(date: Date) {
+            self.hours = Me.shared.calendar.component(.hour, from: date)
+            self.minutes = Me.shared.calendar.component(.minute, from: date)
+        }
+
+        func inRange(from: Time, to: Time) -> Bool {
+            if (from <= to) {
+                return from <= self && self <= to
+            } else {
+                return from <= self || self <= to
+            }
+        }
+
         static func < (lhs: Time, rhs: Time) -> Bool {
             return lhs.hours < rhs.hours || lhs.hours == rhs.hours && lhs.minutes < rhs.minutes
         }
@@ -64,6 +82,14 @@ class Configuration {
         var backgroundColor: Int
         var fontName: String
         var fontSize: CGFloat
+
+        var backgroundNSColor: NSColor {
+            NSColor(hex: backgroundColor)
+        }
+
+        var foregroundNSColor: NSColor {
+            NSColor(hex: foregroundColor)
+        }
     }
 
     private let defaults: ScreenSaverDefaults
@@ -82,7 +108,7 @@ class Configuration {
     var scheduleEntries: [ScheduleEntry] = []
     var commands: [Command] = []
 
-    private let defaultAppearances = [
+    let defaultAppearances = [
         Appearance(foregroundColor: 0xF7F5E0, backgroundColor: 0x1C4A5C, fontName: "HoeflerText-Regular", fontSize: 25),
         Appearance(foregroundColor: 0x17D6DE, backgroundColor: 0x733021, fontName: "HoeflerText-Regular", fontSize: 25),
         Appearance(foregroundColor: 0x7DBF54, backgroundColor: 0x2E3345, fontName: "HoeflerText-Regular", fontSize: 25),
@@ -93,14 +119,14 @@ class Configuration {
     var appearances: [Appearance] = []
 
     var currentWifi: String? {
-        return CWWiFiClient.shared().interface()?.ssid()
+        return CWWiFiClient.shared().interface()?.ssid()?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     var currentNetworkLocation: String? {
         if let prefs = SCPreferencesCreate(nil, "epigraver" as CFString, nil) {
             if let current = SCNetworkSetCopyCurrent(prefs) {
                 if let name = SCNetworkSetGetName(current) {
-                    return name as String
+                    return (name as String).trimmingCharacters(in: .whitespacesAndNewlines)
                 }
             }
         }

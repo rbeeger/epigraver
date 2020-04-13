@@ -153,7 +153,6 @@ class ScheduleConfigurationViewController: NSViewController {
     private lazy var wifiCombo: NSComboBox = {
         let view = NSComboBox()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.delegate = self
         view.isEditable = true
 
         return view
@@ -171,7 +170,6 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSComboBox()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isEditable = false
-        view.delegate = self
 
         return view
     }()
@@ -188,7 +186,6 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSComboBox()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isEditable = false
-        view.delegate = self
 
         return view
     }()
@@ -377,6 +374,8 @@ class ScheduleConfigurationViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
 
+        changeComboBoxDelegation(toEnabled: false)
+
         view.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor).isActive = true
         view.centerXAnchor.constraint(equalTo: view.superview!.centerXAnchor).isActive = true
 
@@ -393,6 +392,14 @@ class ScheduleConfigurationViewController: NSViewController {
         let selectedRow = min(Configuration.shared.scheduleEntries.count - 1, max(0, scheduleEntriesTable.selectedRow))
         scheduleEntriesTable.reloadData()
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: selectedRow), byExtendingSelection: false)
+
+        changeComboBoxDelegation(toEnabled: true)
+    }
+
+    private func changeComboBoxDelegation(toEnabled enabled: Bool) {
+        networkLocationCombo.delegate = enabled ? self : nil
+        wifiCombo.delegate = enabled ? self : nil
+        commandCombo.delegate = enabled ? self : nil
     }
 
     @objc func changeScheduleEntry() {
@@ -469,6 +476,7 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
         changeUI(toEnabled: true)
+        changeComboBoxDelegation(toEnabled: false)
 
         let config = Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow]
 
@@ -489,6 +497,8 @@ class ScheduleConfigurationViewController: NSViewController {
             animatorType in Configuration.shared.availableAnimators.firstIndex {
                 $0.typeName() == animatorType }
         }), byExtendingSelection: false)
+
+        changeComboBoxDelegation(toEnabled: true)
 
         reloadCurrentScheduledEntryInfo()
     }
@@ -621,15 +631,18 @@ extension ScheduleConfigurationViewController: NSComboBoxDelegate {
     }
 
     private func applyChange(from comboBox: NSComboBox, with value: String) {
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         var config = Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow]
+
         switch comboBox {
-        case wifiCombo: config.wifiName = value
-        case networkLocationCombo: config.networkLocation = value
+        case wifiCombo: config.wifiName = trimmed
+        case networkLocationCombo: config.networkLocation = trimmed
         case commandCombo: config.commandId =
-                Configuration.shared.commands.first(where: {$0.name == value})?.id
+                Configuration.shared.commands.first(where: {$0.name == trimmed})?.id
                         ?? Configuration.shared.commands.first!.id
         default: break
         }
+
         Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow] = config
         reloadCurrentScheduledEntryInfo()
     }

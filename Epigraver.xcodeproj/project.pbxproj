@@ -10,6 +10,7 @@
 		31F387FC21203CA6000663CB /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Main.swift */; };
 		E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
 		E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
+		E302EB3C77FC059DE7C28113 /* ConfigurationSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */; };
 		E30375D5CD81E49E66B3AB1C /* ScheduleConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056149D1F591C95C5601D8 /* ScheduleConfigurationViewController.swift */; };
 		E304072D2761A48B2F427D00 /* AppearanceConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3013CC75CDA91B88ECA90C8 /* AppearanceConfigurationViewController.swift */; };
 		E305C1782E8CFCD4536F0A2D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */; };
@@ -37,6 +38,7 @@
 		E3056149D1F591C95C5601D8 /* ScheduleConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleConfigurationViewController.swift; sourceTree = "<group>"; };
 		E305FC428BD05CA894E902BC /* CommandListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandListCell.swift; sourceTree = "<group>"; };
 		E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DYAnimator.swift; sourceTree = "<group>"; };
+		E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSelector.swift; sourceTree = "<group>"; };
 		E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
 		E30A3A08749AC6264054C871 /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
 		E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */,
 				E30C1D1E09DC700069B8D0DC /* animator */,
 				E30BB590D96EAAD829658314 /* configurationui */,
+				E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */,
 			);
 			path = Epigraver;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				E30375D5CD81E49E66B3AB1C /* ScheduleConfigurationViewController.swift in Sources */,
 				E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */,
 				E306D43177691FAB802E83D1 /* ScheduleListCell.swift in Sources */,
+				E302EB3C77FC059DE7C28113 /* ConfigurationSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

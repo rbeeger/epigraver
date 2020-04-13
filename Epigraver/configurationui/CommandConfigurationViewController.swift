@@ -314,7 +314,7 @@ extension CommandConfigurationViewController: NSTextFieldDelegate {
         guard let sendingField = obj.object as? NSTextField else { return }
         var config = Configuration.shared.commands[table.selectedRow]
         switch sendingField {
-        case nameField: config.name = nameField.stringValue
+        case nameField: config.name = nameField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
         case commandField: config.command = commandField.stringValue
         default: break
         }
