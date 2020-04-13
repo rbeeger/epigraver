@@ -15,9 +15,10 @@ class ConfigurationSelector {
 
     init() {
         let entry = Configuration.shared.scheduleEntries
-                .filter { Configuration.Time(date: Date()).inRange(from: $0.from, to: $0.to) }
-                .filter { Me.onWifi($0.wifiName)  }
-                .filter { Me.onNetworkLocation($0.networkLocation)  }
+                .filter { Configuration.shared.currentTime.inRange(from: $0.from, to: $0.to) }
+                .filter { $0.weekDays.contains(Configuration.shared.currentWeekday) }
+                .filter { $0.wifiName.count == 0 || $0.wifiName == Configuration.shared.currentWifi  }
+                .filter { $0.networkLocation.count == 0 || $0.networkLocation == Configuration.shared.currentNetworkLocation  }
                 .first
         if let cmdId = entry?.commandId, let cmd = Configuration.shared.commands.first(where: { $0.id ==  cmdId }) {
             command = cmd.command
@@ -40,13 +41,5 @@ class ConfigurationSelector {
             anm.append(Configuration.shared.availableAnimators.first!)
         }
         animators = anm
-    }
-
-    private static func onWifi(_ wifiName: String ) -> Bool {
-        return wifiName.count == 0 || wifiName == Configuration.shared.currentWifi
-    }
-
-    private static func onNetworkLocation(_ networkLocation: String ) -> Bool {
-        return networkLocation.count == 0 || networkLocation == Configuration.shared.currentNetworkLocation
     }
 }

@@ -118,8 +118,16 @@ class Configuration {
 
     var appearances: [Appearance] = []
 
+    var currentTime: Time {
+        Time(date: Date())
+    }
+
+    var currentWeekday: Int {
+        calendar.component(.weekday, from: Date()) - 1
+    }
+
     var currentWifi: String? {
-        return CWWiFiClient.shared().interface()?.ssid()?.trimmingCharacters(in: .whitespacesAndNewlines)
+        CWWiFiClient.shared().interface()?.ssid()?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     var currentNetworkLocation: String? {
