@@ -42,17 +42,11 @@ class ConfigurationSelector {
         animators = anm
     }
 
-    private static func onWifi(_ wifiName: String? ) -> Bool {
-        guard let wifiName = wifiName, wifiName.count > 0 else {
-            return true
-        }
-        return wifiName == Configuration.shared.currentWifi
+    private static func onWifi(_ wifiName: String ) -> Bool {
+        return wifiName.count == 0 || wifiName == Configuration.shared.currentWifi
     }
 
-    private static func onNetworkLocation(_ networkLocation: String? ) -> Bool {
-        guard let networkLocation = networkLocation, networkLocation.count > 0 else {
-            return true
-        }
-        return networkLocation == Configuration.shared.currentNetworkLocation
+    private static func onNetworkLocation(_ networkLocation: String ) -> Bool {
+        return networkLocation.count == 0 || networkLocation == Configuration.shared.currentNetworkLocation
     }
 }

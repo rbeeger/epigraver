@@ -63,8 +63,8 @@ class Configuration {
         var weekDays: [Int]
         var from: Time
         var to: Time
-        var wifiName: String?
-        var networkLocation: String?
+        var wifiName: String
+        var networkLocation: String
         var commandId: String
         var appearanceIds: [String]
         var animatorTypes: [String]

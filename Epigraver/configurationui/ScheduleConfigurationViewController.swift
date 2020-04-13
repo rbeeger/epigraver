@@ -417,6 +417,8 @@ class ScheduleConfigurationViewController: NSViewController {
                 weekDays: Array(0..<Configuration.shared.calendar.shortStandaloneWeekdaySymbols.count),
                 from: Configuration.Time(hours: 0, minutes: 0),
                 to: Configuration.Time(hours: 23, minutes: 59),
+                wifiName: "",
+                networkLocation: "",
                 commandId: Configuration.shared.commands.first!.id,
                 appearanceIds: [Configuration.shared.appearances.first!.id],
                 animatorTypes: Configuration.shared.availableAnimators.map {String(describing: type(of: $0))}
@@ -485,8 +487,8 @@ class ScheduleConfigurationViewController: NSViewController {
         weekdaysTable.selectRowIndexes(IndexSet(config.weekDays), byExtendingSelection: false)
 
         commandCombo.stringValue = Configuration.shared.commands.first(where: { $0.id == config.commandId })?.name ?? ""
-        wifiCombo.stringValue = config.wifiName ?? ""
-        networkLocationCombo.stringValue = config.networkLocation ?? ""
+        wifiCombo.stringValue = config.wifiName
+        networkLocationCombo.stringValue = config.networkLocation
 
         appearancesTable.selectRowIndexes(IndexSet(config.appearanceIds.compactMap {
             appearanceId in Configuration.shared.appearances.firstIndex {
