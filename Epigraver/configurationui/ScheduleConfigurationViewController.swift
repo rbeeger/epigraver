@@ -432,7 +432,7 @@ class ScheduleConfigurationViewController: NSViewController {
                 wifiName: "",
                 networkLocation: "",
                 commandId: Configuration.shared.commands.first!.id,
-                appearanceIds: [Configuration.shared.appearances.first!.id],
+                appearanceIds: Configuration.shared.appearances.map { $0.id  },
                 animatorTypes: Configuration.shared.availableAnimators.map {String(describing: type(of: $0))}
         ))
         scheduleEntriesTable.reloadData()
