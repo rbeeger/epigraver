@@ -426,7 +426,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
     private func addSchedule() {
         Configuration.shared.scheduleEntries.append(Configuration.ScheduleEntry(
-                weekDays: Array(0..<Configuration.shared.calendar.shortStandaloneWeekdaySymbols.count),
+                weekdays: Array(0..<Configuration.shared.calendar.shortStandaloneWeekdaySymbols.count),
                 from: Configuration.Time(hours: 0, minutes: 0),
                 to: Configuration.Time(hours: 23, minutes: 59),
                 wifiName: "",
@@ -497,7 +497,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
         timeFromPicker.dateValue = config.from.date
         timeToPicker.dateValue = config.to.date
-        weekdaysTable.selectRowIndexes(IndexSet(config.weekDays), byExtendingSelection: false)
+        weekdaysTable.selectRowIndexes(IndexSet(config.weekdays), byExtendingSelection: false)
 
         commandCombo.stringValue = Configuration.shared.commands.first(where: { $0.id == config.commandId })?.name ?? ""
         wifiCombo.stringValue = config.wifiName
@@ -549,7 +549,7 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].weekDays =
+        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].weekdays =
                 weekdaysTable.selectedRowIndexes.sorted()
         reloadCurrentScheduledEntryInfo()
     }

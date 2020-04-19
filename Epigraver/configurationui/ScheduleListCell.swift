@@ -31,7 +31,7 @@ class ScheduleListCell: NSTableCellView {
             }
 
             var labelText = Configuration.shared.calendar.veryShortStandaloneWeekdaySymbols.enumerated()
-                    .map({scheduleEntryConfiguration.weekDays.contains($0.offset) ? $0.element : "-"})
+                    .map({scheduleEntryConfiguration.weekdays.contains($0.offset) ? $0.element : "-"})
                     .joined(separator: " ") +
                     "\n"
 

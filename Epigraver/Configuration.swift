@@ -60,7 +60,7 @@ class Configuration {
 
     struct ScheduleEntry: Codable {
         var id: String = UUID().uuidString
-        var weekDays: [Int]
+        var weekdays: [Int]
         var from: Time
         var to: Time
         var wifiName: String

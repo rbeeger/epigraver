@@ -16,7 +16,7 @@ class ConfigurationSelector {
     init() {
         let entry = Configuration.shared.scheduleEntries
                 .filter { Configuration.shared.currentTime.inRange(from: $0.from, to: $0.to) }
-                .filter { $0.weekDays.contains(Configuration.shared.currentWeekday) }
+                .filter { $0.weekdays.contains(Configuration.shared.currentWeekday) }
                 .filter { $0.wifiName.count == 0 || $0.wifiName == Configuration.shared.currentWifi  }
                 .filter {
                     $0.networkLocation.count == 0 || $0.networkLocation == Configuration.shared.currentNetworkLocation
