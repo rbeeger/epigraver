@@ -47,10 +47,10 @@ class Main: ScreenSaverView {
         addSubview(boxes[1])
         configureDisplay(index: 0)
         configureDisplay(index: 1)
-        
+
         selectedAnimator.setup(boxes: boxes, on: self)
     }
-    
+
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -84,10 +84,10 @@ class Main: ScreenSaverView {
     }
 
     override var hasConfigureSheet: Bool {
-        return true
+        true
     }
     override var configureSheet: NSWindow? {
-        return ConfigurationSheet.shared
+        ConfigurationSheet.shared
     }
 
     override func animateOneFrame() {
@@ -103,7 +103,7 @@ class Main: ScreenSaverView {
         let output = String(data: data, encoding: String.Encoding.utf8)!
         let next = 1 - current
         textDisplays[next].attributedStringValue = NSAttributedString(string: output)
-        
+
         selectedAnimator.animate(nextActiveIndex: next)
         self.current = next
 

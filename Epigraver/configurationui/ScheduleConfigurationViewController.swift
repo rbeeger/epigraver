@@ -41,7 +41,8 @@ class ScheduleConfigurationViewController: NSViewController {
     }()
 
     private lazy var buttonBar: NSSegmentedControl = {
-        let view = NSSegmentedControl(labels: ["+", "-", "˄", "˅"], trackingMode: .momentary, target: self, action: #selector(changeScheduleEntry))
+        let view = NSSegmentedControl(labels: ["+", "-", "˄", "˅"], trackingMode: .momentary,
+                target: self, action: #selector(changeScheduleEntry))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false
 
@@ -135,7 +136,14 @@ class ScheduleConfigurationViewController: NSViewController {
     }()
 
     private lazy var timeStack: NSStackView = {
-        let view = NSStackView(views: [timeFromLabel, timeFromPicker, timeToLabel, timeToPicker, weekdaysLabel, weekdaysTableScroller])
+        let view = NSStackView(views: [
+            timeFromLabel,
+            timeFromPicker,
+            timeToLabel,
+            timeToPicker,
+            weekdaysLabel,
+            weekdaysTableScroller
+        ])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.orientation = .horizontal
 
@@ -313,7 +321,8 @@ class ScheduleConfigurationViewController: NSViewController {
         appearancesLabel.leadingAnchor.constraint(equalTo: appearancesTableScroller.leadingAnchor).isActive = true
         appearancesLabel.trailingAnchor.constraint(equalTo: appearancesTableScroller.trailingAnchor).isActive = true
 
-        appearancesTableScroller.topAnchor.constraint(equalTo: appearancesLabel.bottomAnchor, constant: 8).isActive = true
+        appearancesTableScroller.topAnchor.constraint(equalTo: appearancesLabel.bottomAnchor,
+                constant: 8).isActive = true
         appearancesTableScroller.leadingAnchor.constraint(equalTo: box.leadingAnchor, constant: 8).isActive = true
         appearancesTableScroller.bottomAnchor.constraint(equalTo: box.bottomAnchor, constant: -8).isActive = true
 
@@ -323,9 +332,11 @@ class ScheduleConfigurationViewController: NSViewController {
 
         animatorsTableScroller.topAnchor.constraint(equalTo: appearancesTableScroller.topAnchor).isActive = true
         animatorsTableScroller.bottomAnchor.constraint(equalTo: appearancesTableScroller.bottomAnchor).isActive = true
-        animatorsTableScroller.leadingAnchor.constraint(equalTo: appearancesTableScroller.trailingAnchor, constant: 8).isActive = true
+        animatorsTableScroller.leadingAnchor.constraint(equalTo: appearancesTableScroller.trailingAnchor,
+                constant: 8).isActive = true
         animatorsTableScroller.trailingAnchor.constraint(equalTo: timeStack.trailingAnchor).isActive = true
-        animatorsTableScroller.widthAnchor.constraint(equalTo: appearancesTableScroller.widthAnchor, multiplier: 1.0).isActive = true
+        animatorsTableScroller.widthAnchor.constraint(equalTo: appearancesTableScroller.widthAnchor,
+                multiplier: 1.0).isActive = true
 
         return box
     }()
@@ -358,7 +369,8 @@ class ScheduleConfigurationViewController: NSViewController {
 
         entryBox.topAnchor.constraint(equalTo: view.topAnchor, constant: 8).isActive = true
         entryBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
-        entryBox.leadingAnchor.constraint(equalTo: scheduleEntriesTableScroller.trailingAnchor, constant: 8).isActive = true
+        entryBox.leadingAnchor.constraint(equalTo: scheduleEntriesTableScroller.trailingAnchor,
+                constant: 8).isActive = true
         entryBox.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
 
         view.widthAnchor.constraint(equalToConstant: 730).isActive = true
@@ -424,7 +436,8 @@ class ScheduleConfigurationViewController: NSViewController {
                 animatorTypes: Configuration.shared.availableAnimators.map {String(describing: type(of: $0))}
         ))
         scheduleEntriesTable.reloadData()
-        scheduleEntriesTable.selectRowIndexes(IndexSet(integer: Configuration.shared.scheduleEntries.count - 1), byExtendingSelection: false)
+        scheduleEntriesTable.selectRowIndexes(IndexSet(integer: Configuration.shared.scheduleEntries.count - 1),
+                byExtendingSelection: false)
         scheduleEntriesTable.scrollRowToVisible(Configuration.shared.scheduleEntries.count - 1)
     }
 
@@ -490,14 +503,12 @@ class ScheduleConfigurationViewController: NSViewController {
         wifiCombo.stringValue = config.wifiName
         networkLocationCombo.stringValue = config.networkLocation
 
-        appearancesTable.selectRowIndexes(IndexSet(config.appearanceIds.compactMap {
-            appearanceId in Configuration.shared.appearances.firstIndex {
-                $0.id == appearanceId }
+        appearancesTable.selectRowIndexes(IndexSet(config.appearanceIds.compactMap { appearanceId in
+            Configuration.shared.appearances.firstIndex { $0.id == appearanceId }
         }), byExtendingSelection: false)
 
-        animatorsTable.selectRowIndexes(IndexSet(config.animatorTypes.compactMap {
-            animatorType in Configuration.shared.availableAnimators.firstIndex {
-                $0.typeName() == animatorType }
+        animatorsTable.selectRowIndexes(IndexSet(config.animatorTypes.compactMap { animatorType in
+            Configuration.shared.availableAnimators.firstIndex { $0.typeName() == animatorType }
         }), byExtendingSelection: false)
 
         changeComboBoxDelegation(toEnabled: true)
@@ -510,7 +521,9 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        scheduleEntriesTable.reloadData(forRowIndexes: IndexSet(integer: scheduleEntriesTable.selectedRow), columnIndexes: IndexSet(integer: 0))
+        scheduleEntriesTable.reloadData(
+                forRowIndexes: IndexSet(integer: scheduleEntriesTable.selectedRow),
+                columnIndexes: IndexSet(integer: 0))
     }
 
     @objc private func changeFrom() {
@@ -536,7 +549,8 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].weekDays = weekdaysTable.selectedRowIndexes.sorted()
+        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].weekDays =
+                weekdaysTable.selectedRowIndexes.sorted()
         reloadCurrentScheduledEntryInfo()
     }
 
@@ -576,22 +590,30 @@ extension ScheduleConfigurationViewController: NSTableViewDelegate {
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         switch tableView.tag {
         case Me.schedulesEntriesTag:
-            let view = (tableView.makeView(withIdentifier: Me.entryColumnIdentifier, owner: self) as? ScheduleListCell) ?? ScheduleListCell()
+            let view = (tableView.makeView(
+                    withIdentifier: Me.entryColumnIdentifier,
+                    owner: self) as? ScheduleListCell) ?? ScheduleListCell()
             view.scheduleEntryConfiguration = Configuration.shared.scheduleEntries[row]
             view.identifier = Me.entryColumnIdentifier
             return view
         case Me.weekdaysTag:
-            let view = (tableView.makeView(withIdentifier: Me.entryColumnIdentifier, owner: self) as? GenericTextListCell) ?? GenericTextListCell()
+            let view = (tableView.makeView(
+                    withIdentifier: Me.entryColumnIdentifier,
+                    owner: self) as? GenericTextListCell) ?? GenericTextListCell()
             view.text = Configuration.shared.calendar.standaloneWeekdaySymbols[row]
             view.identifier = Me.entryColumnIdentifier
             return view
         case Me.appearancesTag:
-            let view = (tableView.makeView(withIdentifier: Me.entryColumnIdentifier, owner: self) as? AppearanceListCell) ?? AppearanceListCell()
+            let view = (tableView.makeView(
+                    withIdentifier: Me.entryColumnIdentifier,
+                    owner: self) as? AppearanceListCell) ?? AppearanceListCell()
             view.appearanceConfiguration = Configuration.shared.appearances[row]
             view.identifier = Me.entryColumnIdentifier
             return view
         case Me.animatorsTag:
-            let view = (tableView.makeView(withIdentifier: Me.entryColumnIdentifier, owner: self) as? GenericTextListCell) ?? GenericTextListCell()
+            let view = (tableView.makeView(
+                    withIdentifier: Me.entryColumnIdentifier,
+                    owner: self) as? GenericTextListCell) ?? GenericTextListCell()
             view.text = Configuration.shared.availableAnimators[row].typeName()
             view.identifier = Me.entryColumnIdentifier
             return view
@@ -649,4 +671,3 @@ extension ScheduleConfigurationViewController: NSComboBoxDelegate {
         reloadCurrentScheduledEntryInfo()
     }
 }
-

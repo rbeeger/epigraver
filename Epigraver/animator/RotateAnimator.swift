@@ -7,7 +7,7 @@ import Foundation
 import AppKit
 
 class RotateAnimator: Animator {
-    private var boxes : [NSBox]?
+    private var boxes: [NSBox]?
 
     func setup(boxes: [NSBox], on view: NSView) {
         boxes[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
@@ -24,7 +24,7 @@ class RotateAnimator: Animator {
 
         self.boxes = boxes
     }
-    
+
     func animate(nextActiveIndex: Int) {
         guard let boxes = self.boxes else {
             return

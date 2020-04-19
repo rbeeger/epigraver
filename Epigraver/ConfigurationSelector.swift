@@ -18,7 +18,9 @@ class ConfigurationSelector {
                 .filter { Configuration.shared.currentTime.inRange(from: $0.from, to: $0.to) }
                 .filter { $0.weekDays.contains(Configuration.shared.currentWeekday) }
                 .filter { $0.wifiName.count == 0 || $0.wifiName == Configuration.shared.currentWifi  }
-                .filter { $0.networkLocation.count == 0 || $0.networkLocation == Configuration.shared.currentNetworkLocation  }
+                .filter {
+                    $0.networkLocation.count == 0 || $0.networkLocation == Configuration.shared.currentNetworkLocation
+                }
                 .first
         if let cmdId = entry?.commandId, let cmd = Configuration.shared.commands.first(where: { $0.id ==  cmdId }) {
             command = cmd.command
@@ -35,7 +37,8 @@ class ConfigurationSelector {
         appearances = appr
 
         let animatorTypes: [String] = entry?.animatorTypes ?? []
-        var anm = animatorTypes.compactMap { typeName in Configuration.shared.availableAnimators.first {$0.typeName() == typeName }}
+        var anm = animatorTypes
+                .compactMap { typeName in Configuration.shared.availableAnimators.first {$0.typeName() == typeName }}
 
         if anm.count == 0 {
             anm.append(Configuration.shared.availableAnimators.first!)

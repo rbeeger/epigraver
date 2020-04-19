@@ -30,20 +30,20 @@ class ScheduleListCell: NSTableCellView {
                 return
             }
 
-
             var labelText = Configuration.shared.calendar.veryShortStandaloneWeekdaySymbols.enumerated()
                     .map({scheduleEntryConfiguration.weekDays.contains($0.offset) ? $0.element : "-"})
-                    .joined(separator: " ") + 
+                    .joined(separator: " ") +
                     "\n"
 
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .none
             dateFormatter.timeStyle = .short
             labelText += dateFormatter.string(from: scheduleEntryConfiguration.from.date) +
-                    " - " + 
+                    " - " +
                     dateFormatter.string(from: scheduleEntryConfiguration.to.date) +
                     "\n"
-            labelText += Configuration.shared.commands.first(where: {$0.id == scheduleEntryConfiguration.commandId})?.name ?? "no command"
+            labelText += Configuration.shared.commands
+                    .first(where: {$0.id == scheduleEntryConfiguration.commandId})?.name ?? "no command"
             label.stringValue = labelText
         }
     }

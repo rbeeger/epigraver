@@ -13,6 +13,6 @@ protocol Animator {
 }
  extension Animator {
      func typeName() -> String {
-         return String(describing: type(of: self))
+         String(describing: type(of: self))
      }
  }

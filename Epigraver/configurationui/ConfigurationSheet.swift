@@ -20,20 +20,21 @@ class ConfigurationSheet: NSWindow {
         return view
     }()
 
-    private lazy var okButton : NSButton = {
+    private lazy var okButton: NSButton = {
         let button = NSButton(title: "OK", target: self, action: #selector(confirmChanges))
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    private lazy var cancelButton : NSButton = {
+    private lazy var cancelButton: NSButton = {
         let button = NSButton(title: "Cancel", target: self, action: #selector(cancelChanges))
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     init() {
-        super.init(contentRect: NSRect(x: 0, y: 0, width: 750, height: 500), styleMask: [], backing: .buffered, defer: false)
+        super.init(contentRect: NSRect(x: 0, y: 0, width: 750, height: 500),
+                styleMask: [], backing: .buffered, defer: false)
 
         self.isReleasedWhenClosed = false
 

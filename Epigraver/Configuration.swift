@@ -23,7 +23,7 @@ class Configuration {
 
         var date: Date {
             get {
-                return DateComponents(calendar: Me.shared.calendar, hour: hours, minute: minutes).date ?? Date()
+                DateComponents(calendar: Me.shared.calendar, hour: hours, minute: minutes).date ?? Date()
             }
             set {
                 hours = Me.shared.calendar.component(.hour, from: newValue)
@@ -42,7 +42,7 @@ class Configuration {
         }
 
         func inRange(from: Time, to: Time) -> Bool {
-            if (from <= to) {
+            if from <= to {
                 return from <= self && self <= to
             } else {
                 return from <= self || self <= to
@@ -50,11 +50,11 @@ class Configuration {
         }
 
         static func < (lhs: Time, rhs: Time) -> Bool {
-            return lhs.hours < rhs.hours || lhs.hours == rhs.hours && lhs.minutes < rhs.minutes
+            lhs.hours < rhs.hours || lhs.hours == rhs.hours && lhs.minutes < rhs.minutes
         }
 
         static func == (lhs: Time, rhs: Time) -> Bool {
-            return lhs.hours == rhs.hours && lhs.minutes == rhs.minutes
+            lhs.hours == rhs.hours && lhs.minutes == rhs.minutes
         }
     }
 

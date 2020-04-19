@@ -35,7 +35,8 @@ class CommandConfigurationViewController: NSViewController {
     }()
 
     private lazy var buttonBar: NSSegmentedControl = {
-        let view = NSSegmentedControl(labels: ["+", "-"], trackingMode: .momentary, target: self, action: #selector(addOrRemoveCommand))
+        let view = NSSegmentedControl(labels: ["+", "-"], trackingMode: .momentary,
+                target: self, action: #selector(addOrRemoveCommand))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false
 
@@ -172,7 +173,6 @@ class CommandConfigurationViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -298,7 +298,9 @@ extension CommandConfigurationViewController: NSTableViewDataSource {
 
 extension CommandConfigurationViewController: NSTableViewDelegate {
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view = (tableView.makeView(withIdentifier: entryColumnIdentifier, owner: self) as? CommandListCell) ?? CommandListCell()
+        let view = (tableView.makeView(
+                withIdentifier: entryColumnIdentifier,
+                owner: self) as? CommandListCell) ?? CommandListCell()
         view.commandConfiguration = Configuration.shared.commands[row]
         view.identifier = entryColumnIdentifier
         return view
@@ -322,4 +324,3 @@ extension CommandConfigurationViewController: NSTextFieldDelegate {
         updateUI()
     }
 }
-

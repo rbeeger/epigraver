@@ -7,7 +7,7 @@ import Foundation
 import AppKit
 
 class ZoomAnimator: Animator {
-    private var boxes : [NSBox]?
+    private var boxes: [NSBox]?
 
     func setup(boxes: [NSBox], on view: NSView) {
         boxes[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
@@ -24,13 +24,13 @@ class ZoomAnimator: Animator {
 
         self.boxes = boxes
     }
-    
+
     func animate(nextActiveIndex: Int) {
         guard let boxes = self.boxes else {
             return
         }
         let currentlyActiveIndex = 1 - nextActiveIndex
-        
+
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 5
             context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)

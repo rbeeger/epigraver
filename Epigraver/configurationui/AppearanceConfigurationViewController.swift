@@ -35,7 +35,8 @@ class AppearanceConfigurationViewController: NSViewController {
     }()
 
     private lazy var buttonBar: NSSegmentedControl = {
-        let view = NSSegmentedControl(labels: ["+", "-"], trackingMode: .momentary, target: self, action: #selector(addOrRemoveAppearance))
+        let view = NSSegmentedControl(labels: ["+", "-"], trackingMode: .momentary,
+                target: self, action: #selector(addOrRemoveAppearance))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false
 
@@ -150,7 +151,8 @@ class AppearanceConfigurationViewController: NSViewController {
         foregroundColorWell.heightAnchor.constraint(equalTo: fontDisplay.heightAnchor).isActive = true
 
         backgroundColorWell.centerYAnchor.constraint(equalTo: foregroundColorWell.centerYAnchor).isActive = true
-        backgroundColorWell.leadingAnchor.constraint(equalTo: foregroundColorWell.trailingAnchor, constant: 8).isActive = true
+        backgroundColorWell.leadingAnchor.constraint(equalTo: foregroundColorWell.trailingAnchor,
+                constant: 8).isActive = true
         backgroundColorWell.trailingAnchor.constraint(equalTo: fontDisplay.trailingAnchor).isActive = true
         backgroundColorWell.widthAnchor.constraint(equalTo: foregroundColorWell.widthAnchor).isActive = true
         backgroundColorWell.heightAnchor.constraint(equalTo: foregroundColorWell.heightAnchor).isActive = true
@@ -186,7 +188,6 @@ class AppearanceConfigurationViewController: NSViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -261,9 +262,12 @@ class AppearanceConfigurationViewController: NSViewController {
     }
 
     private func addAppearance() {
-        Configuration.shared.appearances.append(Configuration.Appearance(foregroundColor: 0x000000, backgroundColor: 0xFFFFFF, fontName: "HoeflerText-Regular", fontSize: 25))
+        Configuration.shared.appearances.append(
+                Configuration.Appearance(foregroundColor: 0x000000, backgroundColor: 0xFFFFFF,
+                        fontName: "HoeflerText-Regular", fontSize: 25))
         table.reloadData()
-        table.selectRowIndexes(IndexSet(integer: Configuration.shared.appearances.count - 1), byExtendingSelection: false)
+        table.selectRowIndexes(IndexSet(integer: Configuration.shared.appearances.count - 1),
+                byExtendingSelection: false)
         table.scrollRowToVisible(Configuration.shared.appearances.count - 1)
     }
 
@@ -281,7 +285,8 @@ class AppearanceConfigurationViewController: NSViewController {
     }
 
     @objc func openFontPanel() {
-        if let font = NSFont(name: Configuration.shared.appearances[table.selectedRow].fontName, size: Configuration.shared.appearances[table.selectedRow].fontSize) {
+        if let font = NSFont(name: Configuration.shared.appearances[table.selectedRow].fontName,
+                size: Configuration.shared.appearances[table.selectedRow].fontSize) {
             NSFontManager.shared.setSelectedFont(font, isMultiple: false)
         }
         NSFontManager.shared.orderFrontFontPanel(self)
@@ -324,7 +329,8 @@ extension AppearanceConfigurationViewController: NSTableViewDataSource {
 
 extension AppearanceConfigurationViewController: NSTableViewDelegate {
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view = (tableView.makeView(withIdentifier: entryColumnIdentifier, owner: self) as? AppearanceListCell) ?? AppearanceListCell()
+        let view = (tableView.makeView(withIdentifier: entryColumnIdentifier, owner: self) as? AppearanceListCell)
+                ?? AppearanceListCell()
         view.appearanceConfiguration = Configuration.shared.appearances[row]
         view.identifier = entryColumnIdentifier
         return view

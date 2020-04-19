@@ -9,7 +9,7 @@ import AppKit
 class HorizontalSlideAnimator: Animator {
     private var animationConstraints: [NSLayoutConstraint] = []
     private weak var view: NSView?
-    private var boxes : [NSBox]?
+    private var boxes: [NSBox]?
 
     func setup(boxes: [NSBox], on view: NSView) {
         boxes[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
@@ -29,15 +29,15 @@ class HorizontalSlideAnimator: Animator {
         self.view = view
         self.boxes = boxes
     }
-    
+
     func animate(nextActiveIndex: Int) {
         guard let boxes = self.boxes, let view = self.view else {
             return
         }
         let moveDistance = NSScreen.main?.frame.width ?? 1000
-        
+
         let currentlyActiveIndex = 1 - nextActiveIndex
-        
+
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 5
             context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
@@ -45,7 +45,9 @@ class HorizontalSlideAnimator: Animator {
             boxes[nextActiveIndex].alphaValue = 1.0
             boxes[currentlyActiveIndex].alphaValue = 0.0
             animationConstraints[nextActiveIndex].constant = 0.0
-            animationConstraints[currentlyActiveIndex].constant = currentlyActiveIndex == 0 ? moveDistance : -moveDistance
+            animationConstraints[currentlyActiveIndex].constant = currentlyActiveIndex == 0
+                    ? moveDistance
+                    : -moveDistance
             view.layoutSubtreeIfNeeded()
         }, completionHandler: {
         })
