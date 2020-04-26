@@ -35,7 +35,9 @@ class AppearanceConfigurationViewController: NSViewController {
     }()
 
     private lazy var buttonBar: NSSegmentedControl = {
-        let view = NSSegmentedControl(labels: ["+", "-"], trackingMode: .momentary,
+        let view = NSSegmentedControl(images: [
+            NSImage(named: NSImage.addTemplateName)!,
+            NSImage(named: NSImage.removeTemplateName)!], trackingMode: .momentary,
                 target: self, action: #selector(addOrRemoveAppearance))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false
@@ -319,11 +321,11 @@ class AppearanceConfigurationViewController: NSViewController {
 
 extension AppearanceConfigurationViewController: NSTableViewDataSource {
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        return Configuration.shared.appearances.count
+        Configuration.shared.appearances.count
     }
 
     public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return Configuration.shared.appearances[row]
+        Configuration.shared.appearances[row]
     }
 }
 

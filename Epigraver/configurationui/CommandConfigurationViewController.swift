@@ -35,7 +35,9 @@ class CommandConfigurationViewController: NSViewController {
     }()
 
     private lazy var buttonBar: NSSegmentedControl = {
-        let view = NSSegmentedControl(labels: ["+", "-"], trackingMode: .momentary,
+        let view = NSSegmentedControl(images: [
+            NSImage(named: NSImage.addTemplateName)!,
+            NSImage(named: NSImage.removeTemplateName)!], trackingMode: .momentary,
                 target: self, action: #selector(addOrRemoveCommand))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false

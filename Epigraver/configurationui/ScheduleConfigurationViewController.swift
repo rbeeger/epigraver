@@ -41,7 +41,11 @@ class ScheduleConfigurationViewController: NSViewController {
     }()
 
     private lazy var buttonBar: NSSegmentedControl = {
-        let view = NSSegmentedControl(labels: ["+", "-", "˄", "˅"], trackingMode: .momentary,
+        let view = NSSegmentedControl(images: [
+            NSImage(named: NSImage.addTemplateName)!,
+            NSImage(named: NSImage.removeTemplateName)!,
+            NSImage(named: NSImage.touchBarGoUpTemplateName)!,
+            NSImage(named: NSImage.touchBarGoDownTemplateName)!], trackingMode: .momentary,
                 target: self, action: #selector(changeScheduleEntry))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false
