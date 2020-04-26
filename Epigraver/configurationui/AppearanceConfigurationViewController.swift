@@ -275,8 +275,7 @@ class AppearanceConfigurationViewController: NSViewController {
 
     private func removeAppearance() {
         guard table.selectedRow >= 0,
-              table.selectedRow < Configuration.shared.appearances.count,
-              Configuration.shared.appearances.count > 1
+              table.selectedRow < Configuration.shared.appearances.count
         else { return }
         let oldSelectedRow = table.selectedRow
         Configuration.shared.appearances.remove(at: oldSelectedRow)
@@ -308,11 +307,11 @@ class AppearanceConfigurationViewController: NSViewController {
         }
         changeUI(toEnabled: true)
         let config = Configuration.shared.appearances[table.selectedRow]
-        foregroundColorWell.color = NSColor(hex: config.foregroundColor)
-        backgroundColorWell.color = NSColor(hex: config.backgroundColor)
+        foregroundColorWell.color = config.foregroundNSColor
+        backgroundColorWell.color = config.backgroundNSColor
         fontDisplay.stringValue = "\(config.fontName) \(Int(config.fontSize))"
-        previewBox.fillColor = NSColor(hex: config.backgroundColor)
-        previewTextDisplay.textColor = NSColor(hex: config.foregroundColor)
+        previewBox.fillColor = config.backgroundNSColor
+        previewTextDisplay.textColor = config.foregroundNSColor
         previewTextDisplay.font = NSFont(name: config.fontName, size: config.fontSize)
 
         table.reloadData(forRowIndexes: IndexSet(integer: table.selectedRow), columnIndexes: IndexSet(integer: 0))

@@ -88,7 +88,8 @@ class CommandConfigurationViewController: NSViewController {
 
         view.isEditable = false
         view.isSelectable = false
-        view.textColor = NSColor(hex: Configuration.shared.appearances[0].foregroundColor)
+        view.textColor = Configuration.shared.appearances.first?.foregroundNSColor
+                ?? Configuration.shared.defaultAppearances.first!.foregroundNSColor
         view.backgroundColor = .clear
         view.drawsBackground = true
         view.isBordered = false
@@ -107,7 +108,8 @@ class CommandConfigurationViewController: NSViewController {
         view.borderColor = .black
         view.borderType = .lineBorder
         view.borderWidth = 1
-        view.fillColor = NSColor(hex: Configuration.shared.appearances[0].backgroundColor)
+        view.fillColor = Configuration.shared.appearances.first?.backgroundNSColor
+                ?? Configuration.shared.defaultAppearances.first!.backgroundNSColor
 
         view.addSubview(previewTextDisplay)
 
@@ -235,8 +237,7 @@ class CommandConfigurationViewController: NSViewController {
 
     private func removeCommand() {
         guard table.selectedRow >= 0,
-              table.selectedRow < Configuration.shared.commands.count,
-              Configuration.shared.commands.count > 1
+              table.selectedRow < Configuration.shared.commands.count
                 else { return }
 
         let oldSelectedRow = table.selectedRow

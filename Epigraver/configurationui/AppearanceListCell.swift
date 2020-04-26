@@ -43,9 +43,9 @@ class AppearanceListCell: NSView {
                 return
             }
             fontLabel.stringValue = "\(appearanceConfiguration.fontName) \(Int(appearanceConfiguration.fontSize))"
-            fontLabel.textColor = NSColor(hex: appearanceConfiguration.foregroundColor)
+            fontLabel.textColor = appearanceConfiguration.foregroundNSColor
 
-            backgroundBox.fillColor = NSColor(hex: appearanceConfiguration.backgroundColor)
+            backgroundBox.fillColor = appearanceConfiguration.backgroundNSColor
         }
     }
 

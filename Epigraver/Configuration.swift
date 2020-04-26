@@ -173,6 +173,9 @@ class Configuration {
         } else {
             appearances = defaultAppearances
         }
+        if appearances.count == 0 {
+            appearances = defaultAppearances
+        }
     }
 
     func save() {

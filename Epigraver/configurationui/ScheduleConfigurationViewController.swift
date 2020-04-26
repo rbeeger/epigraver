@@ -435,7 +435,7 @@ class ScheduleConfigurationViewController: NSViewController {
                 to: Configuration.Time(hours: 23, minutes: 59),
                 wifiName: "",
                 networkLocation: "",
-                commandId: Configuration.shared.commands.first!.id,
+                commandId: Configuration.shared.commands.first?.id ?? "",
                 appearanceIds: Configuration.shared.appearances.map { $0.id  },
                 animatorTypes: Configuration.shared.availableAnimators.map {String(describing: type(of: $0))}
         ))
@@ -447,8 +447,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
     private func removeSchedule() {
         guard scheduleEntriesTable.selectedRow >= 0,
-              scheduleEntriesTable.selectedRow < Configuration.shared.scheduleEntries.count,
-              Configuration.shared.scheduleEntries.count > 1
+              scheduleEntriesTable.selectedRow < Configuration.shared.scheduleEntries.count
                 else { return }
 
         let oldSelectedRow = scheduleEntriesTable.selectedRow
