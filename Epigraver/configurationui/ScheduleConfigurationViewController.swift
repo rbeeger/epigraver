@@ -24,7 +24,6 @@ class ScheduleConfigurationViewController: NSViewController {
 
         let column = NSTableColumn(identifier: Me.entryColumnIdentifier)
         column.title = ""
-        column.width = 150
         column.isEditable = false
         view.addTableColumn(column)
 
@@ -71,7 +70,6 @@ class ScheduleConfigurationViewController: NSViewController {
 
         let column = NSTableColumn(identifier: Me.entryColumnIdentifier)
         column.title = ""
-        column.width = 200
         column.isEditable = false
         view.addTableColumn(column)
 
@@ -220,7 +218,6 @@ class ScheduleConfigurationViewController: NSViewController {
 
         let column = NSTableColumn(identifier: Me.entryColumnIdentifier)
         column.title = ""
-        column.width = 200
         column.isEditable = false
         view.addTableColumn(column)
 
@@ -254,7 +251,6 @@ class ScheduleConfigurationViewController: NSViewController {
 
         let column = NSTableColumn(identifier: Me.entryColumnIdentifier)
         column.title = ""
-        column.width = 200
         column.isEditable = false
         view.addTableColumn(column)
 

@@ -18,7 +18,6 @@ class CommandConfigurationViewController: NSViewController {
 
         let column = NSTableColumn(identifier: entryColumnIdentifier)
         column.title = ""
-        column.width = 150
         column.isEditable = false
         view.addTableColumn(column)
 
