@@ -75,8 +75,8 @@ class Main: ScreenSaverView {
         textDisplay.drawsBackground = true
         textDisplay.isBordered = false
         textDisplay.isBezeled = false
-        textDisplay.maximumNumberOfLines = 40
-        textDisplay.font = NSFont(name: "Hoefler Text", size: 25)
+        textDisplay.maximumNumberOfLines = 0
+        textDisplay.font = NSFont(name: selectedAppearance.fontName, size: selectedAppearance.fontSize)
 
         textDisplay.centerYAnchor.constraint(equalTo: box.centerYAnchor).isActive = true
         textDisplay.centerXAnchor.constraint(equalTo: box.centerXAnchor).isActive = true
