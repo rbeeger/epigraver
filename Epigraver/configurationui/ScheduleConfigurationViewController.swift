@@ -401,6 +401,8 @@ class ScheduleConfigurationViewController: NSViewController {
         commandCombo.removeAllItems()
         commandCombo.addItems(withObjectValues: Configuration.shared.commands.map {$0.name})
 
+        appearancesTable.reloadData()
+
         let selectedRow = min(Configuration.shared.scheduleEntries.count - 1, max(0, scheduleEntriesTable.selectedRow))
         scheduleEntriesTable.reloadData()
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: selectedRow), byExtendingSelection: false)
