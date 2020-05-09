@@ -16,7 +16,6 @@ class AppearanceListCell: NSView {
         field.isBordered = false
         field.backgroundColor = .clear
         field.textColor = .black
-        field.maximumNumberOfLines = 2
         field.alignment = .center
         field.lineBreakMode = .byWordWrapping
         return field
@@ -49,8 +48,10 @@ class AppearanceListCell: NSView {
         }
     }
 
-    init() {
+    init(numberOfLines: Int) {
         super.init(frame: .zero)
+
+        fontLabel.maximumNumberOfLines = numberOfLines
 
         addSubview(backgroundBox)
         addSubview(fontLabel)

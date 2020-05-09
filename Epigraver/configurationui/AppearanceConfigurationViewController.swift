@@ -330,7 +330,7 @@ extension AppearanceConfigurationViewController: NSTableViewDataSource {
 extension AppearanceConfigurationViewController: NSTableViewDelegate {
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let view = (tableView.makeView(withIdentifier: entryColumnIdentifier, owner: self) as? AppearanceListCell)
-                ?? AppearanceListCell()
+                ?? AppearanceListCell(numberOfLines: 3)
         view.appearanceConfiguration = Configuration.shared.appearances[row]
         view.identifier = entryColumnIdentifier
         return view

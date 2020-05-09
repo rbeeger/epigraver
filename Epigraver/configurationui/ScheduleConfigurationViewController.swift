@@ -222,7 +222,7 @@ class ScheduleConfigurationViewController: NSViewController {
         view.addTableColumn(column)
 
         view.headerView = nil
-        view.rowHeight = 60
+        view.rowHeight = 64
         return view
     }()
 
@@ -607,7 +607,7 @@ extension ScheduleConfigurationViewController: NSTableViewDelegate {
         case Me.appearancesTag:
             let view = (tableView.makeView(
                     withIdentifier: Me.entryColumnIdentifier,
-                    owner: self) as? AppearanceListCell) ?? AppearanceListCell()
+                    owner: self) as? AppearanceListCell) ?? AppearanceListCell(numberOfLines: 2)
             view.appearanceConfiguration = Configuration.shared.appearances[row]
             view.identifier = Me.entryColumnIdentifier
             return view
