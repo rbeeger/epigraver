@@ -23,6 +23,7 @@ class CommandConfigurationViewController: NSViewController {
 
         view.headerView = nil
         view.rowHeight = 55
+
         return view
     }()
 
@@ -30,6 +31,7 @@ class CommandConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = table
+
         return view
     }()
 
@@ -181,6 +183,7 @@ class CommandConfigurationViewController: NSViewController {
     private lazy var testButton: NSButton = {
         let view = NSButton(title: "Test", target: self, action: #selector(test))
         view.translatesAutoresizingMaskIntoConstraints = false
+
         return view
     }()
 
@@ -312,6 +315,7 @@ class CommandConfigurationViewController: NSViewController {
         let oldSelectedRow = table.selectedRow
         Configuration.shared.commands.remove(at: table.selectedRow)
         table.reloadData()
+
         let newSelectedRow = min(Configuration.shared.commands.count - 1, oldSelectedRow)
         table.selectRowIndexes(IndexSet(integer: newSelectedRow), byExtendingSelection: false)
         table.scrollRowToVisible(newSelectedRow)
@@ -373,11 +377,11 @@ class CommandConfigurationViewController: NSViewController {
 
 extension CommandConfigurationViewController: NSTableViewDataSource {
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        return Configuration.shared.commands.count
+        Configuration.shared.commands.count
     }
 
     public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return Configuration.shared.commands[row]
+        Configuration.shared.commands[row]
     }
 }
 
@@ -388,6 +392,7 @@ extension CommandConfigurationViewController: NSTableViewDelegate {
                 owner: self) as? CommandListCell) ?? CommandListCell()
         view.commandConfiguration = Configuration.shared.commands[row]
         view.identifier = entryColumnIdentifier
+
         return view
     }
 
@@ -400,13 +405,16 @@ extension CommandConfigurationViewController: NSTextFieldDelegate {
     public func controlTextDidChange(_ obj: Notification) {
         guard let sendingField = obj.object as? NSTextField else { return }
         var config = Configuration.shared.commands[table.selectedRow]
+
         switch sendingField {
         case nameField: config.name = nameField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
         case commandField: config.command = commandField.stringValue
         case animationIntervalField: config.animationInterval = animationIntervalField.integerValue
         default: break
         }
+
         Configuration.shared.commands[table.selectedRow] = config
+
         updateUI()
     }
 }

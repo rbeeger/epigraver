@@ -13,6 +13,7 @@ import SystemConfiguration
 class Configuration {
     static let shared = Configuration()
     private typealias Me = Configuration
+
     private static let scheduleDefaultsKey = "schedule"
     private static let commandsDefaultsKey = "commands"
     private static let appearancesDefaultsKey = "appearances"
@@ -164,11 +165,13 @@ class Configuration {
         } else {
             scheduleEntries = []
         }
+
         if let commandData = defaults.data(forKey: Me.commandsDefaultsKey) {
             commands = (try? jsonDecoder.decode([Command].self, from: commandData)) ?? []
         } else {
             commands = []
         }
+
         if let appearanceData = defaults.data(forKey: Me.appearancesDefaultsKey) {
             appearances = (try? jsonDecoder.decode([Appearance].self, from: appearanceData)) ?? []
         } else {

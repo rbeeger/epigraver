@@ -20,6 +20,7 @@ class ScheduleListCell: NSTableCellView {
         field.maximumNumberOfLines = 0
         field.alignment = .center
         field.lineBreakMode = .byWordWrapping
+
         return field
     }()
 

@@ -23,12 +23,14 @@ class ConfigurationSheet: NSWindow {
     private lazy var okButton: NSButton = {
         let button = NSButton(title: "OK", target: self, action: #selector(confirmChanges))
         button.translatesAutoresizingMaskIntoConstraints = false
+
         return button
     }()
 
     private lazy var cancelButton: NSButton = {
         let button = NSButton(title: "Cancel", target: self, action: #selector(cancelChanges))
         button.translatesAutoresizingMaskIntoConstraints = false
+
         return button
     }()
 

@@ -23,6 +23,7 @@ class ConfigurationSelector {
                     $0.networkLocation.count == 0 || $0.networkLocation == Configuration.shared.currentNetworkLocation
                 }
                 .first
+
         if let cmdId = entry?.commandId, let cmd = Configuration.shared.commands.first(where: { $0.id ==  cmdId }) {
             command = cmd.command
             animationInterval = TimeInterval(cmd.animationInterval)

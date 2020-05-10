@@ -18,6 +18,7 @@ class AppearanceListCell: NSView {
         field.textColor = .black
         field.alignment = .center
         field.lineBreakMode = .byWordWrapping
+
         return field
     }()
 
@@ -30,6 +31,7 @@ class AppearanceListCell: NSView {
         box.cornerRadius = 5
         box.borderColor = .black
         box.titlePosition = .noTitle
+
         return box
     }()
 

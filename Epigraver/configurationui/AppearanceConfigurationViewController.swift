@@ -23,6 +23,7 @@ class AppearanceConfigurationViewController: NSViewController {
 
         view.headerView = nil
         view.rowHeight = 90
+
         return view
     }()
 
@@ -30,6 +31,7 @@ class AppearanceConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = table
+
         return view
     }()
 
@@ -84,12 +86,14 @@ class AppearanceConfigurationViewController: NSViewController {
         view.alignment = .center
         view.isBordered = true
         view.isEditable = false
+
         return view
     }()
 
     private lazy var fontChangeButton: NSButton = {
         let view = NSButton(title: "Select", target: self, action: #selector(openFontPanel))
         view.translatesAutoresizingMaskIntoConstraints = false
+
         return view
     }()
 
@@ -235,11 +239,13 @@ class AppearanceConfigurationViewController: NSViewController {
 
     @objc func foregroundColorChanged() {
         Configuration.shared.appearances[table.selectedRow].foregroundColor = foregroundColorWell.color.hex
+
         updateUI()
     }
 
     @objc func backgroundColorChanged() {
         Configuration.shared.appearances[table.selectedRow].backgroundColor = backgroundColorWell.color.hex
+
         updateUI()
     }
 
@@ -304,7 +310,9 @@ class AppearanceConfigurationViewController: NSViewController {
             changeUI(toEnabled: false)
             return
         }
+
         changeUI(toEnabled: true)
+
         let config = Configuration.shared.appearances[table.selectedRow]
         foregroundColorWell.color = config.foregroundNSColor
         backgroundColorWell.color = config.backgroundNSColor
@@ -333,6 +341,7 @@ extension AppearanceConfigurationViewController: NSTableViewDelegate {
                 ?? AppearanceListCell(numberOfLines: 3)
         view.appearanceConfiguration = Configuration.shared.appearances[row]
         view.identifier = entryColumnIdentifier
+
         return view
     }
 

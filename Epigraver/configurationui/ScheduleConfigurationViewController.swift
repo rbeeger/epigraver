@@ -29,6 +29,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
         view.headerView = nil
         view.rowHeight = 120
+
         return view
     }()
 
@@ -36,6 +37,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = scheduleEntriesTable
+
         return view
     }()
 
@@ -75,6 +77,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
         view.headerView = nil
         view.rowHeight = 20
+
         return view
     }()
 
@@ -82,6 +85,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = weekdaysTable
+
         return view
     }()
 
@@ -223,6 +227,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
         view.headerView = nil
         view.rowHeight = 64
+
         return view
     }()
 
@@ -230,6 +235,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = appearancesTable
+
         return view
     }()
 
@@ -256,6 +262,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
         view.headerView = nil
         view.rowHeight = 20
+
         return view
     }()
 
@@ -263,6 +270,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = animatorsTable
+
         return view
     }()
 
@@ -451,6 +459,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let oldSelectedRow = scheduleEntriesTable.selectedRow
         Configuration.shared.scheduleEntries.remove(at: scheduleEntriesTable.selectedRow)
         scheduleEntriesTable.reloadData()
+
         let newSelectedRow = min(Configuration.shared.scheduleEntries.count - 1, oldSelectedRow)
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: newSelectedRow), byExtendingSelection: false)
         scheduleEntriesTable.scrollRowToVisible(newSelectedRow)

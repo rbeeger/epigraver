@@ -20,6 +20,7 @@ class CommandListCell: NSTableCellView {
         field.maximumNumberOfLines = 2
         field.alignment = .left
         field.lineBreakMode = .byWordWrapping
+
         return field
     }()
 

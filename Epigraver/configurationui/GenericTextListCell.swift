@@ -19,6 +19,7 @@ class GenericTextListCell: NSTableCellView {
         field.textColor = .black
         field.maximumNumberOfLines = 1
         field.alignment = .left
+
         return field
     }()
 

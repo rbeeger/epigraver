@@ -32,12 +32,13 @@ class Main: ScreenSaverView {
         animationTimeInterval = configurationSelector.animationInterval
 
         let box = NSBox()
+        box.translatesAutoresizingMaskIntoConstraints = false
         box.boxType = .custom
         box.borderWidth = 0.0
         box.fillColor = selectedAppearance.backgroundNSColor
 
-        box.translatesAutoresizingMaskIntoConstraints = false
         addSubview(box)
+
         box.topAnchor.constraint(equalTo: topAnchor).isActive = true
         box.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         box.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
