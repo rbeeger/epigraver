@@ -74,6 +74,7 @@ class Configuration {
         var id: String = UUID().uuidString
         var name: String
         var command: String
+        var animationInterval: Int
     }
 
     struct Appearance: Codable {

@@ -81,6 +81,63 @@ class CommandConfigurationViewController: NSViewController {
         return view
     }()
 
+    private lazy var animationIntervalLabel: NSTextField = {
+        let view = NSTextField(labelWithString: "Animation Interval")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alignment = .right
+
+        return view
+    }()
+
+    private lazy var animationIntervalField: NSTextField = {
+        let view = NSTextField()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alignment = .left
+        view.isBordered = true
+        view.delegate = self
+        view.maximumNumberOfLines = 1
+        view.alignment = .right
+
+        return view
+    }()
+
+    private lazy var animationIntervalStepper: NSStepper = {
+        let view = NSStepper()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alignment = .left
+        view.minValue = 1
+        view.maxValue = 9999
+        view.increment = 1
+        view.autorepeat = true
+        view.valueWraps = false
+        view.target = self
+        view.action = #selector(changeAnimationInterval)
+
+        return view
+    }()
+
+    private lazy var animationIntervalUnitLabel: NSTextField = {
+        let view = NSTextField(labelWithString: "seconds")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alignment = .right
+
+        return view
+    }()
+
+    private lazy var animationIntervalStack: NSStackView = {
+        let view = NSStackView(views: [
+            animationIntervalField,
+            animationIntervalStepper,
+            animationIntervalUnitLabel
+        ])
+        animationIntervalField.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.orientation = .horizontal
+        view.spacing = 4
+
+        return view
+    }()
+
     private lazy var previewTextDisplay: NSTextField = {
         let view = NSTextField(string: "Do or do not, there is no try.\n-- Yoda")
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -136,11 +193,13 @@ class CommandConfigurationViewController: NSViewController {
         box.addSubview(nameField)
         box.addSubview(commandLabel)
         box.addSubview(commandField)
+        box.addSubview(animationIntervalLabel)
+        box.addSubview(animationIntervalStack)
         box.addSubview(testButton)
         box.addSubview(previewBox)
 
         nameLabel.leadingAnchor.constraint(equalTo: box.leadingAnchor, constant: 8).isActive = true
-        nameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        nameLabel.widthAnchor.constraint(equalToConstant: 140).isActive = true
         nameLabel.centerYAnchor.constraint(equalTo: nameField.centerYAnchor).isActive = true
 
         nameField.topAnchor.constraint(equalTo: box.topAnchor, constant: 8).isActive = true
@@ -155,7 +214,15 @@ class CommandConfigurationViewController: NSViewController {
         commandField.leadingAnchor.constraint(equalTo: nameField.leadingAnchor).isActive = true
         commandField.trailingAnchor.constraint(equalTo: nameField.trailingAnchor).isActive = true
 
-        testButton.topAnchor.constraint(equalTo: commandField.bottomAnchor, constant: 16).isActive = true
+        animationIntervalLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor).isActive = true
+        animationIntervalLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor).isActive = true
+        animationIntervalLabel.centerYAnchor.constraint(equalTo: animationIntervalStack.centerYAnchor).isActive = true
+
+        animationIntervalStack.topAnchor.constraint(equalTo: commandField.bottomAnchor, constant: 8).isActive = true
+        animationIntervalStack.leadingAnchor.constraint(equalTo: nameField.leadingAnchor).isActive = true
+        animationIntervalStack.trailingAnchor.constraint(equalTo: nameField.trailingAnchor).isActive = true
+
+        testButton.topAnchor.constraint(equalTo: animationIntervalStack.bottomAnchor, constant: 16).isActive = true
         testButton.trailingAnchor.constraint(equalTo: box.trailingAnchor, constant: -8).isActive = true
         testButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
 
@@ -228,7 +295,10 @@ class CommandConfigurationViewController: NSViewController {
     }
 
     private func addCommand() {
-        Configuration.shared.commands.append(Configuration.Command(name: "new command", command: ""))
+        Configuration.shared.commands.append(Configuration.Command(
+                name: "new command",
+                command: "",
+                animationInterval: 60))
         table.reloadData()
         table.selectRowIndexes(IndexSet(integer: Configuration.shared.commands.count - 1), byExtendingSelection: false)
         table.scrollRowToVisible(Configuration.shared.commands.count - 1)
@@ -271,6 +341,8 @@ class CommandConfigurationViewController: NSViewController {
         nameField.isEnabled = enabled
         commandField.isEnabled = enabled
         testButton.isEnabled = enabled
+        animationIntervalField.isEnabled = enabled
+        animationIntervalStepper.isEnabled = enabled
     }
 
     private func updateUI() {
@@ -283,8 +355,19 @@ class CommandConfigurationViewController: NSViewController {
 
         nameField.stringValue = config.name
         commandField.stringValue = config.command
+        animationIntervalField.integerValue = config.animationInterval
+        animationIntervalStepper.integerValue = config.animationInterval
 
         table.reloadData(forRowIndexes: IndexSet(integer: table.selectedRow), columnIndexes: IndexSet(integer: 0))
+    }
+
+    @objc private func changeAnimationInterval() {
+        guard table.selectedRow >= 0 else {
+            return
+        }
+
+        Configuration.shared.commands[table.selectedRow].animationInterval = animationIntervalStepper.integerValue
+        updateUI()
     }
 }
 
@@ -320,6 +403,7 @@ extension CommandConfigurationViewController: NSTextFieldDelegate {
         switch sendingField {
         case nameField: config.name = nameField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
         case commandField: config.command = commandField.stringValue
+        case animationIntervalField: config.animationInterval = animationIntervalField.integerValue
         default: break
         }
         Configuration.shared.commands[table.selectedRow] = config

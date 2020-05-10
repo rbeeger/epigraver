@@ -29,7 +29,7 @@ class Main: ScreenSaverView {
         super.init(frame: frame, isPreview: isPreview)
 
         wantsLayer = true
-        animationTimeInterval = 60
+        animationTimeInterval = configurationSelector.animationInterval
 
         let box = NSBox()
         box.boxType = .custom

@@ -12,6 +12,7 @@ class ConfigurationSelector {
     let command: String
     let appearances: [Configuration.Appearance]
     let animators: [Animator]
+    let animationInterval: TimeInterval
 
     init() {
         let entry = Configuration.shared.scheduleEntries
@@ -24,8 +25,10 @@ class ConfigurationSelector {
                 .first
         if let cmdId = entry?.commandId, let cmd = Configuration.shared.commands.first(where: { $0.id ==  cmdId }) {
             command = cmd.command
+            animationInterval = TimeInterval(cmd.animationInterval)
         } else {
             command = "echo No command found!"
+            animationInterval = 60
         }
 
         let appearanceIds: [String] = entry?.appearanceIds ?? []
