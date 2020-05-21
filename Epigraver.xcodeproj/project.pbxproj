@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3170CB2224768888008CE182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB2124768888008CE182 /* AppDelegate.swift */; };
+		3170CB2424768888008CE182 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB2324768888008CE182 /* ContentView.swift */; };
+		3170CB2624768889008CE182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2524768889008CE182 /* Assets.xcassets */; };
+		3170CB2924768889008CE182 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2824768889008CE182 /* Preview Assets.xcassets */; };
+		3170CB2C24768889008CE182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2A24768889008CE182 /* Main.storyboard */; };
+		3170CB3824768889008CE182 /* EpigraverAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB3724768889008CE182 /* EpigraverAppTests.swift */; };
+		3170CB4024768952008CE182 /* GenericTextListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C1F36C23F3A7273EEBA7B /* GenericTextListCell.swift */; };
+		3170CB4124768952008CE182 /* CommandConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FDB7230942068EF59C7B5 /* CommandConfigurationViewController.swift */; };
+		3170CB4224768952008CE182 /* ConfigurationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D380377EA9890DA52C58D /* ConfigurationSheet.swift */; };
+		3170CB4324768952008CE182 /* AppearanceConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3013CC75CDA91B88ECA90C8 /* AppearanceConfigurationViewController.swift */; };
+		3170CB4424768952008CE182 /* CommandListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305FC428BD05CA894E902BC /* CommandListCell.swift */; };
+		3170CB4524768952008CE182 /* ScheduleConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056149D1F591C95C5601D8 /* ScheduleConfigurationViewController.swift */; };
+		3170CB4624768952008CE182 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
+		3170CB4724768952008CE182 /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E19D73D2EAA963C73C851 /* ScheduleListCell.swift */; };
+		3170CB4824768957008CE182 /* ConfigurationSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */; };
+		3170CB4924768962008CE182 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304BABFB80835702A3E8772 /* Animator.swift */; };
+		3170CB4A24768962008CE182 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A3A08749AC6264054C871 /* ZoomAnimator.swift */; };
+		3170CB4B24768962008CE182 /* Rotate3DXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FBE275A3D7D21535B7A08 /* Rotate3DXAnimator.swift */; };
+		3170CB4C24768962008CE182 /* Rotate3DYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */; };
+		3170CB4D24768962008CE182 /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F731D98EAB28EC7FEB595 /* VerticalSlideAnimator.swift */; };
+		3170CB4E24768962008CE182 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
+		3170CB4F24768962008CE182 /* HorizontalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CB8DD0D1BAAC07ACC2F0E /* HorizontalSlideAnimator.swift */; };
+		3170CB502476896F008CE182 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */; };
+		3170CB512476896F008CE182 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */; };
 		31F387FC21203CA6000663CB /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Main.swift */; };
 		E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
 		E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
@@ -28,7 +52,28 @@
 		E30F4F0F3E0563E59ACC4C1F /* Rotate3DYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3170CB3424768889008CE182 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31F387E421203C2E000663CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3170CB1E24768888008CE182;
+			remoteInfo = EpigraverApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3170CB1F24768888008CE182 /* EpigraverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpigraverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3170CB2124768888008CE182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3170CB2324768888008CE182 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3170CB2524768889008CE182 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3170CB2824768889008CE182 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3170CB2B24768889008CE182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3170CB2D24768889008CE182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3170CB2E24768889008CE182 /* EpigraverApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EpigraverApp.entitlements; sourceTree = "<group>"; };
+		3170CB3324768889008CE182 /* EpigraverAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpigraverAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3170CB3724768889008CE182 /* EpigraverAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpigraverAppTests.swift; sourceTree = "<group>"; };
+		3170CB3924768889008CE182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387ED21203C2E000663CB /* Epigraver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Epigraver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -53,6 +98,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3170CB1C24768888008CE182 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3170CB3024768889008CE182 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31F387E921203C2E000663CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,10 +122,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3170CB2024768888008CE182 /* EpigraverApp */ = {
+			isa = PBXGroup;
+			children = (
+				3170CB2124768888008CE182 /* AppDelegate.swift */,
+				3170CB2324768888008CE182 /* ContentView.swift */,
+				3170CB2524768889008CE182 /* Assets.xcassets */,
+				3170CB2A24768889008CE182 /* Main.storyboard */,
+				3170CB2D24768889008CE182 /* Info.plist */,
+				3170CB2E24768889008CE182 /* EpigraverApp.entitlements */,
+				3170CB2724768889008CE182 /* Preview Content */,
+			);
+			path = EpigraverApp;
+			sourceTree = "<group>";
+		};
+		3170CB2724768889008CE182 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3170CB2824768889008CE182 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3170CB3624768889008CE182 /* EpigraverAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3170CB3724768889008CE182 /* EpigraverAppTests.swift */,
+				3170CB3924768889008CE182 /* Info.plist */,
+			);
+			path = EpigraverAppTests;
+			sourceTree = "<group>";
+		};
 		31F387E321203C2E000663CB = {
 			isa = PBXGroup;
 			children = (
 				31F387EF21203C2E000663CB /* Epigraver */,
+				3170CB2024768888008CE182 /* EpigraverApp */,
+				3170CB3624768889008CE182 /* EpigraverAppTests */,
 				31F387EE21203C2E000663CB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				31F387ED21203C2E000663CB /* Epigraver.saver */,
+				3170CB1F24768888008CE182 /* EpigraverApp.app */,
+				3170CB3324768889008CE182 /* EpigraverAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +229,41 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3170CB1E24768888008CE182 /* EpigraverApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3170CB3E24768889008CE182 /* Build configuration list for PBXNativeTarget "EpigraverApp" */;
+			buildPhases = (
+				3170CB1B24768888008CE182 /* Sources */,
+				3170CB1C24768888008CE182 /* Frameworks */,
+				3170CB1D24768888008CE182 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EpigraverApp;
+			productName = EpigraverApp;
+			productReference = 3170CB1F24768888008CE182 /* EpigraverApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3170CB3224768889008CE182 /* EpigraverAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3170CB3F24768889008CE182 /* Build configuration list for PBXNativeTarget "EpigraverAppTests" */;
+			buildPhases = (
+				3170CB2F24768889008CE182 /* Sources */,
+				3170CB3024768889008CE182 /* Frameworks */,
+				3170CB3124768889008CE182 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3170CB3524768889008CE182 /* PBXTargetDependency */,
+			);
+			name = EpigraverAppTests;
+			productName = EpigraverAppTests;
+			productReference = 3170CB3324768889008CE182 /* EpigraverAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		31F387EC21203C2E000663CB /* Epigraver */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31F387F721203C2E000663CB /* Build configuration list for PBXNativeTarget "Epigraver" */;
@@ -160,9 +289,17 @@
 		31F387E421203C2E000663CB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Robert Beeger";
 				TargetAttributes = {
+					3170CB1E24768888008CE182 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					3170CB3224768889008CE182 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 3170CB1E24768888008CE182;
+					};
 					31F387EC21203C2E000663CB = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1020;
@@ -175,6 +312,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 31F387E321203C2E000663CB;
 			productRefGroup = 31F387EE21203C2E000663CB /* Products */;
@@ -182,11 +320,30 @@
 			projectRoot = "";
 			targets = (
 				31F387EC21203C2E000663CB /* Epigraver */,
+				3170CB1E24768888008CE182 /* EpigraverApp */,
+				3170CB3224768889008CE182 /* EpigraverAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3170CB1D24768888008CE182 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3170CB2C24768889008CE182 /* Main.storyboard in Resources */,
+				3170CB2924768889008CE182 /* Preview Assets.xcassets in Resources */,
+				3170CB2624768889008CE182 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3170CB3124768889008CE182 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31F387EB21203C2E000663CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +375,41 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3170CB1B24768888008CE182 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3170CB4924768962008CE182 /* Animator.swift in Sources */,
+				3170CB4724768952008CE182 /* ScheduleListCell.swift in Sources */,
+				3170CB4524768952008CE182 /* ScheduleConfigurationViewController.swift in Sources */,
+				3170CB502476896F008CE182 /* Configuration.swift in Sources */,
+				3170CB4424768952008CE182 /* CommandListCell.swift in Sources */,
+				3170CB4624768952008CE182 /* AppearanceListCell.swift in Sources */,
+				3170CB4824768957008CE182 /* ConfigurationSelector.swift in Sources */,
+				3170CB4224768952008CE182 /* ConfigurationSheet.swift in Sources */,
+				3170CB4C24768962008CE182 /* Rotate3DYAnimator.swift in Sources */,
+				3170CB4F24768962008CE182 /* HorizontalSlideAnimator.swift in Sources */,
+				3170CB4024768952008CE182 /* GenericTextListCell.swift in Sources */,
+				3170CB4124768952008CE182 /* CommandConfigurationViewController.swift in Sources */,
+				3170CB4324768952008CE182 /* AppearanceConfigurationViewController.swift in Sources */,
+				3170CB4E24768962008CE182 /* RotateAnimator.swift in Sources */,
+				3170CB512476896F008CE182 /* NSColor+Extension.swift in Sources */,
+				3170CB2424768888008CE182 /* ContentView.swift in Sources */,
+				3170CB4D24768962008CE182 /* VerticalSlideAnimator.swift in Sources */,
+				3170CB2224768888008CE182 /* AppDelegate.swift in Sources */,
+				3170CB4A24768962008CE182 /* ZoomAnimator.swift in Sources */,
+				3170CB4B24768962008CE182 /* Rotate3DXAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3170CB2F24768889008CE182 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3170CB3824768889008CE182 /* EpigraverAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31F387E821203C2E000663CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,7 +438,130 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3170CB3524768889008CE182 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3170CB1E24768888008CE182 /* EpigraverApp */;
+			targetProxy = 3170CB3424768889008CE182 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3170CB2A24768889008CE182 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3170CB2B24768889008CE182 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		3170CB3A24768889008CE182 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EpigraverApp/EpigraverApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"EpigraverApp/Preview Content\"";
+				DEVELOPMENT_TEAM = HBMHZ37TKE;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				INFOPLIST_FILE = EpigraverApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.EpigraverApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3170CB3B24768889008CE182 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EpigraverApp/EpigraverApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"EpigraverApp/Preview Content\"";
+				DEVELOPMENT_TEAM = HBMHZ37TKE;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = EpigraverApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.EpigraverApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3170CB3C24768889008CE182 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HBMHZ37TKE;
+				GCC_DYNAMIC_NO_PIC = NO;
+				INFOPLIST_FILE = EpigraverAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.EpigraverAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EpigraverApp.app/Contents/MacOS/EpigraverApp";
+			};
+			name = Debug;
+		};
+		3170CB3D24768889008CE182 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HBMHZ37TKE;
+				INFOPLIST_FILE = EpigraverAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.EpigraverAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EpigraverApp.app/Contents/MacOS/EpigraverApp";
+			};
+			name = Release;
+		};
 		31F387F521203C2E000663CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -420,6 +735,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3170CB3E24768889008CE182 /* Build configuration list for PBXNativeTarget "EpigraverApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3170CB3A24768889008CE182 /* Debug */,
+				3170CB3B24768889008CE182 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3170CB3F24768889008CE182 /* Build configuration list for PBXNativeTarget "EpigraverAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3170CB3C24768889008CE182 /* Debug */,
+				3170CB3D24768889008CE182 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		31F387E721203C2E000663CB /* Build configuration list for PBXProject "Epigraver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
