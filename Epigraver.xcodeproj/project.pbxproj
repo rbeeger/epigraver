@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		3170CB2624768889008CE182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2524768889008CE182 /* Assets.xcassets */; };
 		3170CB2924768889008CE182 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2824768889008CE182 /* Preview Assets.xcassets */; };
 		3170CB2C24768889008CE182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2A24768889008CE182 /* Main.storyboard */; };
-		3170CB3824768889008CE182 /* EpigraverAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB3724768889008CE182 /* EpigraverAppTests.swift */; };
 		3170CB4024768952008CE182 /* GenericTextListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C1F36C23F3A7273EEBA7B /* GenericTextListCell.swift */; };
 		3170CB4124768952008CE182 /* CommandConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FDB7230942068EF59C7B5 /* CommandConfigurationViewController.swift */; };
 		3170CB4224768952008CE182 /* ConfigurationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D380377EA9890DA52C58D /* ConfigurationSheet.swift */; };
@@ -31,6 +30,10 @@
 		3170CB4F24768962008CE182 /* HorizontalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CB8DD0D1BAAC07ACC2F0E /* HorizontalSlideAnimator.swift */; };
 		3170CB502476896F008CE182 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */; };
 		3170CB512476896F008CE182 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */; };
+		3186C83C24790C4000F295B6 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 3186C83B24790C4000F295B6 /* Nimble */; };
+		3186C83F24790C9D00F295B6 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3186C83E24790C9D00F295B6 /* Quick */; };
+		3186C84124790CE800F295B6 /* TimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186C84024790CE800F295B6 /* TimeSpec.swift */; };
+		3186C8432479241500F295B6 /* AppearanceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186C8422479241500F295B6 /* AppearanceSpec.swift */; };
 		31F387FC21203CA6000663CB /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Main.swift */; };
 		E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
 		E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
@@ -72,8 +75,9 @@
 		3170CB2D24768889008CE182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3170CB2E24768889008CE182 /* EpigraverApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EpigraverApp.entitlements; sourceTree = "<group>"; };
 		3170CB3324768889008CE182 /* EpigraverAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpigraverAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3170CB3724768889008CE182 /* EpigraverAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpigraverAppTests.swift; sourceTree = "<group>"; };
 		3170CB3924768889008CE182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3186C84024790CE800F295B6 /* TimeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpec.swift; sourceTree = "<group>"; };
+		3186C8422479241500F295B6 /* AppearanceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSpec.swift; sourceTree = "<group>"; };
 		31F387ED21203C2E000663CB /* Epigraver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Epigraver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3186C83F24790C9D00F295B6 /* Quick in Frameworks */,
+				3186C83C24790C4000F295B6 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,11 +131,11 @@
 		3170CB2024768888008CE182 /* EpigraverApp */ = {
 			isa = PBXGroup;
 			children = (
+				3170CB2D24768889008CE182 /* Info.plist */,
 				3170CB2124768888008CE182 /* AppDelegate.swift */,
 				3170CB2324768888008CE182 /* ContentView.swift */,
 				3170CB2524768889008CE182 /* Assets.xcassets */,
 				3170CB2A24768889008CE182 /* Main.storyboard */,
-				3170CB2D24768889008CE182 /* Info.plist */,
 				3170CB2E24768889008CE182 /* EpigraverApp.entitlements */,
 				3170CB2724768889008CE182 /* Preview Content */,
 			);
@@ -147,8 +153,9 @@
 		3170CB3624768889008CE182 /* EpigraverAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				3170CB3724768889008CE182 /* EpigraverAppTests.swift */,
 				3170CB3924768889008CE182 /* Info.plist */,
+				3186C84024790CE800F295B6 /* TimeSpec.swift */,
+				3186C8422479241500F295B6 /* AppearanceSpec.swift */,
 			);
 			path = EpigraverAppTests;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 				3170CB1B24768888008CE182 /* Sources */,
 				3170CB1C24768888008CE182 /* Frameworks */,
 				3170CB1D24768888008CE182 /* Resources */,
+				3186C84524793D8900F295B6 /* swiftlint */,
 			);
 			buildRules = (
 			);
@@ -260,6 +268,10 @@
 				3170CB3524768889008CE182 /* PBXTargetDependency */,
 			);
 			name = EpigraverAppTests;
+			packageProductDependencies = (
+				3186C83B24790C4000F295B6 /* Nimble */,
+				3186C83E24790C9D00F295B6 /* Quick */,
+			);
 			productName = EpigraverAppTests;
 			productReference = 3170CB3324768889008CE182 /* EpigraverAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -315,6 +327,10 @@
 				Base,
 			);
 			mainGroup = 31F387E321203C2E000663CB;
+			packageReferences = (
+				3186C83A24790C4000F295B6 /* XCRemoteSwiftPackageReference "Nimble" */,
+				3186C83D24790C9D00F295B6 /* XCRemoteSwiftPackageReference "Quick" */,
+			);
 			productRefGroup = 31F387EE21203C2E000663CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +370,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3186C84524793D8900F295B6 /* swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		31D92547244B75CE0036AC1A /* swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -406,7 +440,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3170CB3824768889008CE182 /* EpigraverAppTests.swift in Sources */,
+				3186C8432479241500F295B6 /* AppearanceSpec.swift in Sources */,
+				3186C84124790CE800F295B6 /* TimeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +807,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3186C83A24790C4000F295B6 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.9;
+			};
+		};
+		3186C83D24790C9D00F295B6 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3186C83B24790C4000F295B6 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3186C83A24790C4000F295B6 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		3186C83E24790C9D00F295B6 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3186C83D24790C9D00F295B6 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 31F387E421203C2E000663CB /* Project object */;
 }
