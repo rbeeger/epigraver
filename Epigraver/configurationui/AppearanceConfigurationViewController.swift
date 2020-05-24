@@ -232,19 +232,19 @@ class AppearanceConfigurationViewController: NSViewController {
         view.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor).isActive = true
         view.centerXAnchor.constraint(equalTo: view.superview!.centerXAnchor).isActive = true
 
-        let selectedRow = min(Configuration.shared.appearances.count - 1, max(0, table.selectedRow))
+        let selectedRow = min(SaverConfiguration.shared.appearances.count - 1, max(0, table.selectedRow))
         table.reloadData()
         table.selectRowIndexes(IndexSet(integer: selectedRow), byExtendingSelection: false)
     }
 
     @objc func foregroundColorChanged() {
-        Configuration.shared.appearances[table.selectedRow].foregroundColor = foregroundColorWell.color.hex
+        SaverConfiguration.shared.appearances[table.selectedRow].foregroundColor = foregroundColorWell.color.hex
 
         updateUI()
     }
 
     @objc func backgroundColorChanged() {
-        Configuration.shared.appearances[table.selectedRow].backgroundColor = backgroundColorWell.color.hex
+        SaverConfiguration.shared.appearances[table.selectedRow].backgroundColor = backgroundColorWell.color.hex
 
         updateUI()
     }
@@ -254,8 +254,8 @@ class AppearanceConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.appearances[table.selectedRow].fontName = font.fontName
-        Configuration.shared.appearances[table.selectedRow].fontSize = font.pointSize
+        SaverConfiguration.shared.appearances[table.selectedRow].fontName = font.fontName
+        SaverConfiguration.shared.appearances[table.selectedRow].fontSize = font.pointSize
 
         updateUI()
     }
@@ -269,30 +269,30 @@ class AppearanceConfigurationViewController: NSViewController {
     }
 
     private func addAppearance() {
-        Configuration.shared.appearances.append(
-                Configuration.Appearance(foregroundColor: 0x000000, backgroundColor: 0xFFFFFF,
+        SaverConfiguration.shared.appearances.append(
+                Appearance(foregroundColor: 0x000000, backgroundColor: 0xFFFFFF,
                         fontName: "HoeflerText-Regular", fontSize: 25))
         table.reloadData()
-        table.selectRowIndexes(IndexSet(integer: Configuration.shared.appearances.count - 1),
+        table.selectRowIndexes(IndexSet(integer: SaverConfiguration.shared.appearances.count - 1),
                 byExtendingSelection: false)
-        table.scrollRowToVisible(Configuration.shared.appearances.count - 1)
+        table.scrollRowToVisible(SaverConfiguration.shared.appearances.count - 1)
     }
 
     private func removeAppearance() {
         guard table.selectedRow >= 0,
-              table.selectedRow < Configuration.shared.appearances.count
+              table.selectedRow < SaverConfiguration.shared.appearances.count
         else { return }
         let oldSelectedRow = table.selectedRow
-        Configuration.shared.appearances.remove(at: oldSelectedRow)
+        SaverConfiguration.shared.appearances.remove(at: oldSelectedRow)
         table.reloadData()
-        let newSelectedRow = min(Configuration.shared.appearances.count - 1, oldSelectedRow)
+        let newSelectedRow = min(SaverConfiguration.shared.appearances.count - 1, oldSelectedRow)
         table.selectRowIndexes(IndexSet(integer: newSelectedRow), byExtendingSelection: false)
         table.scrollRowToVisible(newSelectedRow)
     }
 
     @objc func openFontPanel() {
-        if let font = NSFont(name: Configuration.shared.appearances[table.selectedRow].fontName,
-                size: Configuration.shared.appearances[table.selectedRow].fontSize) {
+        if let font = NSFont(name: SaverConfiguration.shared.appearances[table.selectedRow].fontName,
+                size: SaverConfiguration.shared.appearances[table.selectedRow].fontSize) {
             NSFontManager.shared.setSelectedFont(font, isMultiple: false)
         }
         NSFontManager.shared.orderFrontFontPanel(self)
@@ -313,7 +313,7 @@ class AppearanceConfigurationViewController: NSViewController {
 
         changeUI(toEnabled: true)
 
-        let config = Configuration.shared.appearances[table.selectedRow]
+        let config = SaverConfiguration.shared.appearances[table.selectedRow]
         foregroundColorWell.color = config.foregroundNSColor
         backgroundColorWell.color = config.backgroundNSColor
         fontDisplay.stringValue = "\(config.fontName) \(Int(config.fontSize))"
@@ -327,11 +327,11 @@ class AppearanceConfigurationViewController: NSViewController {
 
 extension AppearanceConfigurationViewController: NSTableViewDataSource {
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        Configuration.shared.appearances.count
+        SaverConfiguration.shared.appearances.count
     }
 
     public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        Configuration.shared.appearances[row]
+        SaverConfiguration.shared.appearances[row]
     }
 }
 
@@ -339,7 +339,7 @@ extension AppearanceConfigurationViewController: NSTableViewDelegate {
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let view = (tableView.makeView(withIdentifier: entryColumnIdentifier, owner: self) as? AppearanceListCell)
                 ?? AppearanceListCell(numberOfLines: 3)
-        view.appearanceConfiguration = Configuration.shared.appearances[row]
+        view.appearanceConfiguration = SaverConfiguration.shared.appearances[row]
         view.identifier = entryColumnIdentifier
 
         return view

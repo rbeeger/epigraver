@@ -24,14 +24,14 @@ class ScheduleListCell: NSTableCellView {
         return field
     }()
 
-    var scheduleEntryConfiguration: Configuration.ScheduleEntry? {
+    var scheduleEntryConfiguration: ScheduleEntry? {
         didSet {
             guard let scheduleEntryConfiguration = scheduleEntryConfiguration else {
                 label.stringValue = ""
                 return
             }
 
-            var labelText = Configuration.shared.calendar.veryShortStandaloneWeekdaySymbols.enumerated()
+            var labelText = BaseConfiguration.shared.calendar.veryShortStandaloneWeekdaySymbols.enumerated()
                     .map({scheduleEntryConfiguration.weekdays.contains($0.offset) ? $0.element : "-"})
                     .joined(separator: " ") +
                     "\n"
@@ -43,7 +43,7 @@ class ScheduleListCell: NSTableCellView {
                     " - " +
                     dateFormatter.string(from: scheduleEntryConfiguration.to.date) +
                     "\n"
-            labelText += Configuration.shared.commands
+            labelText += SaverConfiguration.shared.commands
                     .first(where: {$0.id == scheduleEntryConfiguration.commandId})?.name ?? "no command"
             label.stringValue = labelText
         }

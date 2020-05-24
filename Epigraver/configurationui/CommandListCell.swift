@@ -24,7 +24,7 @@ class CommandListCell: NSTableCellView {
         return field
     }()
 
-    var commandConfiguration: Configuration.Command? {
+    var commandConfiguration: Command? {
         didSet {
             guard let commandConfiguration = commandConfiguration else {
                 label.stringValue = ""

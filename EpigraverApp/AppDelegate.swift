@@ -1,7 +1,4 @@
 //
-//  AppDelegate.swift
-//  EpigraverApp
-//
 //  Created by Robert Beeger on 21.05.20.
 //  Copyright © 2020 Robert Beeger. All rights reserved.
 //

@@ -146,8 +146,8 @@ class CommandConfigurationViewController: NSViewController {
 
         view.isEditable = false
         view.isSelectable = false
-        view.textColor = Configuration.shared.appearances.first?.foregroundNSColor
-                ?? Configuration.shared.defaultAppearances.first!.foregroundNSColor
+        view.textColor = SaverConfiguration.shared.appearances.first?.foregroundNSColor
+                ?? SaverConfiguration.shared.defaultAppearances.first!.foregroundNSColor
         view.backgroundColor = .clear
         view.drawsBackground = true
         view.isBordered = false
@@ -166,8 +166,8 @@ class CommandConfigurationViewController: NSViewController {
         view.borderColor = .black
         view.borderType = .lineBorder
         view.borderWidth = 1
-        view.fillColor = Configuration.shared.appearances.first?.backgroundNSColor
-                ?? Configuration.shared.defaultAppearances.first!.backgroundNSColor
+        view.fillColor = SaverConfiguration.shared.appearances.first?.backgroundNSColor
+                ?? SaverConfiguration.shared.defaultAppearances.first!.backgroundNSColor
 
         view.addSubview(previewTextDisplay)
 
@@ -284,7 +284,7 @@ class CommandConfigurationViewController: NSViewController {
         view.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor).isActive = true
         view.centerXAnchor.constraint(equalTo: view.superview!.centerXAnchor).isActive = true
 
-        let selectedRow = min(Configuration.shared.commands.count - 1, max(0, table.selectedRow))
+        let selectedRow = min(SaverConfiguration.shared.commands.count - 1, max(0, table.selectedRow))
         table.reloadData()
         table.selectRowIndexes(IndexSet(integer: selectedRow), byExtendingSelection: false)
     }
@@ -298,25 +298,26 @@ class CommandConfigurationViewController: NSViewController {
     }
 
     private func addCommand() {
-        Configuration.shared.commands.append(Configuration.Command(
+        SaverConfiguration.shared.commands.append(Command(
                 name: "new command",
                 command: "",
                 animationInterval: 60))
         table.reloadData()
-        table.selectRowIndexes(IndexSet(integer: Configuration.shared.commands.count - 1), byExtendingSelection: false)
-        table.scrollRowToVisible(Configuration.shared.commands.count - 1)
+        table.selectRowIndexes(IndexSet(
+            integer: SaverConfiguration.shared.commands.count - 1), byExtendingSelection: false)
+        table.scrollRowToVisible(SaverConfiguration.shared.commands.count - 1)
     }
 
     private func removeCommand() {
         guard table.selectedRow >= 0,
-              table.selectedRow < Configuration.shared.commands.count
+              table.selectedRow < SaverConfiguration.shared.commands.count
                 else { return }
 
         let oldSelectedRow = table.selectedRow
-        Configuration.shared.commands.remove(at: table.selectedRow)
+        SaverConfiguration.shared.commands.remove(at: table.selectedRow)
         table.reloadData()
 
-        let newSelectedRow = min(Configuration.shared.commands.count - 1, oldSelectedRow)
+        let newSelectedRow = min(SaverConfiguration.shared.commands.count - 1, oldSelectedRow)
         table.selectRowIndexes(IndexSet(integer: newSelectedRow), byExtendingSelection: false)
         table.scrollRowToVisible(newSelectedRow)
     }
@@ -325,7 +326,7 @@ class CommandConfigurationViewController: NSViewController {
         guard table.selectedRow >= 0 else {
             return
         }
-        let currentConfig = Configuration.shared.commands[table.selectedRow]
+        let currentConfig = SaverConfiguration.shared.commands[table.selectedRow]
 
         let task = Process()
         task.launchPath = "/bin/zsh"
@@ -355,7 +356,7 @@ class CommandConfigurationViewController: NSViewController {
             return
         }
         changeUI(toEnabled: true)
-        let config = Configuration.shared.commands[table.selectedRow]
+        let config = SaverConfiguration.shared.commands[table.selectedRow]
 
         nameField.stringValue = config.name
         commandField.stringValue = config.command
@@ -370,18 +371,18 @@ class CommandConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.commands[table.selectedRow].animationInterval = animationIntervalStepper.integerValue
+        SaverConfiguration.shared.commands[table.selectedRow].animationInterval = animationIntervalStepper.integerValue
         updateUI()
     }
 }
 
 extension CommandConfigurationViewController: NSTableViewDataSource {
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        Configuration.shared.commands.count
+        SaverConfiguration.shared.commands.count
     }
 
     public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        Configuration.shared.commands[row]
+        SaverConfiguration.shared.commands[row]
     }
 }
 
@@ -390,7 +391,7 @@ extension CommandConfigurationViewController: NSTableViewDelegate {
         let view = (tableView.makeView(
                 withIdentifier: entryColumnIdentifier,
                 owner: self) as? CommandListCell) ?? CommandListCell()
-        view.commandConfiguration = Configuration.shared.commands[row]
+        view.commandConfiguration = SaverConfiguration.shared.commands[row]
         view.identifier = entryColumnIdentifier
 
         return view
@@ -404,7 +405,7 @@ extension CommandConfigurationViewController: NSTableViewDelegate {
 extension CommandConfigurationViewController: NSTextFieldDelegate {
     public func controlTextDidChange(_ obj: Notification) {
         guard let sendingField = obj.object as? NSTextField else { return }
-        var config = Configuration.shared.commands[table.selectedRow]
+        var config = SaverConfiguration.shared.commands[table.selectedRow]
 
         switch sendingField {
         case nameField: config.name = nameField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -413,7 +414,7 @@ extension CommandConfigurationViewController: NSTextFieldDelegate {
         default: break
         }
 
-        Configuration.shared.commands[table.selectedRow] = config
+        SaverConfiguration.shared.commands[table.selectedRow] = config
 
         updateUI()
     }

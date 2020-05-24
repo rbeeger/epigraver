@@ -10,89 +10,113 @@ import CoreWLAN
 import CoreFoundation
 import SystemConfiguration
 
-class Configuration {
-    static let shared = Configuration()
-    private typealias Me = Configuration
+class BaseConfiguration {
+    static let shared = BaseConfiguration()
+
+    var calendar: Calendar
+
+    private init() {
+        calendar = Calendar.current
+        calendar.locale = NSLocale.autoupdatingCurrent
+    }
+}
+
+struct Time: Codable, Comparable {
+    var hours: Int
+    var minutes: Int
+
+    var date: Date {
+        get {
+            DateComponents(calendar: BaseConfiguration.shared.calendar, hour: hours, minute: minutes).date ?? Date()
+        }
+        set {
+            hours = BaseConfiguration.shared.calendar.component(.hour, from: newValue)
+            minutes = BaseConfiguration.shared.calendar.component(.minute, from: newValue)
+        }
+    }
+
+    init(hours: Int, minutes: Int) {
+        self.hours = hours
+        self.minutes = minutes
+    }
+
+    init(date: Date) {
+        self.hours = BaseConfiguration.shared.calendar.component(.hour, from: date)
+        self.minutes = BaseConfiguration.shared.calendar.component(.minute, from: date)
+    }
+
+    func inRange(from: Time, to: Time) -> Bool {
+        if from <= to {
+            return from <= self && self <= to
+        } else {
+            return from <= self || self <= to
+        }
+    }
+
+    static func < (lhs: Time, rhs: Time) -> Bool {
+        lhs.hours < rhs.hours || lhs.hours == rhs.hours && lhs.minutes < rhs.minutes
+    }
+
+    static func == (lhs: Time, rhs: Time) -> Bool {
+        lhs.hours == rhs.hours && lhs.minutes == rhs.minutes
+    }
+}
+
+struct ScheduleEntry: Codable {
+    var id: String = UUID().uuidString
+    var weekdays: [Int]
+    var from: Time
+    var to: Time
+    var wifiName: String
+    var networkLocation: String
+    var commandId: String
+    var appearanceIds: [String]
+    var animatorTypes: [String]
+}
+
+struct Command: Codable {
+    var id: String = UUID().uuidString
+    var name: String
+    var command: String
+    var animationInterval: Int
+}
+
+struct Appearance: Codable {
+    var id: String = UUID().uuidString
+    var foregroundColor: Int
+    var backgroundColor: Int
+    var fontName: String
+    var fontSize: CGFloat
+
+    var backgroundNSColor: NSColor {
+        NSColor(hex: backgroundColor)
+    }
+
+    var foregroundNSColor: NSColor {
+        NSColor(hex: foregroundColor)
+    }
+}
+
+protocol Configuration {
+    var currentTime: Time { get }
+    var currentWeekday: Int { get }
+    var currentWifi: String? { get }
+    var currentNetworkLocation: String? { get }
+    var availableNetworkLocations: [String] { get }
+    var scheduleEntries: [ScheduleEntry] { get }
+    var commands: [Command] { get }
+    var appearances: [Appearance] { get }
+    var defaultAppearances: [Appearance] { get }
+    var availableAnimators: [Animator] { get }
+}
+
+class SaverConfiguration: Configuration {
+    static let shared = SaverConfiguration()
+    private typealias Me = SaverConfiguration
 
     private static let scheduleDefaultsKey = "schedule"
     private static let commandsDefaultsKey = "commands"
     private static let appearancesDefaultsKey = "appearances"
-
-    struct Time: Codable, Comparable {
-        var hours: Int
-        var minutes: Int
-
-        var date: Date {
-            get {
-                DateComponents(calendar: Me.shared.calendar, hour: hours, minute: minutes).date ?? Date()
-            }
-            set {
-                hours = Me.shared.calendar.component(.hour, from: newValue)
-                minutes = Me.shared.calendar.component(.minute, from: newValue)
-            }
-        }
-
-        init(hours: Int, minutes: Int) {
-            self.hours = hours
-            self.minutes = minutes
-        }
-
-        init(date: Date) {
-            self.hours = Me.shared.calendar.component(.hour, from: date)
-            self.minutes = Me.shared.calendar.component(.minute, from: date)
-        }
-
-        func inRange(from: Time, to: Time) -> Bool {
-            if from <= to {
-                return from <= self && self <= to
-            } else {
-                return from <= self || self <= to
-            }
-        }
-
-        static func < (lhs: Time, rhs: Time) -> Bool {
-            lhs.hours < rhs.hours || lhs.hours == rhs.hours && lhs.minutes < rhs.minutes
-        }
-
-        static func == (lhs: Time, rhs: Time) -> Bool {
-            lhs.hours == rhs.hours && lhs.minutes == rhs.minutes
-        }
-    }
-
-    struct ScheduleEntry: Codable {
-        var id: String = UUID().uuidString
-        var weekdays: [Int]
-        var from: Time
-        var to: Time
-        var wifiName: String
-        var networkLocation: String
-        var commandId: String
-        var appearanceIds: [String]
-        var animatorTypes: [String]
-    }
-
-    struct Command: Codable {
-        var id: String = UUID().uuidString
-        var name: String
-        var command: String
-        var animationInterval: Int
-    }
-
-    struct Appearance: Codable {
-        var id: String = UUID().uuidString
-        var foregroundColor: Int
-        var backgroundColor: Int
-        var fontName: String
-        var fontSize: CGFloat
-
-        var backgroundNSColor: NSColor {
-            NSColor(hex: backgroundColor)
-        }
-
-        var foregroundNSColor: NSColor {
-            NSColor(hex: foregroundColor)
-        }
-    }
 
     private let defaults: ScreenSaverDefaults
     private let jsonDecoder: JSONDecoder
@@ -125,7 +149,7 @@ class Configuration {
     }
 
     var currentWeekday: Int {
-        calendar.component(.weekday, from: Date()) - 1
+        BaseConfiguration.shared.calendar.component(.weekday, from: Date()) - 1
     }
 
     var currentWifi: String? {
@@ -156,8 +180,6 @@ class Configuration {
         }
         return result
     }
-
-    var calendar: Calendar
 
     func load() {
         if let scheduleData = defaults.data(forKey: Me.scheduleDefaultsKey) {
@@ -199,9 +221,6 @@ class Configuration {
     }
 
     private init() {
-        calendar = Calendar.current
-        calendar.locale = NSLocale.autoupdatingCurrent
-
         defaults = ScreenSaverDefaults(forModuleWithName: Bundle.main.bundleIdentifier!)!
         jsonDecoder = JSONDecoder()
         jsonEncoder = JSONEncoder()

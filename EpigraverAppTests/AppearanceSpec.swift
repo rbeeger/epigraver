@@ -1,7 +1,4 @@
 //
-//  AppearanceSpec.swift
-//  EpigraverAppTests
-//
 //  Created by Robert Beeger on 23.05.20.
 //  Copyright © 2020 Robert Beeger. All rights reserved.
 //
@@ -13,11 +10,9 @@ import Nimble
 @testable import EpigraverApp
 
 class AppearanceSpec: QuickSpec {
-    typealias Config = EpigraverApp.Configuration
-
     override func spec() {
         describe("Appearance") {
-            let appearance = Config.Appearance(
+            let appearance = Appearance(
                 foregroundColor: 0xff0000,
                 backgroundColor: 0x00ff00,
                 fontName: "some",

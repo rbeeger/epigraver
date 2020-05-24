@@ -58,7 +58,7 @@ class ConfigurationSheet: NSWindow {
         cancelButton.centerYAnchor.constraint(equalTo: okButton.centerYAnchor).isActive = true
         cancelButton.trailingAnchor.constraint(equalTo: okButton.leadingAnchor, constant: -8).isActive = true
 
-        Configuration.shared.load()
+        SaverConfiguration.shared.load()
     }
 
     @objc
@@ -66,7 +66,7 @@ class ConfigurationSheet: NSWindow {
         guard let parent = sheetParent else {
             fatalError("No parent")
         }
-        Configuration.shared.save()
+        SaverConfiguration.shared.save()
         parent.endSheet(self)
     }
 
@@ -75,7 +75,7 @@ class ConfigurationSheet: NSWindow {
         guard let parent = sheetParent else {
             fatalError("No parent")
         }
-        Configuration.shared.load()
+        SaverConfiguration.shared.load()
         parent.endSheet(self)
     }
 }

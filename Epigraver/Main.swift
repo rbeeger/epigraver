@@ -12,7 +12,7 @@ class Main: ScreenSaverView {
     private let boxes: [NSBox]
     private var current: Int
 
-    private let selectedAppearance: Configuration.Appearance
+    private let selectedAppearance: Appearance
     private let selectedAnimator: Animator
     private let selectedCommand: String
 

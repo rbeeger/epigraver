@@ -10,21 +10,19 @@ class ConfigurationSelector {
     private typealias Me = ConfigurationSelector
 
     let command: String
-    let appearances: [Configuration.Appearance]
+    let appearances: [Appearance]
     let animators: [Animator]
     let animationInterval: TimeInterval
 
-    init() {
-        let entry = Configuration.shared.scheduleEntries
-                .filter { Configuration.shared.currentTime.inRange(from: $0.from, to: $0.to) }
-                .filter { $0.weekdays.contains(Configuration.shared.currentWeekday) }
-                .filter { $0.wifiName.count == 0 || $0.wifiName == Configuration.shared.currentWifi  }
-                .filter {
-                    $0.networkLocation.count == 0 || $0.networkLocation == Configuration.shared.currentNetworkLocation
-                }
+    init(configuration: Configuration = SaverConfiguration.shared) {
+        let entry = configuration.scheduleEntries
+                .filter { configuration.currentTime.inRange(from: $0.from, to: $0.to) }
+                .filter { $0.weekdays.contains(configuration.currentWeekday) }
+                .filter { $0.wifiName.count == 0 || $0.wifiName == configuration.currentWifi  }
+                .filter { $0.networkLocation.count == 0 || $0.networkLocation == configuration.currentNetworkLocation }
                 .first
 
-        if let cmdId = entry?.commandId, let cmd = Configuration.shared.commands.first(where: { $0.id ==  cmdId }) {
+        if let cmdId = entry?.commandId, let cmd = configuration.commands.first(where: { $0.id ==  cmdId }) {
             command = cmd.command
             animationInterval = TimeInterval(cmd.animationInterval)
         } else {
@@ -34,18 +32,18 @@ class ConfigurationSelector {
 
         let appearanceIds: [String] = entry?.appearanceIds ?? []
 
-        var appr = appearanceIds.compactMap { id in Configuration.shared.appearances.first { $0.id == id  }}
+        var appr = appearanceIds.compactMap { id in configuration.appearances.first { $0.id == id  }}
         if appr.count == 0 {
-            appr.append(Configuration.shared.defaultAppearances.first!)
+            appr.append(configuration.defaultAppearances.first!)
         }
         appearances = appr
 
         let animatorTypes: [String] = entry?.animatorTypes ?? []
         var anm = animatorTypes
-                .compactMap { typeName in Configuration.shared.availableAnimators.first {$0.typeName() == typeName }}
+            .compactMap { typeName in configuration.availableAnimators.first {$0.typeName() == typeName } }
 
         if anm.count == 0 {
-            anm.append(Configuration.shared.availableAnimators.first!)
+            anm.append(configuration.availableAnimators.first!)
         }
         animators = anm
     }

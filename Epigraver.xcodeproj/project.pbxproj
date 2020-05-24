@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3136B19C247A59AD0079481C /* ConfigurationSelectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */; };
+		3136B19E247A5A210079481C /* TestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3136B19D247A5A210079481C /* TestConfiguration.swift */; };
 		3170CB2224768888008CE182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB2124768888008CE182 /* AppDelegate.swift */; };
 		3170CB2424768888008CE182 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB2324768888008CE182 /* ContentView.swift */; };
 		3170CB2624768889008CE182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2524768889008CE182 /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSelectorSpec.swift; sourceTree = "<group>"; };
+		3136B19D247A5A210079481C /* TestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfiguration.swift; sourceTree = "<group>"; };
 		3170CB1F24768888008CE182 /* EpigraverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpigraverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3170CB2124768888008CE182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3170CB2324768888008CE182 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,8 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				3170CB3924768889008CE182 /* Info.plist */,
+				3136B19D247A5A210079481C /* TestConfiguration.swift */,
 				3186C84024790CE800F295B6 /* TimeSpec.swift */,
 				3186C8422479241500F295B6 /* AppearanceSpec.swift */,
+				3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */,
 			);
 			path = EpigraverAppTests;
 			sourceTree = "<group>";
@@ -440,7 +446,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3136B19C247A59AD0079481C /* ConfigurationSelectorSpec.swift in Sources */,
 				3186C8432479241500F295B6 /* AppearanceSpec.swift in Sources */,
+				3136B19E247A5A210079481C /* TestConfiguration.swift in Sources */,
 				3186C84124790CE800F295B6 /* TimeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

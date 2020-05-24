@@ -35,7 +35,7 @@ class AppearanceListCell: NSView {
         return box
     }()
 
-    var appearanceConfiguration: Configuration.Appearance? {
+    var appearanceConfiguration: Appearance? {
         didSet {
             guard let appearanceConfiguration = appearanceConfiguration else {
                 fontLabel.stringValue = ""

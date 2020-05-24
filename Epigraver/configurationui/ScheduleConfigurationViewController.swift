@@ -107,7 +107,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
     private lazy var timeFromPicker: NSDatePicker = {
         let view = NSDatePicker(frame: .zero)
-        view.calendar = Configuration.shared.calendar
+        view.calendar = BaseConfiguration.shared.calendar
         view.translatesAutoresizingMaskIntoConstraints = false
         view.datePickerStyle = .textFieldAndStepper
         view.datePickerMode = .single
@@ -129,7 +129,7 @@ class ScheduleConfigurationViewController: NSViewController {
 
     private lazy var timeToPicker: NSDatePicker = {
         let view = NSDatePicker(frame: .zero)
-        view.calendar = Configuration.shared.calendar
+        view.calendar = BaseConfiguration.shared.calendar
         view.translatesAutoresizingMaskIntoConstraints = false
         view.datePickerStyle = .textFieldAndStepper
         view.datePickerMode = .single
@@ -401,17 +401,20 @@ class ScheduleConfigurationViewController: NSViewController {
 
         weekdaysTable.reloadData()
         wifiCombo.removeAllItems()
-        if let currentWifi = Configuration.shared.currentWifi {
+        if let currentWifi = SaverConfiguration.shared.currentWifi {
             wifiCombo.addItems(withObjectValues: ["", currentWifi])
         }
         networkLocationCombo.removeAllItems()
-        networkLocationCombo.addItems(withObjectValues: [""] + Configuration.shared.availableNetworkLocations)
+        networkLocationCombo.addItems(withObjectValues: [""] + SaverConfiguration.shared.availableNetworkLocations)
         commandCombo.removeAllItems()
-        commandCombo.addItems(withObjectValues: Configuration.shared.commands.map {$0.name})
+        commandCombo.addItems(withObjectValues: SaverConfiguration.shared.commands.map {$0.name})
 
         appearancesTable.reloadData()
 
-        let selectedRow = min(Configuration.shared.scheduleEntries.count - 1, max(0, scheduleEntriesTable.selectedRow))
+        let selectedRow = min(
+            SaverConfiguration.shared.scheduleEntries.count - 1,
+            max(0, scheduleEntriesTable.selectedRow)
+        )
         scheduleEntriesTable.reloadData()
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: selectedRow), byExtendingSelection: false)
 
@@ -435,32 +438,32 @@ class ScheduleConfigurationViewController: NSViewController {
     }
 
     private func addSchedule() {
-        Configuration.shared.scheduleEntries.append(Configuration.ScheduleEntry(
-                weekdays: Array(0..<Configuration.shared.calendar.shortStandaloneWeekdaySymbols.count),
-                from: Configuration.Time(hours: 0, minutes: 0),
-                to: Configuration.Time(hours: 23, minutes: 59),
+        SaverConfiguration.shared.scheduleEntries.append(ScheduleEntry(
+                weekdays: Array(0..<BaseConfiguration.shared.calendar.shortStandaloneWeekdaySymbols.count),
+                from: Time(hours: 0, minutes: 0),
+                to: Time(hours: 23, minutes: 59),
                 wifiName: "",
                 networkLocation: "",
-                commandId: Configuration.shared.commands.first?.id ?? "",
-                appearanceIds: Configuration.shared.appearances.map { $0.id  },
-                animatorTypes: Configuration.shared.availableAnimators.map {String(describing: type(of: $0))}
+                commandId: SaverConfiguration.shared.commands.first?.id ?? "",
+                appearanceIds: SaverConfiguration.shared.appearances.map { $0.id  },
+                animatorTypes: SaverConfiguration.shared.availableAnimators.map {String(describing: type(of: $0))}
         ))
         scheduleEntriesTable.reloadData()
-        scheduleEntriesTable.selectRowIndexes(IndexSet(integer: Configuration.shared.scheduleEntries.count - 1),
+        scheduleEntriesTable.selectRowIndexes(IndexSet(integer: SaverConfiguration.shared.scheduleEntries.count - 1),
                 byExtendingSelection: false)
-        scheduleEntriesTable.scrollRowToVisible(Configuration.shared.scheduleEntries.count - 1)
+        scheduleEntriesTable.scrollRowToVisible(SaverConfiguration.shared.scheduleEntries.count - 1)
     }
 
     private func removeSchedule() {
         guard scheduleEntriesTable.selectedRow >= 0,
-              scheduleEntriesTable.selectedRow < Configuration.shared.scheduleEntries.count
+              scheduleEntriesTable.selectedRow < SaverConfiguration.shared.scheduleEntries.count
                 else { return }
 
         let oldSelectedRow = scheduleEntriesTable.selectedRow
-        Configuration.shared.scheduleEntries.remove(at: scheduleEntriesTable.selectedRow)
+        SaverConfiguration.shared.scheduleEntries.remove(at: scheduleEntriesTable.selectedRow)
         scheduleEntriesTable.reloadData()
 
-        let newSelectedRow = min(Configuration.shared.scheduleEntries.count - 1, oldSelectedRow)
+        let newSelectedRow = min(SaverConfiguration.shared.scheduleEntries.count - 1, oldSelectedRow)
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: newSelectedRow), byExtendingSelection: false)
         scheduleEntriesTable.scrollRowToVisible(newSelectedRow)
     }
@@ -469,14 +472,14 @@ class ScheduleConfigurationViewController: NSViewController {
         let oldSelectedRow = scheduleEntriesTable.selectedRow
 
         guard oldSelectedRow >= 0,
-              oldSelectedRow < Configuration.shared.scheduleEntries.count,
-              Configuration.shared.scheduleEntries.count > 1,
-              oldSelectedRow > 0 && up || oldSelectedRow < (Configuration.shared.scheduleEntries.count - 1) && !up
+              oldSelectedRow < SaverConfiguration.shared.scheduleEntries.count,
+              SaverConfiguration.shared.scheduleEntries.count > 1,
+              oldSelectedRow > 0 && up || oldSelectedRow < (SaverConfiguration.shared.scheduleEntries.count - 1) && !up
                 else { return }
 
-        let removed = Configuration.shared.scheduleEntries.remove(at: scheduleEntriesTable.selectedRow)
+        let removed = SaverConfiguration.shared.scheduleEntries.remove(at: scheduleEntriesTable.selectedRow)
         let newSelectedRow = oldSelectedRow + (up ? -1 : 1 )
-        Configuration.shared.scheduleEntries.insert(removed, at: newSelectedRow)
+        SaverConfiguration.shared.scheduleEntries.insert(removed, at: newSelectedRow)
 
         scheduleEntriesTable.reloadData()
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: newSelectedRow), byExtendingSelection: false)
@@ -503,22 +506,24 @@ class ScheduleConfigurationViewController: NSViewController {
         changeUI(toEnabled: true)
         changeComboBoxDelegation(toEnabled: false)
 
-        let config = Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow]
+        let config = SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow]
 
         timeFromPicker.dateValue = config.from.date
         timeToPicker.dateValue = config.to.date
         weekdaysTable.selectRowIndexes(IndexSet(config.weekdays), byExtendingSelection: false)
 
-        commandCombo.stringValue = Configuration.shared.commands.first(where: { $0.id == config.commandId })?.name ?? ""
+        commandCombo.stringValue = SaverConfiguration.shared.commands
+            .first(where: { $0.id == config.commandId })?
+            .name ?? ""
         wifiCombo.stringValue = config.wifiName
         networkLocationCombo.stringValue = config.networkLocation
 
         appearancesTable.selectRowIndexes(IndexSet(config.appearanceIds.compactMap { appearanceId in
-            Configuration.shared.appearances.firstIndex { $0.id == appearanceId }
+            SaverConfiguration.shared.appearances.firstIndex { $0.id == appearanceId }
         }), byExtendingSelection: false)
 
         animatorsTable.selectRowIndexes(IndexSet(config.animatorTypes.compactMap { animatorType in
-            Configuration.shared.availableAnimators.firstIndex { $0.typeName() == animatorType }
+            SaverConfiguration.shared.availableAnimators.firstIndex { $0.typeName() == animatorType }
         }), byExtendingSelection: false)
 
         changeComboBoxDelegation(toEnabled: true)
@@ -541,7 +546,7 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].from.date = timeFromPicker.dateValue
+        SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].from.date = timeFromPicker.dateValue
         reloadCurrentScheduledEntryInfo()
     }
 
@@ -550,7 +555,7 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].to.date = timeToPicker.dateValue
+        SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].to.date = timeToPicker.dateValue
         reloadCurrentScheduledEntryInfo()
     }
 
@@ -559,7 +564,7 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].weekdays =
+        SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].weekdays =
                 weekdaysTable.selectedRowIndexes.sorted()
         reloadCurrentScheduledEntryInfo()
     }
@@ -569,8 +574,8 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].appearanceIds =
-                appearancesTable.selectedRowIndexes.map { Configuration.shared.appearances[$0].id }
+        SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].appearanceIds =
+                appearancesTable.selectedRowIndexes.map { SaverConfiguration.shared.appearances[$0].id }
     }
 
     private func selectAnimators() {
@@ -578,8 +583,8 @@ class ScheduleConfigurationViewController: NSViewController {
             return
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].animatorTypes =
-                animatorsTable.selectedRowIndexes.map { Configuration.shared.availableAnimators[$0].typeName() }
+        SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].animatorTypes =
+                animatorsTable.selectedRowIndexes.map { SaverConfiguration.shared.availableAnimators[$0].typeName() }
     }
 
 }
@@ -587,10 +592,10 @@ class ScheduleConfigurationViewController: NSViewController {
 extension ScheduleConfigurationViewController: NSTableViewDataSource {
     public func numberOfRows(in tableView: NSTableView) -> Int {
         switch tableView.tag {
-        case Me.schedulesEntriesTag: return Configuration.shared.scheduleEntries.count
-        case Me.weekdaysTag: return Configuration.shared.calendar.shortStandaloneWeekdaySymbols.count
-        case Me.appearancesTag: return Configuration.shared.appearances.count
-        case Me.animatorsTag: return Configuration.shared.availableAnimators.count
+        case Me.schedulesEntriesTag: return SaverConfiguration.shared.scheduleEntries.count
+        case Me.weekdaysTag: return BaseConfiguration.shared.calendar.shortStandaloneWeekdaySymbols.count
+        case Me.appearancesTag: return SaverConfiguration.shared.appearances.count
+        case Me.animatorsTag: return SaverConfiguration.shared.availableAnimators.count
         default: return 0
         }
     }
@@ -603,28 +608,28 @@ extension ScheduleConfigurationViewController: NSTableViewDelegate {
             let view = (tableView.makeView(
                     withIdentifier: Me.entryColumnIdentifier,
                     owner: self) as? ScheduleListCell) ?? ScheduleListCell()
-            view.scheduleEntryConfiguration = Configuration.shared.scheduleEntries[row]
+            view.scheduleEntryConfiguration = SaverConfiguration.shared.scheduleEntries[row]
             view.identifier = Me.entryColumnIdentifier
             return view
         case Me.weekdaysTag:
             let view = (tableView.makeView(
                     withIdentifier: Me.entryColumnIdentifier,
                     owner: self) as? GenericTextListCell) ?? GenericTextListCell()
-            view.text = Configuration.shared.calendar.standaloneWeekdaySymbols[row]
+            view.text = BaseConfiguration.shared.calendar.standaloneWeekdaySymbols[row]
             view.identifier = Me.entryColumnIdentifier
             return view
         case Me.appearancesTag:
             let view = (tableView.makeView(
                     withIdentifier: Me.entryColumnIdentifier,
                     owner: self) as? AppearanceListCell) ?? AppearanceListCell(numberOfLines: 2)
-            view.appearanceConfiguration = Configuration.shared.appearances[row]
+            view.appearanceConfiguration = SaverConfiguration.shared.appearances[row]
             view.identifier = Me.entryColumnIdentifier
             return view
         case Me.animatorsTag:
             let view = (tableView.makeView(
                     withIdentifier: Me.entryColumnIdentifier,
                     owner: self) as? GenericTextListCell) ?? GenericTextListCell()
-            view.text = Configuration.shared.availableAnimators[row].typeName()
+            view.text = SaverConfiguration.shared.availableAnimators[row].typeName()
             view.identifier = Me.entryColumnIdentifier
             return view
         default: return NSTableCellView()
@@ -666,18 +671,18 @@ extension ScheduleConfigurationViewController: NSComboBoxDelegate {
 
     private func applyChange(from comboBox: NSComboBox, with value: String) {
         let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        var config = Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow]
+        var config = SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow]
 
         switch comboBox {
         case wifiCombo: config.wifiName = trimmed
         case networkLocationCombo: config.networkLocation = trimmed
         case commandCombo: config.commandId =
-                Configuration.shared.commands.first(where: {$0.name == trimmed})?.id
-                        ?? Configuration.shared.commands.first!.id
+                SaverConfiguration.shared.commands.first(where: {$0.name == trimmed})?.id
+                        ?? SaverConfiguration.shared.commands.first!.id
         default: break
         }
 
-        Configuration.shared.scheduleEntries[scheduleEntriesTable.selectedRow] = config
+        SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow] = config
         reloadCurrentScheduledEntryInfo()
     }
 }
