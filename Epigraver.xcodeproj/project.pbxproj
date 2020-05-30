@@ -36,6 +36,8 @@
 		3186C83F24790C9D00F295B6 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3186C83E24790C9D00F295B6 /* Quick */; };
 		3186C84124790CE800F295B6 /* TimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186C84024790CE800F295B6 /* TimeSpec.swift */; };
 		3186C8432479241500F295B6 /* AppearanceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186C8422479241500F295B6 /* AppearanceSpec.swift */; };
+		31D50595248258BB008C5642 /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D50593248258BB008C5642 /* thumbnail@2x.png */; };
+		31D50596248258BB008C5642 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D50594248258BB008C5642 /* thumbnail.png */; };
 		31F387FC21203CA6000663CB /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Main.swift */; };
 		E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
 		E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
@@ -82,6 +84,8 @@
 		3170CB3924768889008CE182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3186C84024790CE800F295B6 /* TimeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpec.swift; sourceTree = "<group>"; };
 		3186C8422479241500F295B6 /* AppearanceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSpec.swift; sourceTree = "<group>"; };
+		31D50593248258BB008C5642 /* thumbnail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail@2x.png"; sourceTree = "<group>"; };
+		31D50594248258BB008C5642 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
 		31F387ED21203C2E000663CB /* Epigraver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Epigraver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		31F387EF21203C2E000663CB /* Epigraver */ = {
 			isa = PBXGroup;
 			children = (
+				31D50594248258BB008C5642 /* thumbnail.png */,
+				31D50593248258BB008C5642 /* thumbnail@2x.png */,
 				31F387F421203C2E000663CB /* Info.plist */,
 				31F387FB21203CA6000663CB /* Main.swift */,
 				E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */,
@@ -370,6 +376,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D50596248258BB008C5642 /* thumbnail.png in Resources */,
+				31D50595248258BB008C5642 /* thumbnail@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
