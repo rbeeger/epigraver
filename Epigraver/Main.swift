@@ -26,7 +26,9 @@ class Main: ScreenSaverView {
         selectedAnimator = configurationSelector.animators.randomElement()!
         selectedCommand = configurationSelector.command
 
-        super.init(frame: frame, isPreview: isPreview)
+        // Need to do preview detection ourselves beecause isPreview is always true on Cataline
+        // Found in https://github.com/JohnCoates/Aerial
+        super.init(frame: frame, isPreview: frame.width < 400 && frame.height < 300)
 
         wantsLayer = true
         animationTimeInterval = configurationSelector.animationInterval
@@ -77,11 +79,15 @@ class Main: ScreenSaverView {
         textDisplay.isBordered = false
         textDisplay.isBezeled = false
         textDisplay.maximumNumberOfLines = 0
-        textDisplay.font = NSFont(name: selectedAppearance.fontName, size: selectedAppearance.fontSize)
+        if isPreview {
+            textDisplay.font = NSFont(name: "HoeflerText-Regular", size: 13)
+        } else {
+            textDisplay.font = NSFont(name: selectedAppearance.fontName, size: selectedAppearance.fontSize)
+        }
 
         textDisplay.centerYAnchor.constraint(equalTo: box.centerYAnchor).isActive = true
         textDisplay.centerXAnchor.constraint(equalTo: box.centerXAnchor).isActive = true
-        textDisplay.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        textDisplay.widthAnchor.constraint(equalTo: box.widthAnchor, multiplier: 0.8).isActive = true
     }
 
     override var hasConfigureSheet: Bool {
@@ -91,17 +97,28 @@ class Main: ScreenSaverView {
         ConfigurationSheet.shared
     }
 
-    override func animateOneFrame() {
-        let task = Process()
-        task.launchPath = "/bin/zsh"
-        task.arguments = ["-c", selectedCommand]
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.standardError = pipe
-        task.launch()
+    let previewEpigraphs = [
+        "Do or do not, there is no try.\n-- Yoda",
+        "To be, or not to be: that is the question.\n-- Hamlet",
+        "Revenge is a dish best served cold\n-- Klingon proverb"
+    ]
 
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: String.Encoding.utf8)!
+    override func animateOneFrame() {
+        let output: String
+        if isPreview {
+            output = previewEpigraphs.randomElement()!
+        } else {
+            let task = Process()
+            task.launchPath = "/bin/zsh"
+            task.arguments = ["-c", selectedCommand]
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            task.standardError = pipe
+            task.launch()
+
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            output = String(data: data, encoding: String.Encoding.utf8)!
+        }
         let next = 1 - current
         textDisplays[next].attributedStringValue = NSAttributedString(string: output)
 
