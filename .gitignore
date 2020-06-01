@@ -22,3 +22,5 @@ DerivedData
 Carthage/
 /buildRelease/Epigraver.dmg
 /buildRelease/Epigraver.saver
+/buildRelease/notarizationInfo.plist
+/buildRelease/notarizationUpload.plist
