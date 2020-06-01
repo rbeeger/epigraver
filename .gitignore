@@ -20,3 +20,5 @@ DerivedData
 *.xccheckout
 /build/
 Carthage/
+/buildRelease/Epigraver.dmg
+/buildRelease/Epigraver.saver
