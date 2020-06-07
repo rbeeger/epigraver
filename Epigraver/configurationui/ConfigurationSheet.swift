@@ -16,6 +16,7 @@ class ConfigurationSheet: NSWindow {
         view.addTabViewItem(NSTabViewItem(viewController: ScheduleConfigurationViewController()))
         view.addTabViewItem(NSTabViewItem(viewController: CommandConfigurationViewController()))
         view.addTabViewItem(NSTabViewItem(viewController: AppearanceConfigurationViewController()))
+        view.addTabViewItem(NSTabViewItem(viewController: AboutViewController()))
 
         return view
     }()

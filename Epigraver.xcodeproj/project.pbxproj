@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3136B19C247A59AD0079481C /* ConfigurationSelectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */; };
 		3136B19E247A5A210079481C /* TestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3136B19D247A5A210079481C /* TestConfiguration.swift */; };
+		315BE18B248BB830009FA20D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315BE189248BB830009FA20D /* AboutViewController.swift */; };
+		315BE18C248BB830009FA20D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315BE189248BB830009FA20D /* AboutViewController.swift */; };
+		315BE18D248BB830009FA20D /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 315BE18A248BB830009FA20D /* about.html */; };
+		315BE18E248BB830009FA20D /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 315BE18A248BB830009FA20D /* about.html */; };
 		3170CB2224768888008CE182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB2124768888008CE182 /* AppDelegate.swift */; };
 		3170CB2424768888008CE182 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3170CB2324768888008CE182 /* ContentView.swift */; };
 		3170CB2624768889008CE182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3170CB2524768889008CE182 /* Assets.xcassets */; };
@@ -72,6 +76,8 @@
 /* Begin PBXFileReference section */
 		3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSelectorSpec.swift; sourceTree = "<group>"; };
 		3136B19D247A5A210079481C /* TestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfiguration.swift; sourceTree = "<group>"; };
+		315BE189248BB830009FA20D /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		315BE18A248BB830009FA20D /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		3170CB1F24768888008CE182 /* EpigraverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpigraverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3170CB2124768888008CE182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3170CB2324768888008CE182 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -209,6 +215,8 @@
 		E30BB590D96EAAD829658314 /* configurationui */ = {
 			isa = PBXGroup;
 			children = (
+				315BE18A248BB830009FA20D /* about.html */,
+				315BE189248BB830009FA20D /* AboutViewController.swift */,
 				E30C1F36C23F3A7273EEBA7B /* GenericTextListCell.swift */,
 				E30FDB7230942068EF59C7B5 /* CommandConfigurationViewController.swift */,
 				E30D380377EA9890DA52C58D /* ConfigurationSheet.swift */,
@@ -359,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315BE18E248BB830009FA20D /* about.html in Resources */,
 				3170CB2C24768889008CE182 /* Main.storyboard in Resources */,
 				3170CB2924768889008CE182 /* Preview Assets.xcassets in Resources */,
 				3170CB2624768889008CE182 /* Assets.xcassets in Resources */,
@@ -376,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315BE18D248BB830009FA20D /* about.html in Resources */,
 				31D50596248258BB008C5642 /* thumbnail.png in Resources */,
 				31D50595248258BB008C5642 /* thumbnail@2x.png in Resources */,
 			);
@@ -430,6 +440,7 @@
 				3170CB4924768962008CE182 /* Animator.swift in Sources */,
 				3170CB4724768952008CE182 /* ScheduleListCell.swift in Sources */,
 				3170CB4524768952008CE182 /* ScheduleConfigurationViewController.swift in Sources */,
+				315BE18C248BB830009FA20D /* AboutViewController.swift in Sources */,
 				3170CB502476896F008CE182 /* Configuration.swift in Sources */,
 				3170CB4424768952008CE182 /* CommandListCell.swift in Sources */,
 				3170CB4624768952008CE182 /* AppearanceListCell.swift in Sources */,
@@ -483,6 +494,7 @@
 				E30375D5CD81E49E66B3AB1C /* ScheduleConfigurationViewController.swift in Sources */,
 				E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */,
 				E306D43177691FAB802E83D1 /* ScheduleListCell.swift in Sources */,
+				315BE18B248BB830009FA20D /* AboutViewController.swift in Sources */,
 				E302EB3C77FC059DE7C28113 /* ConfigurationSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,7 +759,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp";
 				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.Epigraver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -778,7 +790,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp";
 				PRODUCT_BUNDLE_IDENTIFIER = net.beeger.scrn.Epigraver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
