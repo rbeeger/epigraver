@@ -20,7 +20,6 @@ DerivedData
 *.xccheckout
 /build/
 Carthage/
-/buildRelease/Epigraver.dmg
-/buildRelease/Epigraver.saver
-/buildRelease/notarizationInfo.plist
-/buildRelease/notarizationUpload.plist
+notarizationInfo.plist
+notarizationUpload.plist
+/Epigraver.dmg

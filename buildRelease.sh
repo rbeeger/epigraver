@@ -1,13 +1,15 @@
 #!/usr/bin/env zsh
 
 xcodebuild \
-  -project ../Epigraver.xcodeproj \
+  -project Epigraver.xcodeproj \
   -target Epigraver \
   -configuration Release
 
 [[ -f Epigraver.dmg ]] && rm Epigraver.dmg
 
 mkdir dmg_source
+
+cp assets/dmgbackground*.png .
 
 create-dmg \
   --no-internet-enable \
@@ -17,12 +19,12 @@ create-dmg \
   --window-pos 300 200 \
   --window-size 400 352 \
   --text-size 14 \
-  --add-file "Epigraver.saver" "../build/Release/Epigraver.saver" 200 190 \
-  --hide-extension "Epigraver.saver" \
+  --add-file "Epigraver.saver" "build/Release/Epigraver.saver" 200 190 \
   "Epigraver.dmg" \
   "dmg_source/"
 
 rmdir dmg_source
+rm dmgbackground*.png
 
 if [[ -z "${EPIGRAVER_DMG_SIGNER}" ]]
 then
