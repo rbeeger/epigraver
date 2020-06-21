@@ -37,6 +37,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = scheduleEntriesTable
+        view.borderType = .lineBorder
 
         return view
     }()
@@ -85,6 +86,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = weekdaysTable
+        view.borderType = .lineBorder
 
         return view
     }()
@@ -235,6 +237,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = appearancesTable
+        view.borderType = .lineBorder
 
         return view
     }()
@@ -270,6 +273,7 @@ class ScheduleConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = animatorsTable
+        view.borderType = .lineBorder
 
         return view
     }()

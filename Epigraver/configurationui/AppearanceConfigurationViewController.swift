@@ -31,6 +31,7 @@ class AppearanceConfigurationViewController: NSViewController {
         let view = NSScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.documentView = table
+        view.borderType = .lineBorder
 
         return view
     }()
