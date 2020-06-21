@@ -9,6 +9,8 @@ import AppKit
 class Rotate3DXAnimator: Animator {
     private var boxes: [NSBox]?
 
+    let typeName = "Rotate 3D X"
+
     func setup(boxes: [NSBox], on view: NSView) {
         boxes[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
         boxes[0].heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0).isActive = true

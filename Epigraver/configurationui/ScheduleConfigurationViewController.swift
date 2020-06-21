@@ -527,7 +527,7 @@ class ScheduleConfigurationViewController: NSViewController {
         }), byExtendingSelection: false)
 
         animatorsTable.selectRowIndexes(IndexSet(config.animatorTypes.compactMap { animatorType in
-            SaverConfiguration.shared.availableAnimators.firstIndex { $0.typeName() == animatorType }
+            SaverConfiguration.shared.availableAnimators.firstIndex { $0.typeName == animatorType }
         }), byExtendingSelection: false)
 
         changeComboBoxDelegation(toEnabled: true)
@@ -588,7 +588,7 @@ class ScheduleConfigurationViewController: NSViewController {
         }
 
         SaverConfiguration.shared.scheduleEntries[scheduleEntriesTable.selectedRow].animatorTypes =
-                animatorsTable.selectedRowIndexes.map { SaverConfiguration.shared.availableAnimators[$0].typeName() }
+                animatorsTable.selectedRowIndexes.map { SaverConfiguration.shared.availableAnimators[$0].typeName }
     }
 
 }
@@ -633,7 +633,7 @@ extension ScheduleConfigurationViewController: NSTableViewDelegate {
             let view = (tableView.makeView(
                     withIdentifier: Me.entryColumnIdentifier,
                     owner: self) as? GenericTextListCell) ?? GenericTextListCell()
-            view.text = SaverConfiguration.shared.availableAnimators[row].typeName()
+            view.text = SaverConfiguration.shared.availableAnimators[row].typeName
             view.identifier = Me.entryColumnIdentifier
             return view
         default: return NSTableCellView()

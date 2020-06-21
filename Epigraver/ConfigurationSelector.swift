@@ -40,7 +40,7 @@ class ConfigurationSelector {
 
         let animatorTypes: [String] = entry?.animatorTypes ?? []
         var anm = animatorTypes
-            .compactMap { typeName in configuration.availableAnimators.first {$0.typeName() == typeName } }
+            .compactMap { typeName in configuration.availableAnimators.first {$0.typeName == typeName } }
 
         if anm.count == 0 {
             anm.append(configuration.availableAnimators.first!)

@@ -26,7 +26,7 @@ class ConfigurationSelectorSpec: QuickSpec {
         init(selector: ConfigurationSelector) {
             command = selector.command
             appearanceIds = selector.appearances.map { $0.id }
-            animatorTypes = selector.animators.map { $0.typeName() }
+            animatorTypes = selector.animators.map { $0.typeName }
             animationInterval = selector.animationInterval
         }
 
@@ -94,7 +94,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                                   networkLocation: "",
                                   commandId: command0Id,
                                   appearanceIds: [appearance0Id],
-                                  animatorTypes: [animators[2].typeName()]),
+                                  animatorTypes: [animators[2].typeName]),
                     ScheduleEntry(weekdays: [2, 3],
                                   from: Time(hours: 11, minutes: 00),
                                   to: Time(hours: 12, minutes: 59),
@@ -102,7 +102,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                                   networkLocation: "",
                                   commandId: command1Id,
                                   appearanceIds: [appearance1Id, appearance0Id],
-                                  animatorTypes: [animators[1].typeName()]),
+                                  animatorTypes: [animators[1].typeName]),
                     ScheduleEntry(weekdays: [3],
                                   from: Time(hours: 11, minutes: 00),
                                   to: Time(hours: 12, minutes: 59),
@@ -110,7 +110,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                                   networkLocation: "",
                                   commandId: command2Id,
                                   appearanceIds: [appearance1Id],
-                                  animatorTypes: [animators[1].typeName(), animators[2].typeName()]),
+                                  animatorTypes: [animators[1].typeName, animators[2].typeName]),
                     ScheduleEntry(weekdays: [3],
                                   from: Time(hours: 11, minutes: 00),
                                   to: Time(hours: 12, minutes: 59),
@@ -118,7 +118,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                                   networkLocation: network0,
                                   commandId: command3Id,
                                   appearanceIds: [appearance1Id],
-                                  animatorTypes: [animators[1].typeName()]),
+                                  animatorTypes: [animators[1].typeName]),
                     ScheduleEntry(weekdays: [3],
                                   from: Time(hours: 11, minutes: 00),
                                   to: Time(hours: 12, minutes: 59),
@@ -126,7 +126,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                                   networkLocation: network1,
                                   commandId: command4Id,
                                   appearanceIds: [appearance1Id],
-                                  animatorTypes: [animators[1].typeName()]),
+                                  animatorTypes: [animators[1].typeName]),
                     ScheduleEntry(weekdays: [4],
                                   from: Time(hours: 22, minutes: 00),
                                   to: Time(hours: 02, minutes: 00),
@@ -134,7 +134,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                                   networkLocation: network1,
                                   commandId: command4Id,
                                   appearanceIds: [appearance0Id],
-                                  animatorTypes: [animators[2].typeName()])
+                                  animatorTypes: [animators[2].typeName])
                 ]
                 configuration = TestConfiguration(
                     currentTime: Time(hours: 11, minutes: 25),
@@ -212,7 +212,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 expect(ConfigurationSelection(selector: ConfigurationSelector(configuration: configuration)))
                     == ConfigurationSelection(command: "echo No command found!",
                                               appearanceIds: [appearance0Id],
-                                              animatorTypes: [configuration.availableAnimators[2].typeName()],
+                                              animatorTypes: [configuration.availableAnimators[2].typeName],
                                               animationInterval: 60)
             }
 
@@ -223,7 +223,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 expect(ConfigurationSelection(selector: ConfigurationSelector(configuration: configuration)))
                     == ConfigurationSelection(command: "command0 action",
                                               appearanceIds: [defaultAppearanceId],
-                                              animatorTypes: [configuration.availableAnimators[2].typeName()],
+                                              animatorTypes: [configuration.availableAnimators[2].typeName],
                                               animationInterval: 10)
             }
 
@@ -234,7 +234,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 expect(ConfigurationSelection(selector: ConfigurationSelector(configuration: configuration)))
                     == ConfigurationSelection(command: "command0 action",
                                               appearanceIds: [appearance0Id],
-                                              animatorTypes: [configuration.availableAnimators[0].typeName()],
+                                              animatorTypes: [configuration.availableAnimators[0].typeName],
                                               animationInterval: 10)
             }
 
@@ -244,7 +244,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 expect(ConfigurationSelection(selector: ConfigurationSelector(configuration: configuration)))
                     == ConfigurationSelection(command: "echo No command found!",
                                               appearanceIds: [defaultAppearanceId],
-                                              animatorTypes: [configuration.availableAnimators[0].typeName()],
+                                              animatorTypes: [configuration.availableAnimators[0].typeName],
                                               animationInterval: 60)
             }
 
@@ -256,7 +256,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 expect(ConfigurationSelection(selector: ConfigurationSelector(configuration: configuration)))
                     == ConfigurationSelection(command: "echo No command found!",
                                               appearanceIds: [defaultAppearanceId],
-                                              animatorTypes: [configuration.availableAnimators[0].typeName()],
+                                              animatorTypes: [configuration.availableAnimators[0].typeName],
                                               animationInterval: 60)
             }
 
@@ -268,7 +268,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 expect(ConfigurationSelection(selector: ConfigurationSelector(configuration: configuration)))
                     == ConfigurationSelection(command: "echo No command found!",
                                               appearanceIds: [defaultAppearanceId],
-                                              animatorTypes: [configuration.availableAnimators[0].typeName()],
+                                              animatorTypes: [configuration.availableAnimators[0].typeName],
                                               animationInterval: 60)
             }
         }
