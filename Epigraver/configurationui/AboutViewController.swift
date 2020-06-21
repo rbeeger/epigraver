@@ -32,13 +32,11 @@ class AboutViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        os_log(.info, "############# Load %{public}@", Bundle.main.description)
 
         let bundle = Bundle(for: AboutViewController.self)
 
         guard let htmlUrl = bundle.url(forResource: "about", withExtension: "html"),
               var urlComponents = URLComponents(url: htmlUrl, resolvingAgainstBaseURL: true) else {
-            os_log(.info, "############# Not loaded")
             return
         }
 
