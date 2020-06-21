@@ -348,7 +348,7 @@ class ScheduleConfigurationViewController: NSViewController {
                 constant: 8).isActive = true
         animatorsTableScroller.trailingAnchor.constraint(equalTo: timeStack.trailingAnchor).isActive = true
         animatorsTableScroller.widthAnchor.constraint(equalTo: appearancesTableScroller.widthAnchor,
-                multiplier: 1.0).isActive = true
+                multiplier: 0.7).isActive = true
 
         return box
     }()
