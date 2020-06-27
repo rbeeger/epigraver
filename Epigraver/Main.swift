@@ -9,29 +9,25 @@ import os
 
 class Main: ScreenSaverView {
     private let textDisplays: [NSTextField]
-    private let boxes: [NSBox]
+    private var boxes: [NSBox]
     private var current: Int
 
-    private let selectedAppearance: Appearance
-    private let selectedAnimator: Animator
-    private let selectedCommand: String
+    var selectedAppearance: Appearance!
+    var selectedAnimator: Animator!
+    var selectedCommand: String!
 
     override init?(frame: NSRect, isPreview: Bool) {
         textDisplays = [NSTextField(), NSTextField()]
         boxes = [NSBox(), NSBox()]
         current = 0
 
-        let configurationSelector = ConfigurationSelector()
-        selectedAppearance = configurationSelector.appearances.randomElement()!
-        selectedAnimator = configurationSelector.animators.randomElement()!
-        selectedCommand = configurationSelector.command
-
         // Need to do preview detection ourselves beecause isPreview is always true on Cataline
         // Found in https://github.com/JohnCoates/Aerial
         super.init(frame: frame, isPreview: frame.width < 400 && frame.height < 300)
 
+        selectConfiguration()
+
         wantsLayer = true
-        animationTimeInterval = configurationSelector.animationInterval
 
         let box = NSBox()
         box.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +48,35 @@ class Main: ScreenSaverView {
         configureDisplay(index: 1)
 
         selectedAnimator.setup(boxes: boxes, on: self)
+    }
+
+    func resetAnimator(animator: Animator) {
+        stopAnimation()
+
+        current = 0
+
+        boxes[0].removeFromSuperview()
+        boxes[1].removeFromSuperview()
+
+        boxes = [NSBox(), NSBox()]
+
+        addSubview(boxes[0])
+        addSubview(boxes[1])
+        configureDisplay(index: 0)
+        configureDisplay(index: 1)
+
+        selectedAnimator = animator
+        selectedAnimator.setup(boxes: boxes, on: self)
+
+        startAnimation()
+    }
+
+    func selectConfiguration() {
+        let configurationSelector = ConfigurationSelector()
+        selectedAppearance = configurationSelector.appearances.randomElement()!
+        selectedAnimator = configurationSelector.animators.randomElement()!
+        selectedCommand = configurationSelector.command
+        animationTimeInterval = configurationSelector.animationInterval
     }
 
     required init?(coder decoder: NSCoder) {
@@ -104,6 +129,17 @@ class Main: ScreenSaverView {
     ]
 
     override func animateOneFrame() {
+        let output = nextOutput()
+        let next = 1 - current
+        textDisplays[next].attributedStringValue = NSAttributedString(string: output)
+
+        selectedAnimator.animate(nextActiveIndex: next)
+        self.current = next
+
+        super.animateOneFrame()
+    }
+
+    func nextOutput() -> String {
         let output: String
         if isPreview {
             output = previewEpigraphs.randomElement()!
@@ -119,12 +155,6 @@ class Main: ScreenSaverView {
             let data = pipe.fileHandleForReading.readDataToEndOfFile()
             output = String(data: data, encoding: String.Encoding.utf8)!
         }
-        let next = 1 - current
-        textDisplays[next].attributedStringValue = NSAttributedString(string: output)
-
-        selectedAnimator.animate(nextActiveIndex: next)
-        self.current = next
-
-        super.animateOneFrame()
+        return output
     }
 }
