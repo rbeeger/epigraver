@@ -128,7 +128,8 @@ class SaverConfiguration: Configuration {
         ZoomAnimator(),
         RotateAnimator(),
         Rotate3DXAnimator(),
-        Rotate3DYAnimator()
+        Rotate3DYAnimator(),
+        FadeAnimator()
     ]
 
     var scheduleEntries: [ScheduleEntry] = []

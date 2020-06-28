@@ -83,10 +83,11 @@ class ViewController: NSViewController {
     private let animators: [Animator] = [
         HorizontalSlideAnimator(),
         VerticalSlideAnimator(),
+        ZoomAnimator(),
         RotateAnimator(),
         Rotate3DXAnimator(),
         Rotate3DYAnimator(),
-        ZoomAnimator()
+        FadeAnimator()
     ]
 
     override func viewDidLoad() {
