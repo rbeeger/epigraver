@@ -27,12 +27,12 @@ class ZoomAnimator: Animator {
             context.duration = 5
             context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
-            boxes[currentlyActiveIndex].layer?.setAffineTransform(CGAffineTransform(scaleX: 1.7, y: 1.7))
+            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeScale(1.7, 1.7, 1.0)
             boxes[currentlyActiveIndex].alphaValue = 0.0
-            boxes[nextActiveIndex].layer?.setAffineTransform(CGAffineTransform(scaleX: 1.0, y: 1.0))
+            boxes[nextActiveIndex].layer?.transform = CATransform3DIdentity
             boxes[nextActiveIndex].alphaValue = 1.0
         }, completionHandler: {
-            boxes[currentlyActiveIndex].layer?.setAffineTransform(CGAffineTransform(scaleX: 0.3, y: 0.3))
+            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeScale(0.3, 0.3, 1.0)
         })
     }
 }

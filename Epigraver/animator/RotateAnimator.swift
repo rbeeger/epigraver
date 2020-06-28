@@ -27,12 +27,12 @@ class RotateAnimator: Animator {
             context.duration = 5
             context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
-            boxes[currentlyActiveIndex].layer?.setAffineTransform(CGAffineTransform(rotationAngle: 1.7 * .pi))
+            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(1.7 * .pi, 0, 0, 1)
             boxes[currentlyActiveIndex].alphaValue = 0.0
-            boxes[nextActiveIndex].layer?.setAffineTransform(CGAffineTransform(rotationAngle: 0))
+            boxes[nextActiveIndex].layer?.transform = CATransform3DIdentity
             boxes[nextActiveIndex].alphaValue = 1.0
         }, completionHandler: {
-            boxes[currentlyActiveIndex].layer?.setAffineTransform(CGAffineTransform(rotationAngle: 0.3 * .pi))
+            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(0.3 * .pi, 0, 0, 1)
         })
     }
 }

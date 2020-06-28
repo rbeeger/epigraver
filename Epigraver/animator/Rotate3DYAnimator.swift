@@ -29,7 +29,7 @@ class Rotate3DYAnimator: Animator {
             context.allowsImplicitAnimation = true
             boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(1.3 * .pi, 0, 1, 0)
             boxes[currentlyActiveIndex].alphaValue = 0.0
-            boxes[nextActiveIndex].layer?.transform = CATransform3DMakeRotation(0, 0, 1, 0)
+            boxes[nextActiveIndex].layer?.transform = CATransform3DIdentity
             boxes[nextActiveIndex].alphaValue = 1.0
         }, completionHandler: {
             boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(1.4 * .pi, 0, 1, 0)
