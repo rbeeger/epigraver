@@ -72,7 +72,7 @@ class Main: ScreenSaverView {
         selectedAppearance = configurationSelector.appearances.randomElement()!
         selectedAnimator = configurationSelector.animators.randomElement()!
         selectedCommand = configurationSelector.command
-        animationTimeInterval = configurationSelector.animationInterval
+        animationTimeInterval = isPreview ? 10 : configurationSelector.animationInterval
     }
 
     required init?(coder decoder: NSCoder) {
