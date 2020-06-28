@@ -9,7 +9,7 @@ import os
 
 class Main: ScreenSaverView {
     private let textDisplays: [NSTextField]
-    private var boxes: [NSBox]
+    private var textDisplayBoxes: [NSBox]
     private var current: Int
 
     var selectedAppearance: Appearance!
@@ -18,7 +18,7 @@ class Main: ScreenSaverView {
 
     override init?(frame: NSRect, isPreview: Bool) {
         textDisplays = [NSTextField(), NSTextField()]
-        boxes = [NSBox(), NSBox()]
+        textDisplayBoxes = [NSBox(), NSBox()]
         current = 0
 
         // Need to do preview detection ourselves beecause isPreview is always true on Cataline
@@ -29,23 +29,23 @@ class Main: ScreenSaverView {
 
         wantsLayer = true
 
-        let box = NSBox()
-        box.translatesAutoresizingMaskIntoConstraints = false
-        box.boxType = .custom
-        box.borderWidth = 0.0
-        box.fillColor = selectedAppearance.backgroundNSColor
+        let backgroundBox = NSBox()
+        backgroundBox.translatesAutoresizingMaskIntoConstraints = false
+        backgroundBox.boxType = .custom
+        backgroundBox.borderWidth = 0.0
+        backgroundBox.fillColor = selectedAppearance.backgroundNSColor
 
-        addSubview(box)
+        addSubview(backgroundBox)
 
-        box.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        box.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        box.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        box.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        backgroundBox.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundBox.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        backgroundBox.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        backgroundBox.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 
         configureDisplay(index: 0)
         configureDisplay(index: 1)
 
-        selectedAnimator.setup(boxes: boxes, on: self)
+        selectedAnimator.setup(boxes: textDisplayBoxes, on: self)
     }
 
     func resetAnimator(animator: Animator) {
@@ -53,16 +53,16 @@ class Main: ScreenSaverView {
 
         current = 0
 
-        boxes[0].removeFromSuperview()
-        boxes[1].removeFromSuperview()
+        textDisplayBoxes[0].removeFromSuperview()
+        textDisplayBoxes[1].removeFromSuperview()
 
-        boxes = [NSBox(), NSBox()]
+        textDisplayBoxes = [NSBox(), NSBox()]
 
         configureDisplay(index: 0)
         configureDisplay(index: 1)
 
         selectedAnimator = animator
-        selectedAnimator.setup(boxes: boxes, on: self)
+        selectedAnimator.setup(boxes: textDisplayBoxes, on: self)
 
         startAnimation()
     }
@@ -80,7 +80,7 @@ class Main: ScreenSaverView {
     }
 
     func configureDisplay(index: Int) {
-        let box = boxes[index]
+        let box = textDisplayBoxes[index]
         addSubview(box)
 
         box.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0).isActive = true
