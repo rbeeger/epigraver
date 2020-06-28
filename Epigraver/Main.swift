@@ -42,8 +42,6 @@ class Main: ScreenSaverView {
         box.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         box.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 
-        addSubview(boxes[0])
-        addSubview(boxes[1])
         configureDisplay(index: 0)
         configureDisplay(index: 1)
 
@@ -60,8 +58,6 @@ class Main: ScreenSaverView {
 
         boxes = [NSBox(), NSBox()]
 
-        addSubview(boxes[0])
-        addSubview(boxes[1])
         configureDisplay(index: 0)
         configureDisplay(index: 1)
 
@@ -85,6 +81,13 @@ class Main: ScreenSaverView {
 
     func configureDisplay(index: Int) {
         let box = boxes[index]
+        addSubview(box)
+
+        box.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0).isActive = true
+        box.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1.0).isActive = true
+        box.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        box.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
         let textDisplay = textDisplays[index]
 
         box.translatesAutoresizingMaskIntoConstraints = false

@@ -12,16 +12,6 @@ class ZoomAnimator: Animator {
     let typeName = "Zoom"
 
     func setup(boxes: [NSBox], on view: NSView) {
-        boxes[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
-        boxes[0].heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0).isActive = true
-        boxes[0].centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        boxes[0].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-        boxes[1].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
-        boxes[1].heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0).isActive = true
-        boxes[1].centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        boxes[1].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
         boxes[1].alphaValue = 0.0
 
         self.boxes = boxes
