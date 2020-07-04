@@ -33,6 +33,8 @@
 		3107D21F24A749B200A7C419 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
 		3107D22024A749B200A7C419 /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E19D73D2EAA963C73C851 /* ScheduleListCell.swift */; };
 		3107D22124A749B600A7C419 /* ConfigurationSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */; };
+		311C967024B06D1C00509AD0 /* RotateZoomedAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C966F24B06D1C00509AD0 /* RotateZoomedAnimator.swift */; };
+		311C967124B06D1C00509AD0 /* RotateZoomedAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C966F24B06D1C00509AD0 /* RotateZoomedAnimator.swift */; };
 		3136B19C247A59AD0079481C /* ConfigurationSelectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */; };
 		3136B19E247A5A210079481C /* TestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3136B19D247A5A210079481C /* TestConfiguration.swift */; };
 		31406E2F24A8A5D6001524DC /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31406E2E24A8A5D6001524DC /* FadeAnimator.swift */; };
@@ -84,6 +86,7 @@
 		3107D20524A7492D00A7C419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3107D20724A7492D00A7C419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3107D20824A7492D00A7C419 /* EpigraverApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EpigraverApp.entitlements; sourceTree = "<group>"; };
+		311C966F24B06D1C00509AD0 /* RotateZoomedAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateZoomedAnimator.swift; sourceTree = "<group>"; };
 		3136B19B247A59AD0079481C /* ConfigurationSelectorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSelectorSpec.swift; sourceTree = "<group>"; };
 		3136B19D247A5A210079481C /* TestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfiguration.swift; sourceTree = "<group>"; };
 		31406E2E24A8A5D6001524DC /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 				E30CB8DD0D1BAAC07ACC2F0E /* HorizontalSlideAnimator.swift */,
 				31406E2E24A8A5D6001524DC /* FadeAnimator.swift */,
 				3145716D24A8B3D70005DB73 /* PulseAnimator.swift */,
+				311C966F24B06D1C00509AD0 /* RotateZoomedAnimator.swift */,
 			);
 			path = animator;
 			sourceTree = "<group>";
@@ -454,6 +458,7 @@
 				3107D1FF24A7492C00A7C419 /* AppDelegate.swift in Sources */,
 				3107D21624A749A700A7C419 /* RotateAnimator.swift in Sources */,
 				3107D21524A749A700A7C419 /* VerticalSlideAnimator.swift in Sources */,
+				311C967124B06D1C00509AD0 /* RotateZoomedAnimator.swift in Sources */,
 				3107D21824A749B200A7C419 /* AboutViewController.swift in Sources */,
 				3107D21024A7499D00A7C419 /* NSColor+Extension.swift in Sources */,
 			);
@@ -484,6 +489,7 @@
 				E30F4F0F3E0563E59ACC4C1F /* Rotate3DYAnimator.swift in Sources */,
 				E3095F483F4A46716D22FA28 /* VerticalSlideAnimator.swift in Sources */,
 				E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */,
+				311C967024B06D1C00509AD0 /* RotateZoomedAnimator.swift in Sources */,
 				E30F0DA9AD3EEAB55DDE55D6 /* HorizontalSlideAnimator.swift in Sources */,
 				E30E3C966C41DB4263C764E6 /* GenericTextListCell.swift in Sources */,
 				E30B5ADBCC42C818B37678F3 /* CommandConfigurationViewController.swift in Sources */,

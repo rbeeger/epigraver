@@ -88,6 +88,7 @@ class ViewController: NSViewController {
         Rotate3DXAnimator(),
         Rotate3DYAnimator(),
         PulseAnimator(),
+        RotateZoomedAnimator(),
         FadeAnimator()
     ]
 

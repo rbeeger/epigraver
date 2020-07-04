@@ -130,6 +130,7 @@ class SaverConfiguration: Configuration {
         Rotate3DXAnimator(),
         Rotate3DYAnimator(),
         PulseAnimator(),
+        RotateZoomedAnimator(),
         FadeAnimator()
     ]
 
