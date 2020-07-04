@@ -243,7 +243,7 @@ class ScheduleConfigurationViewController: NSViewController {
     }()
 
     private lazy var animatorsLabel: NSTextField = {
-        let view = NSTextField(labelWithString: "Animators")
+        let view = NSTextField(labelWithString: "Animations")
         view.translatesAutoresizingMaskIntoConstraints = false
         view.alignment = .left
 
