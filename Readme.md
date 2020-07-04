@@ -2,7 +2,7 @@
 
 Epigraver is a macOS screensaver that repeatedly calls some command line program or script specified by the user 
 and displays the textual output of that script on the screen. The transition from one output to the next is animated 
-with various animations.
+using one of serveral animations.
 
 Originally the screensaver was just meant to display the output from the 
 [fortune](https://en.wikipedia.org/wiki/Fortune_%28Unix%29) program, but in its current iteration, it can call anything
@@ -39,13 +39,13 @@ In the preference pane for screensavers open the preferences for Epigraver and t
 This is where you specify all the commands you want the screensaver to call.
 
 The settings for each command are:
-  * **Name** The name for the command. This is what you'll see in the command list in the schedule configuration
-  * **Command** The command line to execute. zsh is used to execute it. You can just enter the full path to some 
+  * **Name:** The name for the command. This is what you'll see in the command list in the schedule configuration
+  * **Command:** The command line to execute. zsh is used to execute it. You can just enter the full path to some 
     command line program here - like `/usr/local/bin/fortune` in this example - or anything else that would 
     work on a shell (e.g. `date`, `time`). Just like when you would run it in your terminal application, you can add 
     command line parameters to use here. To have a fortune command that only displays offensive entries you would enter
     `/usr/local/bin/fortune -o` here
-  * **Animation Interval** The interval at which the command is called again. Here it is called every 60 seconds.
+  * **Animation Interval:** The interval at which the command is called again. Here it is called every 60 seconds.
   
 The **Test** button executes the command once and displays the result in the preview below.
 
@@ -60,29 +60,29 @@ Until now you may have wondered why you can specify multiple commands and appear
 
 ![Schedule Configuration](assets/configuration_schedule.png)
 
-The schedule enables you to specify when what commands with which appearances and animators are executed. Let's 
+The schedule enables you to specify when what commands with which appearances and animations are executed. Let's 
 go through the available options from top to bottom
 
- * **Time** Set the time range and weekdays for a schedule entry. Note that as a time range you can also specify 
+ * **Time:** Set the time range and weekdays for a schedule entry. Note that as a time range you can also specify 
    something like `19:00 - 06:00`. This would be a night entry that would be active from 7PM until 6AM on the next morning.
- * **WIFI Name** You can - but do not need to - specify the name of a WIFI network this entry is to be active on. The 
-   drop down menu contains the name of the current WIFI if you are currently using one. You can enter any name here 
+ * **WiFi Name:** You can - but do not need to - specify the name of a WiFi network this entry is to be active on. The 
+   drop down menu contains the name of the current WiFi if you are currently using one. You can enter any name here 
    though. One possible use for this is to create distinct schedule entries for when you are at the office, at home or
    some public place like your favorite coffee shop.
- * **Network Location** As with the previous, another way to have some kind of location awareness. The drop down menu 
+ * **Network Location:** As with the previous, another way to have some kind of location awareness. The drop down menu 
    lists all network locations configured in the network preference pane. You can only choose from those because if it
    isn't configured there, it will never be active.
- * **Command** The command to use for a schedule entry. The list contains the names of all commands configured on the 
+ * **Command:** The command to use for a schedule entry. The list contains the names of all commands configured on the 
    Commands tab.
- * **Appearances** Choose one or more appearances to use. When the screensaver is started it selects one random 
+ * **Appearances:** Choose one or more appearances to use. When the screensaver is started it selects one random 
    entry from your chosen appearances for the active schedule entry and uses that one for the whole run of the screensaver.  
- * **Animators** Animators are used to animate the transition from one output of the command to the next. The names give
-   a rough indication of the kind of animation used, but the best way to get to know them is to choose just one animator 
-   and then run the screensaver. 
+ * **Animations:** There are several animations available for the transition from one output of the command to the next. 
+   The names give a rough indication of the kind of animation, but the best way to get to know them is to choose 
+   just one of them and then run the screensaver. 
    
 When Epigraver is started, it looks through the list of schedule entries from top to bottom and takes the first that 
 matches the current situation. It's a good idea to have one generic catch all entry at the bottom and more specific entries 
-further up in the list. A command, one appearance and one animator are chosen at the start of the screensaver. Even
+further up in the list. A command, one appearance and one animation are chosen at the start of the screensaver. Even
 if another schedule entry would become active while the screensaver is running, it won't be chosen. The screensaver always
 sticks with the configuration it selected at the start.   
 
