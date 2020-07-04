@@ -6,10 +6,10 @@
 import Foundation
 import AppKit
 
-class Rotate3DYAnimator: Animator {
+class RotateYAnimator: Animator {
     private var boxes: [NSBox]?
 
-    let typeName = "Rotate 3D Y"
+    let typeName = "Rotate Y"
 
     func setup(boxes: [NSBox], on view: NSView) {
         boxes[1].alphaValue = 0.0

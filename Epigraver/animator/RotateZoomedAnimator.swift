@@ -8,6 +8,7 @@ import AppKit
 
 class RotateZoomedAnimator: Animator {
     private var boxes: [NSBox]?
+
     let typeName = "Rotate Zoomed"
 
     func setup(boxes: [NSBox], on view: NSView) {

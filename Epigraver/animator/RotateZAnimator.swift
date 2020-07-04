@@ -6,10 +6,10 @@
 import Foundation
 import AppKit
 
-class Rotate3DXAnimator: Animator {
+class RotateZAnimator: Animator {
     private var boxes: [NSBox]?
 
-    let typeName = "Rotate 3D X"
+    let typeName = "Rotate Z"
 
     func setup(boxes: [NSBox], on view: NSView) {
         boxes[1].alphaValue = 0.0
@@ -27,12 +27,12 @@ class Rotate3DXAnimator: Animator {
             context.duration = 5
             context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
-            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(0.6 * .pi, 1, 0, 0)
+            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(1.7 * .pi, 0, 0, 1)
             boxes[currentlyActiveIndex].alphaValue = 0.0
             boxes[nextActiveIndex].layer?.transform = CATransform3DIdentity
             boxes[nextActiveIndex].alphaValue = 1.0
         }, completionHandler: {
-            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(0.9 * .pi, 1, 0, 0)
+            boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(0.3 * .pi, 0, 0, 1)
         })
     }
 }

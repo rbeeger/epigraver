@@ -18,10 +18,10 @@
 		3107D21024A7499D00A7C419 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */; };
 		3107D21124A749A700A7C419 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304BABFB80835702A3E8772 /* Animator.swift */; };
 		3107D21224A749A700A7C419 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A3A08749AC6264054C871 /* ZoomAnimator.swift */; };
-		3107D21324A749A700A7C419 /* Rotate3DXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FBE275A3D7D21535B7A08 /* Rotate3DXAnimator.swift */; };
-		3107D21424A749A700A7C419 /* Rotate3DYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */; };
+		3107D21324A749A700A7C419 /* RotateXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FBE275A3D7D21535B7A08 /* RotateXAnimator.swift */; };
+		3107D21424A749A700A7C419 /* RotateYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3060D58F65B389AAAC63782 /* RotateYAnimator.swift */; };
 		3107D21524A749A700A7C419 /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F731D98EAB28EC7FEB595 /* VerticalSlideAnimator.swift */; };
-		3107D21624A749A700A7C419 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
+		3107D21624A749A700A7C419 /* RotateZAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateZAnimator.swift */; };
 		3107D21724A749A700A7C419 /* HorizontalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CB8DD0D1BAAC07ACC2F0E /* HorizontalSlideAnimator.swift */; };
 		3107D21824A749B200A7C419 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315BE189248BB830009FA20D /* AboutViewController.swift */; };
 		3107D21924A749B200A7C419 /* GenericTextListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C1F36C23F3A7273EEBA7B /* GenericTextListCell.swift */; };
@@ -48,14 +48,14 @@
 		31D50595248258BB008C5642 /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D50593248258BB008C5642 /* thumbnail@2x.png */; };
 		31D50596248258BB008C5642 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D50594248258BB008C5642 /* thumbnail.png */; };
 		31F387FC21203CA6000663CB /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F387FB21203CA6000663CB /* Main.swift */; };
-		E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */; };
+		E300A700F402663236C31A72 /* RotateZAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30319718AAA2AC2AE477BC6 /* RotateZAnimator.swift */; };
 		E30236463CB6339D4BA10ED9 /* AppearanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C826FFE472150D43B1377 /* AppearanceListCell.swift */; };
 		E302EB3C77FC059DE7C28113 /* ConfigurationSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */; };
 		E30375D5CD81E49E66B3AB1C /* ScheduleConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056149D1F591C95C5601D8 /* ScheduleConfigurationViewController.swift */; };
 		E304072D2761A48B2F427D00 /* AppearanceConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3013CC75CDA91B88ECA90C8 /* AppearanceConfigurationViewController.swift */; };
 		E305C1782E8CFCD4536F0A2D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30BFE001FF6D7AFF6A7A6BA /* Configuration.swift */; };
 		E306D43177691FAB802E83D1 /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E19D73D2EAA963C73C851 /* ScheduleListCell.swift */; };
-		E30934B7CCC53602E6D49218 /* Rotate3DXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FBE275A3D7D21535B7A08 /* Rotate3DXAnimator.swift */; };
+		E30934B7CCC53602E6D49218 /* RotateXAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FBE275A3D7D21535B7A08 /* RotateXAnimator.swift */; };
 		E3095F483F4A46716D22FA28 /* VerticalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F731D98EAB28EC7FEB595 /* VerticalSlideAnimator.swift */; };
 		E3099A1C9CA87DEBA5C9ADF8 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */; };
 		E309AD50F7216A0237EDD194 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A3A08749AC6264054C871 /* ZoomAnimator.swift */; };
@@ -65,7 +65,7 @@
 		E30CFEA8A8ABC48B017E049C /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304BABFB80835702A3E8772 /* Animator.swift */; };
 		E30E3C966C41DB4263C764E6 /* GenericTextListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C1F36C23F3A7273EEBA7B /* GenericTextListCell.swift */; };
 		E30F0DA9AD3EEAB55DDE55D6 /* HorizontalSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CB8DD0D1BAAC07ACC2F0E /* HorizontalSlideAnimator.swift */; };
-		E30F4F0F3E0563E59ACC4C1F /* Rotate3DYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */; };
+		E30F4F0F3E0563E59ACC4C1F /* RotateYAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3060D58F65B389AAAC63782 /* RotateYAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,11 +103,11 @@
 		31F387F421203C2E000663CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F387FB21203CA6000663CB /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		E3013CC75CDA91B88ECA90C8 /* AppearanceConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceConfigurationViewController.swift; sourceTree = "<group>"; };
-		E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimator.swift; sourceTree = "<group>"; };
+		E30319718AAA2AC2AE477BC6 /* RotateZAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateZAnimator.swift; sourceTree = "<group>"; };
 		E304BABFB80835702A3E8772 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		E3056149D1F591C95C5601D8 /* ScheduleConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleConfigurationViewController.swift; sourceTree = "<group>"; };
 		E305FC428BD05CA894E902BC /* CommandListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandListCell.swift; sourceTree = "<group>"; };
-		E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DYAnimator.swift; sourceTree = "<group>"; };
+		E3060D58F65B389AAAC63782 /* RotateYAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateYAnimator.swift; sourceTree = "<group>"; };
 		E30662FCC2B50C09337AA171 /* ConfigurationSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSelector.swift; sourceTree = "<group>"; };
 		E307437A3CB234E2C62291D9 /* NSColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
 		E30A3A08749AC6264054C871 /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		E30D380377EA9890DA52C58D /* ConfigurationSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSheet.swift; sourceTree = "<group>"; };
 		E30E19D73D2EAA963C73C851 /* ScheduleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
 		E30F731D98EAB28EC7FEB595 /* VerticalSlideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideAnimator.swift; sourceTree = "<group>"; };
-		E30FBE275A3D7D21535B7A08 /* Rotate3DXAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotate3DXAnimator.swift; sourceTree = "<group>"; };
+		E30FBE275A3D7D21535B7A08 /* RotateXAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateXAnimator.swift; sourceTree = "<group>"; };
 		E30FDB7230942068EF59C7B5 /* CommandConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandConfigurationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,10 +232,10 @@
 			children = (
 				E304BABFB80835702A3E8772 /* Animator.swift */,
 				E30A3A08749AC6264054C871 /* ZoomAnimator.swift */,
-				E30FBE275A3D7D21535B7A08 /* Rotate3DXAnimator.swift */,
-				E3060D58F65B389AAAC63782 /* Rotate3DYAnimator.swift */,
+				E30FBE275A3D7D21535B7A08 /* RotateXAnimator.swift */,
+				E3060D58F65B389AAAC63782 /* RotateYAnimator.swift */,
 				E30F731D98EAB28EC7FEB595 /* VerticalSlideAnimator.swift */,
-				E30319718AAA2AC2AE477BC6 /* RotateAnimator.swift */,
+				E30319718AAA2AC2AE477BC6 /* RotateZAnimator.swift */,
 				E30CB8DD0D1BAAC07ACC2F0E /* HorizontalSlideAnimator.swift */,
 				31406E2E24A8A5D6001524DC /* FadeAnimator.swift */,
 				3145716D24A8B3D70005DB73 /* PulseAnimator.swift */,
@@ -444,8 +444,8 @@
 				31406E3024A8A5D6001524DC /* FadeAnimator.swift in Sources */,
 				3107D20124A7492C00A7C419 /* ViewController.swift in Sources */,
 				3107D21B24A749B200A7C419 /* ConfigurationSheet.swift in Sources */,
-				3107D21324A749A700A7C419 /* Rotate3DXAnimator.swift in Sources */,
-				3107D21424A749A700A7C419 /* Rotate3DYAnimator.swift in Sources */,
+				3107D21324A749A700A7C419 /* RotateXAnimator.swift in Sources */,
+				3107D21424A749A700A7C419 /* RotateYAnimator.swift in Sources */,
 				3107D21D24A749B200A7C419 /* CommandListCell.swift in Sources */,
 				3107D21224A749A700A7C419 /* ZoomAnimator.swift in Sources */,
 				3107D20F24A7499900A7C419 /* Configuration.swift in Sources */,
@@ -456,7 +456,7 @@
 				3107D22124A749B600A7C419 /* ConfigurationSelector.swift in Sources */,
 				3107D21C24A749B200A7C419 /* AppearanceConfigurationViewController.swift in Sources */,
 				3107D1FF24A7492C00A7C419 /* AppDelegate.swift in Sources */,
-				3107D21624A749A700A7C419 /* RotateAnimator.swift in Sources */,
+				3107D21624A749A700A7C419 /* RotateZAnimator.swift in Sources */,
 				3107D21524A749A700A7C419 /* VerticalSlideAnimator.swift in Sources */,
 				311C967124B06D1C00509AD0 /* RotateZoomedAnimator.swift in Sources */,
 				3107D21824A749B200A7C419 /* AboutViewController.swift in Sources */,
@@ -484,11 +484,11 @@
 				E3099A1C9CA87DEBA5C9ADF8 /* NSColor+Extension.swift in Sources */,
 				E30CFEA8A8ABC48B017E049C /* Animator.swift in Sources */,
 				E309AD50F7216A0237EDD194 /* ZoomAnimator.swift in Sources */,
-				E30934B7CCC53602E6D49218 /* Rotate3DXAnimator.swift in Sources */,
+				E30934B7CCC53602E6D49218 /* RotateXAnimator.swift in Sources */,
 				3145716E24A8B3D70005DB73 /* PulseAnimator.swift in Sources */,
-				E30F4F0F3E0563E59ACC4C1F /* Rotate3DYAnimator.swift in Sources */,
+				E30F4F0F3E0563E59ACC4C1F /* RotateYAnimator.swift in Sources */,
 				E3095F483F4A46716D22FA28 /* VerticalSlideAnimator.swift in Sources */,
-				E300A700F402663236C31A72 /* RotateAnimator.swift in Sources */,
+				E300A700F402663236C31A72 /* RotateZAnimator.swift in Sources */,
 				311C967024B06D1C00509AD0 /* RotateZoomedAnimator.swift in Sources */,
 				E30F0DA9AD3EEAB55DDE55D6 /* HorizontalSlideAnimator.swift in Sources */,
 				E30E3C966C41DB4263C764E6 /* GenericTextListCell.swift in Sources */,

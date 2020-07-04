@@ -84,10 +84,10 @@ class ViewController: NSViewController {
         HorizontalSlideAnimator(),
         VerticalSlideAnimator(),
         ZoomAnimator(),
-        RotateAnimator(),
-        Rotate3DXAnimator(),
-        Rotate3DYAnimator(),
         PulseAnimator(),
+        RotateZAnimator(),
+        RotateXAnimator(),
+        RotateYAnimator(),
         RotateZoomedAnimator(),
         FadeAnimator()
     ]
