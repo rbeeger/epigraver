@@ -64,7 +64,7 @@ class ConfigurationSelectorSpec: QuickSpec {
                 ]
                 let animators: [Animator] = [
                     ZoomAnimator(),
-                    RotateAnimator(),
+                    RotateZAnimator(),
                     HorizontalSlideAnimator()
                 ]
                 let defaulAppearances = [
