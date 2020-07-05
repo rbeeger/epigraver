@@ -2,7 +2,7 @@
 
 Epigraver is a macOS screensaver that repeatedly calls some command line program or script specified by the user 
 and displays the textual output of that script on the screen. The transition from one output to the next is animated 
-using one of serveral animations.
+using one of several animations.
 
 Originally the screensaver was just meant to display the output from the 
 [fortune](https://en.wikipedia.org/wiki/Fortune_%28Unix%29) program, but in its current iteration, it can call anything
@@ -32,7 +32,7 @@ in your terminal application of choice. By default brew will install it in `usr/
 path to it if you made any adjustments to your Homebrew configuration. You'll need it in the next step.
 
 ### Commands
-In the preference pane for screensavers open the preferences for Epigraver and there the **Commands** tab.
+In the preferences pane for screensavers open the preferences for Epigraver and there the **Commands** tab.
 
 ![Commands Configuration](assets/configuration_commands.png)
 
@@ -70,7 +70,7 @@ go through the available options from top to bottom
    though. One possible use for this is to create distinct schedule entries for when you are at the office, at home or
    some public place like your favorite coffee shop.
  * **Network Location:** As with the previous, another way to have some kind of location awareness. The drop down menu 
-   lists all network locations configured in the network preference pane. You can only choose from those because if it
+   lists all network locations configured in the network preferences pane. You can only choose from those because if it
    isn't configured there, it will never be active.
  * **Command:** The command to use for a schedule entry. The list contains the names of all commands configured on the 
    Commands tab.
