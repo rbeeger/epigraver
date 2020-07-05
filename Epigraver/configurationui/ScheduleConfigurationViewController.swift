@@ -450,7 +450,7 @@ class ScheduleConfigurationViewController: NSViewController {
                 networkLocation: "",
                 commandId: SaverConfiguration.shared.commands.first?.id ?? "",
                 appearanceIds: SaverConfiguration.shared.appearances.map { $0.id  },
-                animatorTypes: SaverConfiguration.shared.availableAnimators.map {String(describing: type(of: $0))}
+                animatorTypes: SaverConfiguration.shared.availableAnimators.map { $0.typeName }
         ))
         scheduleEntriesTable.reloadData()
         scheduleEntriesTable.selectRowIndexes(IndexSet(integer: SaverConfiguration.shared.scheduleEntries.count - 1),
