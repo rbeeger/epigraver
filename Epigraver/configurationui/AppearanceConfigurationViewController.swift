@@ -38,9 +38,9 @@ class AppearanceConfigurationViewController: NSViewController {
 
     private lazy var buttonBar: NSSegmentedControl = {
         let view = NSSegmentedControl(images: [
-            NSImage(named: NSImage.addTemplateName)!,
-            NSImage(named: NSImage.removeTemplateName)!], trackingMode: .momentary,
-                target: self, action: #selector(addOrRemoveAppearance))
+            NSImage(systemSymbolName: "plus", accessibilityDescription: "add new appearance")!,
+            NSImage(systemSymbolName: "minus", accessibilityDescription: "remove appearance")!
+        ], trackingMode: .momentary, target: self, action: #selector(addOrRemoveAppearance))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isContinuous = false
 
