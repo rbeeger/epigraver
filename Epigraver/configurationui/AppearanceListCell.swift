@@ -27,7 +27,6 @@ class AppearanceListCell: NSView {
         box.translatesAutoresizingMaskIntoConstraints = false
         box.boxType = .custom
         box.borderWidth = 1
-        box.borderType = .lineBorder
         box.cornerRadius = 5
         box.borderColor = .black
         box.titlePosition = .noTitle

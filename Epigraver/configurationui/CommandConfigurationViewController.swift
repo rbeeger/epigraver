@@ -165,7 +165,6 @@ class CommandConfigurationViewController: NSViewController {
         view.titlePosition = .noTitle
         view.boxType = .custom
         view.borderColor = .black
-        view.borderType = .lineBorder
         view.borderWidth = 1
         view.fillColor = SaverConfiguration.shared.appearances.first?.backgroundNSColor
                 ?? SaverConfiguration.shared.defaultAppearances.first!.backgroundNSColor

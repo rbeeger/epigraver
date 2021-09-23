@@ -121,7 +121,6 @@ class AppearanceConfigurationViewController: NSViewController {
         view.titlePosition = .noTitle
         view.boxType = .custom
         view.borderColor = .black
-        view.borderType = .lineBorder
         view.borderWidth = 1
 
         view.addSubview(previewTextDisplay)
