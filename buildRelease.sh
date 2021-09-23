@@ -36,66 +36,14 @@ echo "Signing DMG"
 
 codesign -s "${EPIGRAVER_DMG_SIGNER}" Epigraver.dmg --options runtime
 
-if [[ -z "${EPIGRAVER_NOTARIZATION_ACCOUNT}" ]]
+if [[ -z "${EPIGRAVER_NOTARIZATION_KEYCHAIN_PROFILE}" ]]
 then
-  echo "Notarization account missing"
+  echo "Notarization keychain profile missing"
   exit 1
 fi
 
-NOTARIZATION_USER=$(security find-generic-password -s "${EPIGRAVER_NOTARIZATION_ACCOUNT}" | awk -F\" '/acct"<blob>/ {print $4}')
-NOTARIZATION_PASSWD=$(security find-generic-password -gs "${EPIGRAVER_NOTARIZATION_ACCOUNT}" -w)
-
-if [[ -z "${NOTARIZATION_USER}" ]]
-then
-  echo "Failed to read notarization account user from keychain"
-  exit 1
-fi
-
-if [[ -z "${NOTARIZATION_PASSWD}" ]]
-then
-  echo "Failed to read notarization account password from keychain"
-  exit 1
-fi
-
-[[ -f notarizationUpload.plist ]] && rm notarizationUpload.plist
-[[ -f notarizationInfo.plist ]] && rm notarizationInfo.plist
-
-echo "Uploading for notarization"
-
-xcrun altool \
-  --notarize-app \
-  --primary-bundle-id "net.beeger.scrn.Epigraver" \
-  --username "${NOTARIZATION_USER}" \
-  --password "${NOTARIZATION_PASSWD}" \
-  --file Epigraver.dmg \
-  --output-format xml > notarizationUpload.plist
-
-echo "Upload finished"
-
-while true
-do
-  NOTARIZATION_INFO=$(/usr/libexec/PlistBuddy -c "Print :notarization-upload:RequestUUID" notarizationUpload.plist)
-  xcrun altool \
-    --notarization-info "${NOTARIZATION_INFO}" \
-    --username "${NOTARIZATION_USER}" \
-    --password "${NOTARIZATION_PASSWD}" \
-    --output-format xml > notarizationInfo.plist
-
-  if [[ $(/usr/libexec/PlistBuddy -c "Print :notarization-info:Status" notarizationInfo.plist) != "in progress" ]]
-  then
-    break
-  fi
-  echo "Waiting for notarization"
-  sleep 60
-done
-
-if [[ $(/usr/libexec/PlistBuddy -c "Print :notarization-info:Status" notarizationInfo.plist) != "success" ]]
-then
-  echo "Notarization failed"
-  exit 1
-fi
+xcrun notarytool submit Epigraver.dmg \
+                   --keychain-profile "${EPIGRAVER_NOTARIZATION_KEYCHAIN_PROFILE}" \
+                   --wait
 
 xcrun stapler staple "Epigraver.dmg"
-
-[[ -f notarizationUpload.plist ]] && rm notarizationUpload.plist
-[[ -f notarizationInfo.plist ]] && rm notarizationInfo.plist

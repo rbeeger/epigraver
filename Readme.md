@@ -13,8 +13,8 @@ Head over to the [releases](../../releases) section and get the DMG of the curre
 and should work just fine on macOS Catalina. The DMG contains the screensaver bundle and double-clicking on it will 
 install it. 
 
-The screensaver is built with a minimum requirement of macOS Catalina (10.15.0). The only reason for this is that I don't 
-have any running earlier macOS versions I could test it on. I'm not aware of any Catalina-specific code in the 
+The screensaver is built with a minimum requirement of macOS Big Sur (11.0). The only reason for this is that I don't 
+have any running earlier macOS versions I could test it on. I'm not aware of any Big Sur specific code in the 
 screensaver itself. If you need it to run on earlier versions, you might be successful in changing the requirement and 
 building it yourself.
 
@@ -99,18 +99,12 @@ script is called [buildRelease.sh](buildRelease.sh). To run it you need
    If that enviroment variable is not set the script will build the release of the screensaver and bundle it in an 
    unsigned DMG. This kind of DMG is fine if you just want to install the screensaver on the same computer the build is
    running
- * have the environment variable `EPIGRAVER_NOTARIZATION_ACCOUNT` set to the name of a generic password entry in the 
-   keychain containing your developer apple id account name and an app specific password generated in the apple id portal.
-   
-   In [Customizing the Notarization Workflow](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow)
-   Apple describes a way to create a password in the keychain with `altool` and then reference that password with
-   `@keychain:PASSWORD_ENTRY_NAME`. Unfortunately you can only access the password this way and not the username which
-   is also present in that entry. And only `altool` can access that entry. The entry used for building Epigraver must be 
-   created with `security add-generic-password -s PASSWORD_ENTRY_NAME -a DEVELOPER_APPLE_ID_E_MAIL -w DEVELOPER_APPLE_ID_APP_SPECIFIC_PASSWD`.
-   
-   Only if this variable is set, the DMG will be uploaded for notarization. The script then checks whether notarization
-   is finished every 60 seconds and in case the notarization succeeds, it will saple the DMG. You then have a notarized DMG that can be 
-   used to install the screensaver on any other macOS computer.
+ * have the environment variable `EPIGRAVER_NOTARIZATION_KEYCHAIN_PROFILE` set to the name of the keychain profile created with 
+   `notarytool store-credentials`. For more information about notarization with the `notarytool` see 
+   [Customizing the Notarization Workflow](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow)
+    
+   Only if this variable is set, the DMG will be uploaded for notarization. The script also staples the DMG. You 
+   then have a notarized DMG that can be used to install the screensaver on any other macOS computer.
    
 ### Acknowledgements
 The [DeveloperExcuses](https://github.com/kimar/DeveloperExcuses) and [Aerial](https://github.com/JohnCoates/Aerial) 
