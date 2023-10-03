@@ -10,7 +10,7 @@ import Nimble
 @testable import EpigraverApp
 
 class AppearanceSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("Appearance") {
             let appearance = Appearance(
                 foregroundColor: 0xff0000,

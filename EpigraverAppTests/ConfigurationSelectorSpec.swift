@@ -38,7 +38,7 @@ class ConfigurationSelectorSpec: QuickSpec {
         }
     }
 
-    override func spec() {
+    override class func spec() {
         describe("Configuration Selector") {
             let command0Id = "command0"
             let command1Id = "command1"

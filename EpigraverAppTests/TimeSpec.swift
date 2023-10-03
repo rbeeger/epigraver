@@ -9,7 +9,7 @@ import Nimble
 @testable import EpigraverApp
 
 class TimeSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("Time") {
             context("created from hours and minutes") {
                 var time: Time!
