@@ -7,7 +7,7 @@ import Foundation
 import AppKit
 
 protocol Animator {
-    func setup(boxes: [NSBox], on view: NSView)
+    func setup(boxes: [NSBox], with timingFunction: CAMediaTimingFunction)
     func animate(nextActiveIndex: Int)
     var typeName: String { get }
 }

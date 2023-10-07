@@ -7,15 +7,16 @@ import Foundation
 import AppKit
 
 class FadeAnimator: Animator {
-    private weak var view: NSView?
     private var boxes: [NSBox]?
+    private var timingFunction: CAMediaTimingFunction?
 
     let typeName = "Fade"
 
-    func setup(boxes: [NSBox], on view: NSView) {
+    func setup(boxes: [NSBox], with timingFunction: CAMediaTimingFunction) {
         boxes[1].alphaValue = 0.0
 
         self.boxes = boxes
+        self.timingFunction = timingFunction
     }
 
     func animate(nextActiveIndex: Int) {
@@ -26,7 +27,7 @@ class FadeAnimator: Animator {
 
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 5
-            context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            context.timingFunction = timingFunction ?? CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
             boxes[currentlyActiveIndex].alphaValue = 0.0
             boxes[nextActiveIndex].alphaValue = 1.0

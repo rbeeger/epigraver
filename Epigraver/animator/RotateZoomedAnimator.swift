@@ -8,13 +8,15 @@ import AppKit
 
 class RotateZoomedAnimator: Animator {
     private var boxes: [NSBox]?
+    private var timingFunction: CAMediaTimingFunction?
 
     let typeName = "Rotate Zoomed"
 
-    func setup(boxes: [NSBox], on view: NSView) {
+    func setup(boxes: [NSBox], with timingFunction: CAMediaTimingFunction) {
         boxes[1].alphaValue = 0.0
 
         self.boxes = boxes
+        self.timingFunction = timingFunction
     }
 
     func animate(nextActiveIndex: Int) {
@@ -30,7 +32,7 @@ class RotateZoomedAnimator: Animator {
 
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 5
-            context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            context.timingFunction = timingFunction ?? CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
             boxes[currentlyActiveIndex].layer?.transform = CATransform3DConcat(
                 CATransform3DConcat(

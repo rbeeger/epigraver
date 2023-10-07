@@ -9,15 +9,17 @@ import AppKit
 class VerticalSlideAnimator: Animator {
     private weak var view: NSView?
     private var boxes: [NSBox]?
+    private var timingFunction: CAMediaTimingFunction?
     private var firstFrame = true
 
     let typeName = "Vertical Slide"
 
-    func setup(boxes: [NSBox], on view: NSView) {
+    func setup(boxes: [NSBox], with timingFunction: CAMediaTimingFunction) {
         boxes[1].alphaValue = 0.0
+        firstFrame = true
 
         self.boxes = boxes
-        firstFrame = true
+        self.timingFunction = timingFunction
     }
 
     func animate(nextActiveIndex: Int) {
@@ -29,7 +31,7 @@ class VerticalSlideAnimator: Animator {
 
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 5
-            context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            context.timingFunction = timingFunction ?? CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
             boxes[currentlyActiveIndex].layer!.transform = CATransform3DConcat(
                 boxes[currentlyActiveIndex].layer!.transform,

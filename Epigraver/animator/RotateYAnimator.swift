@@ -8,13 +8,15 @@ import AppKit
 
 class RotateYAnimator: Animator {
     private var boxes: [NSBox]?
+    private var timingFunction: CAMediaTimingFunction?
 
     let typeName = "Rotate Y"
 
-    func setup(boxes: [NSBox], on view: NSView) {
+    func setup(boxes: [NSBox], with timingFunction: CAMediaTimingFunction) {
         boxes[1].alphaValue = 0.0
 
         self.boxes = boxes
+        self.timingFunction = timingFunction
     }
 
     func animate(nextActiveIndex: Int) {
@@ -25,7 +27,7 @@ class RotateYAnimator: Animator {
 
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 5
-            context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            context.timingFunction = timingFunction ?? CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             context.allowsImplicitAnimation = true
             boxes[currentlyActiveIndex].layer?.transform = CATransform3DMakeRotation(1.3 * .pi, 0, 1, 0)
             boxes[currentlyActiveIndex].alphaValue = 0.0

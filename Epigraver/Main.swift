@@ -45,7 +45,9 @@ class Main: ScreenSaverView {
         configureDisplay(index: 0)
         configureDisplay(index: 1)
 
-        selectedAnimator.setup(boxes: textDisplayBoxes, on: self)
+        let timingFunction = CAMediaTimingFunction(
+            controlPoints: 0.25, .random(in: 0.2...1.0), 0.75, .random(in: 0.2...1.0))
+        selectedAnimator.setup(boxes: textDisplayBoxes, with: timingFunction)
     }
 
     func resetAnimator(animator: Animator) {
@@ -62,7 +64,9 @@ class Main: ScreenSaverView {
         configureDisplay(index: 1)
 
         selectedAnimator = animator
-        selectedAnimator.setup(boxes: textDisplayBoxes, on: self)
+        let timingFunction = CAMediaTimingFunction(
+            controlPoints: 0.25, .random(in: 0.2...1.0), 0.75, .random(in: 0.2...1.0))
+        selectedAnimator.setup(boxes: textDisplayBoxes, with: timingFunction)
 
         startAnimation()
     }
