@@ -48,6 +48,19 @@ class Main: ScreenSaverView {
         let timingFunction = CAMediaTimingFunction(
             controlPoints: 0.25, .random(in: 0.2...1.0), 0.75, .random(in: 0.2...1.0))
         selectedAnimator.setup(boxes: textDisplayBoxes, with: timingFunction)
+
+        if !isPreview {
+            // https://www.jwz.org/blog/2023/10/xscreensaver-6-08-out-now/
+            DistributedNotificationCenter.default.addObserver(
+                self,
+                selector: #selector(willStop),
+                name: Notification.Name("com.apple.screensaver.willstop"), object: nil
+            )
+        }
+    }
+
+    @objc func willStop() {
+        NSApplication.shared.terminate(self)
     }
 
     func resetAnimator(animator: Animator) {
