@@ -9,14 +9,8 @@ Originally the screensaver was just meant to display the output from the
 that puts some text on stdout and then terminates.
 
 ## Installation
-Head over to the [releases](../../releases) section and get the DMG of the current release. Those DMGs are always notarized 
-and should work just fine on macOS Catalina. The DMG contains the screensaver bundle and double-clicking on it will 
-install it. 
-
-The screensaver is built with a minimum requirement of macOS Big Sur (11.0). One reason for this is that I don't 
-have any running earlier macOS versions I could test it on. The other reason is that the configuration UI now uses 
-SF Symbols for the icons used on the buttons. Previously it used some predefined system image templates and two of them
-were only meant to be used on a touch bar.
+Head over to the [releases](../../releases) section and get the DMG of the current release. Those DMGs are always notarized. 
+The DMG contains the screensaver bundle and double-clicking on it will install it. 
 
 ## Configuration
 ### Preparation
